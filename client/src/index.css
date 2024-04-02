@@ -14,11 +14,12 @@ h2 {
   font-style: normal;
 }
 
-h3 {
+h3, h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
 }
+
 p{
   font-family: "Roboto", sans-serif;
   font-weight: 400;

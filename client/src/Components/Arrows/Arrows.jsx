@@ -4,7 +4,6 @@ const Arrows = ({ prevSlide, nextSlide }) => {
   return (
     <div className="arrows">
       <span className="prev" onClick={prevSlide}>
-        {/* &#10094{" "} */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -21,7 +20,6 @@ const Arrows = ({ prevSlide, nextSlide }) => {
         </svg>
       </span>
       <span className="next" onClick={nextSlide}>
-        {/* &#10095 */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

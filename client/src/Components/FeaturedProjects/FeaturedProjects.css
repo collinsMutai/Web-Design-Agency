@@ -1,0 +1,149 @@
+.featured-projects-container {
+  background: #11141b;
+  text-align: center;
+  color: #fff;
+  height: 100vh;
+  width: 100vw;
+  padding: 130px 60px;
+  position: absolute;
+  margin-top: 1350px;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.recent-projects {
+  font-size: 38px;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  font-weight: 700;
+  padding-bottom: 35px;
+}
+.project-image {
+  width: 80vw;
+  height: 380px;
+  object-fit: cover;
+}
+.active {
+  display: inline-block;
+}
+.inactive {
+  display: none;
+}
+.project-desc {
+  background: #0c0f16;
+  position: absolute;
+  padding: 15px 30px;
+  bottom: 122px;
+  left: 50%;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.5s;
+  transform: translateX(-50%);
+  transition: all 0.4s;
+  text-align: center;
+}
+.project-desc h6 {
+  color: #12c2e9;
+  visibility: visible;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(18, 194, 233, 1) 3%,
+    rgba(214, 65, 167, 1) 10%,
+    rgba(246, 79, 105, 1) 80%
+  );
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 0px transparent;
+}
+.project-desc a {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fff;
+  text-decoration: none;
+  transition: ease 0.3s;
+}
+.arrows-prev,
+.arrows-next {
+  cursor: pointer;
+  z-index: 100;
+  position: absolute;
+  bottom: 105px;
+  padding: 1rem;
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  background: none;
+}
+.arrows-prev:hover,
+.arrows-next:hover {
+  color: #fff;
+  transition: all 0.5s ease-in;
+}
+.arrows-prev {
+  left: 40px;
+}
+.arrows-next {
+  right: 40px;
+}
+.arrows svg {
+  color: #fff;
+  height: 25px;
+  width: 25px;
+}
+
+.arrow-btn {
+  position: relative;
+  padding: 7px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 13px;
+  font-weight: 300;
+  border: none;
+  outline: none;
+}
+.arrow-btn:hover {
+  color: #888;
+  transition: all 0.5s ease-in;
+}
+@media only screen and (max-width: 600px) {
+  .featured-projects-container {
+    padding: 20px;
+    height: 60vh;
+    top: 1440px;
+  }
+  .recent-projects {
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+  .project-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  .project-desc {
+    bottom: 50px;
+    padding: 15px 10px;
+    left: 50%;
+  }
+  .arrows-prev {
+    left: 5px;
+  }
+  .arrows-next {
+    right: 5px;
+  }
+  .arrows-prev,
+  .arrows-next {
+    bottom: 40px;
+  }
+}

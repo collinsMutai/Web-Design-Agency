@@ -1,19 +1,27 @@
 import "./App.css";
-import FeaturedProjects from "./Components/FeaturedProjects/FeaturedProjects";
-import FeaturedServices from "./Components/FeaturesServices/FeaturedServices";
-import Hero from "./Components/Hero/Hero";
-import HomeAbout from "./Components/HomeAbout/HomeAbout";
+
+import AboutPage from "./Components/AboutPage/AboutPage";
+import HomePage from "./Components/HomePage/HomePage";
+import DonationsPage from "./Components/DonationsPage/DonationsPage"
+import ServicesPage from "./Components/ServicesPage/ServicesPage"
+import ContactPage from "./Components/ContactPage/ContactPage"
+import BlogPage from "./Components/BlogPage/BlogPage"
+import Layout from "./Components/Layout";
 import Navbar from "./Components/Navbar/Navbar";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <HomeAbout />
-      <FeaturedServices />
-      <FeaturedProjects />
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/donations" element={<DonationsPage />} />
+      </Route>{" "}
+    </Routes>
   );
 }
 

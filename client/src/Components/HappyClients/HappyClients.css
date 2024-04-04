@@ -1,0 +1,40 @@
+.happyclients-container {
+  background: #11141b;
+  color: #fff;
+  position: absolute;
+  top: 2570px;
+  z-index: 10;
+  width: 100%;
+  height: 40vh;
+  padding: 130px 60px;
+  display: flex;
+  gap: 230px;
+  justify-content: center;
+  align-items: center;
+}
+.happyclients-container .item {
+  text-align: center;
+}
+svg {
+  height: 40px;
+  width: 40px;
+  color: #12c2e9;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .happyclients-container {
+     padding: 60px 20px;
+    top: 3210px;
+    height: auto;
+    gap: 60px;
+    flex-direction: column;
+  }
+  svg {
+    height: 30px;
+    width: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}

@@ -4,6 +4,7 @@ import FeaturedServices from "../FeaturesServices/FeaturedServices";
 import Hero from "../Hero/Hero";
 import HomeAbout from "../HomeAbout/HomeAbout";
 import HappyClients from "../HappyClients/HappyClients";
+import Cta from "../Cta/Cta";
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       <FeaturedServices />
       <FeaturedProjects />
       <HappyClients />
+      <Cta />
     </>
   );
 };

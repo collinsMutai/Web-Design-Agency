@@ -119,8 +119,8 @@
 @media only screen and (max-width: 600px) {
   .featured-projects-container {
     padding: 60px 20px;
-    height: 60vh;
-    top: 1440px;
+    height: 100vh;
+    top: 1450px;
    
   }
   .recent-projects {

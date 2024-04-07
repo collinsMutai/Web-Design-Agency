@@ -116,10 +116,10 @@
   color: #888;
   transition: all 0.5s ease-in;
 }
-@media only screen and (max-width: 475px) {
+@media (max-width: 600px) {
   .featured-projects-container {
     padding: 60px 20px;
-    height: 120%;
+    height: 80%;
     top: 1490px;
    
   }
@@ -140,10 +140,10 @@
     left: 50%;
   }
   .arrows-prev {
-    left: 35px;
+    left: -10px;
   }
   .arrows-next {
-    right: 35px;
+    right: -10px;
   }
   .arrows-prev,
   .arrows-next {

@@ -79,9 +79,9 @@ li div:hover {
   fill: #12c2e9 !important;
 }
 
-@media only screen and (max-width: 475px) {
+@media  (max-width: 600px) {
   .footer-container {
-    top: 4095px;
+    top: 3840px;
     padding: 100px 20px;
     width: 100%;
     height: 130%;
@@ -96,7 +96,6 @@ li div:hover {
   .text {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     gap: 7px;
   }
 }

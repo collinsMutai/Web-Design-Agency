@@ -29,17 +29,15 @@ svg {
   margin-bottom: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .happyclients-container {
     padding: 60px 20px;
     bottom: 0;
-    height: 70%;
-    gap: 10px;
-
-    top: 3460px;
+    height: 60%;
+    top: 3260px;
   }
   .items-container {
-    gap: 10px;
+    gap: 30px;
   }
   svg {
     height: 30px;

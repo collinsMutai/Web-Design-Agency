@@ -82,11 +82,11 @@
   object-fit: cover;
   object-position: center;
 }
-@media only screen and (max-width: 475px) {
+@media  (max-width: 600px) {
   .container {
     flex-direction: column;
     padding: 80px 20px;
-    height: 200%;
+    height: 230%;
   }
 
   .left button {
@@ -101,4 +101,5 @@
     width: 21px;
     padding: 0px;
   }
+
 }

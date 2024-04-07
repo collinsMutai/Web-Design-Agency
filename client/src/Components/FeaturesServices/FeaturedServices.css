@@ -60,7 +60,7 @@
   line-height: 1.7;
 }
 
-@media only screen and (max-width: 475px) {
+@media (max-width: 600px) {
   .featured-services-container {
     padding: 80px 0px;
     height: 240%;

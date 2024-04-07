@@ -116,11 +116,11 @@
   color: #888;
   transition: all 0.5s ease-in;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 475px) {
   .featured-projects-container {
     padding: 60px 20px;
-    height: 100vh;
-    top: 1450px;
+    height: 120%;
+    top: 1490px;
    
   }
   .recent-projects {

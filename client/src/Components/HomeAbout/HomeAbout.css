@@ -1,7 +1,7 @@
 .container {
   background: #0c0f16;
   color: #fff;
-  height: auto;
+  height: 100%;
   width: 100%;
   padding: 130px 60px;
   position: absolute;
@@ -82,10 +82,11 @@
   object-fit: cover;
   object-position: center;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 475px) {
   .container {
     flex-direction: column;
     padding: 80px 20px;
+    height: 200%;
   }
 
   .left button {

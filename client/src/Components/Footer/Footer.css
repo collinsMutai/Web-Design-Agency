@@ -1,0 +1,102 @@
+.footer-container {
+  background: #0c0f16;
+  padding: 100px 60px;
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 3270px;
+  z-index: 10;
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 100px;
+}
+
+.footer-title {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.4em;
+  word-wrap: break-word;
+  padding-bottom: 15px;
+}
+li {
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.text li {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+.text li:hover {
+  color: #12c2e9;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.contact-us-icons svg {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+.contact-us-icons svg:hover {
+  color: #12c2e9;
+}
+li div {
+  color: #888;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8em;
+  display: flex;
+  flex-direction: column;
+}
+li div:hover {
+  color: #12c2e9;
+  cursor: pointer;
+}
+
+.copyright {
+  color: #888888;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 2em;
+  letter-spacing: 2.5px;
+}
+.copyright:hover {
+  color: #12c2e9;
+  cursor: pointer;
+}
+.social-icons {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 30px;
+}
+
+.social-svg-icon:hover {
+  fill: #12c2e9 !important;
+}
+
+@media only screen and (max-width: 475px) {
+  .footer-container {
+    top: 4095px;
+    padding: 100px 20px;
+    width: 100%;
+    height: 130%;
+    flex-direction: column;
+    gap: 40px;
+  }
+  li div {
+    flex-direction: row !important;
+    gap: 15px;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 7px;
+  }
+}

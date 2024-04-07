@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./FeaturedProjects.css";
 import ProjectSlider from "../ImageSlider/ImageSlider";
-import Arrows from "../Arrows/Arrows";
+
 
 const len = ProjectSlider.length - 1;
 

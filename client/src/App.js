@@ -2,10 +2,10 @@ import "./App.css";
 
 import AboutPage from "./Components/AboutPage/AboutPage";
 import HomePage from "./Components/HomePage/HomePage";
-import DonationsPage from "./Components/DonationsPage/DonationsPage"
-import ServicesPage from "./Components/ServicesPage/ServicesPage"
-import ContactPage from "./Components/ContactPage/ContactPage"
-import BlogPage from "./Components/BlogPage/BlogPage"
+import DonationsPage from "./Components/DonationsPage/DonationsPage";
+import ServicesPage from "./Components/ServicesPage/ServicesPage";
+import ContactPage from "./Components/ContactPage/ContactPage";
+import BlogPage from "./Components/BlogPage/BlogPage";
 import Layout from "./Components/Layout";
 import Navbar from "./Components/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
@@ -20,7 +20,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/donations" element={<DonationsPage />} />
-      </Route>{" "}
+      </Route>
     </Routes>
   );
 }

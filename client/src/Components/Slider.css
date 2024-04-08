@@ -1,24 +1,14 @@
 :root {
   --heights: 100vh;
-  --widths: 100%;
+  --widths: 100vw;
   --color-primary: #12c2e9;
   --color-secondary: #d641a7;
   --color-ternary: #f64f69;
 }
 
-.slider-container {
-  height: var(--heights);
-  width: var(--widths);
-  position: relative;
-  margin: auto;
-  overflow: hidden;
-}
-
 #overlay {
   position: fixed;
   display: block;
-  width: 100%;
-  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -26,35 +16,40 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
+.slider-container {
+  height: var(--heights);
+  width: var(--widths);
+  position: relative;
+  overflow: hidden;
+}
+
 .active {
   display: inline-block;
 }
 .inactive {
   display: none;
 }
-.slides {
-  height: var(--heights);
-  width: var(--widths);
-  position: relative;
-}
+
 .slide-image {
-  width: 100%;
-  height: 100%;
-  position: absolute;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
 }
+
 .slide-title,
 .slide-text {
-  width: 100%;
-  height: 100%;
   color: #fff;
   font-size: 50px;
   position: absolute;
   text-align: center;
-  top: 40%;
+  width: 100%;
+  top: 15%;
+  left: 50%;
+  margin-left: -50%;
   z-index: 10;
   line-height: 1.3;
   letter-spacing: 1px;
+  padding: 130px 60px;
 }
 .slide-title {
   background: linear-gradient(
@@ -68,15 +63,15 @@
 }
 .slide-text {
   top: 50%;
-  font-size: 22px;
+  font-size: 20px;
   padding-top: 5px;
 }
 .hero-btn {
   position: absolute;
-  top: 65%;
+  bottom: 15%;
   width: 150px;
-  right: 40%;
-  left: 45%;
+  left: 50%;
+  margin-left: -75px;
   padding: 15px;
   font-size: 16px;
   border: 1px solid #fff;
@@ -86,36 +81,33 @@
   background: transparent;
   z-index: 10;
 }
+
 .prev,
 .next {
   cursor: pointer;
   z-index: 100;
   position: absolute;
   top: 50%;
-  width: auto;
-  padding: 1rem;
-  margin-top: -3rem;
-  margin-left: 15px;
-  margin-right: 15px;
-  font-size: 30px;
-  font-weight: bold;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.3);
 }
 .prev:hover,
 .next:hover {
   color: #fff;
   transition: all 0.5s ease-in;
 }
-.next {
-  right: 0;
-  border-radius: 50%;
+.prev {
+  left: 2%;
 }
-svg {
+.next {
+  right: 2%;
+}
+.prev svg,
+.next svg {
   color: #fff;
-  height: 25px;
-  width: 25px;
+  height: 60px;
+  width: 60px;
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
+  padding: 10px;
 }
 svg:hover {
   color: #fff;
@@ -123,12 +115,12 @@ svg:hover {
 }
 .all-dots {
   width: 100%;
-  height: 100%;
   position: absolute;
   display: flex;
-  top: 85%;
+  bottom: 0;
   justify-content: center;
-  z-index: 200;
+  align-items: center;
+  z-index: 10;
 }
 .dot {
   cursor: pointer;
@@ -137,48 +129,150 @@ svg:hover {
   margin: 0px 3px;
   background-color: #fff;
   border-radius: 50%;
-  display: inline-block;
+  z-index: 10;
 }
 .active-dot,
 .dot:hover {
   background-color: #e6487f;
 }
 
-@media  (max-width: 600px) {
+@media (max-width: 768px) {
   .slide-title {
-    font-size: 24px;
-    line-height: 1.3;
-    letter-spacing: 1px;
-    padding: 0px 40px;
-
-    top: 30%;
+    top: 14%;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.4em;
   }
+
   .slide-text {
-    line-height: 19px;
-    font-size: 0.8rem;
-    padding: 0px 40px;
-    top: 50%;
+    top: 60%;
+    font-size: 18px;
+    line-height: 1.8em;
+    font-weight: 300;
   }
   .hero-btn {
-    position: absolute;
-    top: 65%;
-    width: 120px;
-    right: 20%;
-    left: 32%;
-    font-size: 14px;
+    font-size: 16px;
     padding: 12px;
-  }
-  svg {
-    height: 15px;
-    width: 15px;
-  }
-  .dot {
-    height: 0.8rem;
-    width: 0.8rem;
+    bottom: 10%;
   }
   .prev,
   .next {
-    margin-left: 5px;
-    margin-right: 5px;
+    top: 50%;
+  }
+  .prev svg,
+  .next svg {
+    height: 50px;
+    width: 50px;
+
+    padding: 14px;
+  }
+  .all-dots {
+    bottom: 0;
+  }
+}
+@media (max-width: 425px) {
+  .slide-title {
+    top: 14%;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.4em;
+  }
+
+  .slide-text {
+    top: 60%;
+    font-size: 18px;
+    line-height: 1.8em;
+    font-weight: 300;
+  }
+  .hero-btn {
+    font-size: 14px;
+    padding: 10px;
+    bottom: 10%;
+  }
+  .prev,
+  .next {
+    top: 60%;
+  }
+  .prev svg,
+  .next svg {
+    height: 50px;
+    width: 50px;
+
+    padding: 14px;
+  }
+  .all-dots {
+    bottom: 0;
+  }
+}
+@media (max-width: 375px) {
+  .slide-title {
+    top: 10%;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.4em;
+  }
+
+  .slide-text {
+    top: 60%;
+    font-size: 16px;
+    line-height: 1.8em;
+    font-weight: 300;
+  }
+  .hero-btn {
+    font-size: 14px;
+    padding: 10px;
+    bottom: 10%;
+  }
+  .prev,
+  .next {
+    top: 60%;
+  }
+  .prev svg,
+  .next svg {
+    height: 45px;
+    width: 45px;
+    padding: 12px;
+  }
+  .all-dots {
+    bottom: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .slide-title {
+    top: 10%;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.4em;
+  }
+
+  .slide-text {
+    top: 55%;
+    font-size: 16px;
+    line-height: 1.8em;
+    font-weight: 300;
+  }
+  .hero-btn {
+    font-size: 14px;
+    padding: 10px;
+    bottom: 10%;
+  }
+  .prev,
+  .next {
+    top: 60%;
+  }
+  .prev svg,
+  .next svg {
+    height: 40px;
+    width: 40px;
+
+    padding: 10px;
+  }
+  .all-dots {
+    bottom: 0;
   }
 }

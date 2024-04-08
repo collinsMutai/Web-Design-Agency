@@ -29,20 +29,3 @@ svg {
   margin-bottom: 10px;
 }
 
-@media (max-width: 600px) {
-  .happyclients-container {
-    padding: 60px 20px;
-    bottom: 0;
-    height: 50%;
-    top: 3260px;
-  }
-  .items-container {
-    gap: 30px;
-  }
-  svg {
-    height: 30px;
-    width: 30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-}

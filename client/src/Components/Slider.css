@@ -1,6 +1,6 @@
 :root {
   --heights: 100vh;
-  --widths: 100vw;
+  --widths: 100%;
   --color-primary: #12c2e9;
   --color-secondary: #d641a7;
   --color-ternary: #f64f69;

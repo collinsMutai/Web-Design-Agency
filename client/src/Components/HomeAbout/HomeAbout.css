@@ -110,6 +110,13 @@
     border-radius: 50px 50px 50px 50px;
     padding: 15px 32px 15px 32px;
   }
+        .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left -70px bottom 30px;
+    z-index: 10;
+  }
 }
 @media (max-width: 768px) {
   .container {
@@ -137,6 +144,13 @@
     font-size: 14px;
     border-radius: 50px 50px 50px 50px;
     padding: 10px 25px 10px 25px;
+  }
+      .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left -60px bottom 30px;
+    z-index: 10;
   }
 }
 @media (max-width: 425px) {
@@ -166,6 +180,13 @@
     border-radius: 50px 50px 50px 50px;
     padding: 10px 25px 10px 25px;
   }
+    .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left -60px bottom 30px;
+    z-index: 10;
+  }
 }
 @media (max-width: 375px) {
   .container {
@@ -194,6 +215,13 @@
     border-radius: 50px 50px 50px 50px;
     padding: 10px 25px 10px 25px;
   }
+  .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left -80px bottom 30px;
+    z-index: 10;
+  }
 }
 @media (max-width: 320px) {
   .container {
@@ -221,5 +249,12 @@
     font-size: 14px;
     border-radius: 50px 50px 50px 50px;
     padding: 10px 25px 10px 25px;
+  }
+  .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left -50px bottom 30px;
+    z-index: 10;
   }
 }

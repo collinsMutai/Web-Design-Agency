@@ -80,7 +80,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
- object-position: left bottom right;
+   object-position: left 50% bottom 30px;
   z-index: 10;
 }
 
@@ -110,11 +110,11 @@
     border-radius: 50px 50px 50px 50px;
     padding: 15px 32px 15px 32px;
   }
-  .right img {
+        .right img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left -30px bottom 30px;
+     object-position: left 50% bottom 30px;
     z-index: 10;
   }
 }
@@ -145,11 +145,11 @@
     border-radius: 50px 50px 50px 50px;
     padding: 10px 25px 10px 25px;
   }
-  .right img {
+      .right img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: right -30px bottom 30px;
+   object-position: left 50% bottom 30px;
     z-index: 10;
   }
 }
@@ -180,11 +180,11 @@
     border-radius: 50px 50px 50px 50px;
     padding: 10px 25px 10px 25px;
   }
-  .right img {
+    .right img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: right -30px bottom 30px;
+      object-position: left 50% bottom 30px;
     z-index: 10;
   }
 }
@@ -219,7 +219,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left bottom right;
+  object-position: left 50% bottom 30px;
     z-index: 10;
   }
 }
@@ -254,8 +254,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-      object-position: left bottom right;
+    object-position: left 50% bottom 30px;
     z-index: 10;
   }
 }
-

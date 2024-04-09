@@ -2,16 +2,19 @@
   background: #11141b;
   text-align: center;
   color: #fff;
-  height: 130%;
+  height: 120vh;
   width: 100%;
   padding: 130px 60px;
   position: absolute;
   top: 1360px;
+
   z-index: 10;
 }
 .title {
-  margin-left: 250px;
-  margin-right: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .title h6 {
   font-weight: 300;
@@ -60,4 +63,84 @@
   line-height: 1.7;
 }
 
+@media (max-width: 1024px) {
+  .featured-services-container {
+   height: auto;
+    
+    top: 1420px;
+  }
+}
 
+@media (max-width: 768px) {
+  .featured-services-container {
+    height: auto;
+    padding: 100px 20px;
+  }
+
+  .title h3 {
+    font-size: 40px;
+  }
+  .cards {
+    gap: 25px;
+    flex-direction: column;
+    padding-top: 60px;
+  }
+  .card {
+    height: auto;
+    width: auto;
+    padding: 30px;
+  }
+  .card svg {
+    width: 30px;
+    height: 30px;
+  }
+  .card h6 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 425px) {
+  .title h3 {
+    font-size: 30px;
+  }
+  .card {
+    gap: 30px;
+        padding: 20px;
+  }
+  .card svg {
+    width: 20px;
+    height: 20px;
+  }
+  .card h6 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 375px) {
+  .title h3 {
+    font-size: 24px;
+  }
+  .title h6 {
+    font-size: 14px;
+  }
+  .card {
+    gap: 20px;
+     padding: 15px;
+  }
+  .card h6 {
+    font-size: 13px;
+  }
+}
+@media (max-width: 320px) {
+  .title h3 {
+    font-size: 20px;
+  }
+  .title h6 {
+    font-size: 13px;
+  }
+  .card {
+    gap: 20px;
+   
+  }
+  .card h6 {
+    font-size: 13px;
+  }
+}

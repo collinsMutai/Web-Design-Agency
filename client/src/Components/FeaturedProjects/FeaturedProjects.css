@@ -2,7 +2,7 @@
   background: #11141b;
   text-align: center;
   color: #fff;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   padding: 130px 60px;
   position: absolute;
@@ -21,8 +21,8 @@
   padding-bottom: 80px;
 }
 .project-image {
-  width: 60vw;
-  height: 380px;
+  width: 100%;
+  height: 60vh;
   object-fit: cover;
 }
 .active {
@@ -88,10 +88,10 @@
   transition: all 0.5s ease-in;
 }
 .arrows-prev {
-  left: 165px;
+  left: 250px;
 }
 .arrows-next {
-  right: 165px;
+  right: 250px;
 }
 .arrows svg {
   color: #fff;
@@ -141,13 +141,13 @@
 @media (max-width: 768px) {
   .featured-projects-container {
     height: auto;
-    top: 2500px;
+    top: 2600px;
     padding: 100px 20px;
   }
   .recent-projects {
     font-size: 38px;
   }
-    .project-desc {
+  .project-desc {
     bottom: 100px;
   }
   .arrows-prev,
@@ -156,31 +156,54 @@
   }
 
   .arrows-prev {
-    left: 70px;
+    left: 100px;
   }
   .arrows-next {
-    right: 70px;
+    right: 100px;
   }
 }
 @media (max-width: 425px) {
   .featured-projects-container {
-    height: auto;
+    height: 90vh;
 
     top: 2480px;
   }
   .recent-projects {
     font-size: 30px;
   }
-  .project-image {
-    width: 100%;
-    height: 50%;
-  }
+
   .project-desc {
-    bottom: 130px;
+    bottom: 8px;
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 110px;
+    bottom: -5px;
+  }
+
+  .arrows-prev {
+    left: 30px;
+  }
+  .arrows-next {
+    right: 30px;
+  }
+}
+@media (max-width: 375px) {
+  .featured-projects-container {
+    top: 2340px;
+    padding: 100px 20px;
+    height: 70vh;
+  }
+  .recent-projects {
+    font-size: 24px;
+    padding-bottom: 35px;
+  }
+
+   .project-desc {
+    bottom: -19px;
+  }
+  .arrows-prev,
+  .arrows-next {
+    bottom: -40px;
   }
 
   .arrows-prev {
@@ -190,36 +213,6 @@
     right: 20px;
   }
 }
-@media (max-width: 375px) {
-  .featured-projects-container {
-    top: 2340px;
-    padding: 100px 20px;
-    height: auto;
-  }
-  .recent-projects {
-    font-size: 24px;
-    padding-bottom: 35px;
-  }
-
- .project-desc {
-    bottom: 110px;
-  }
-  .project-image {
-    width: 80vw;
-    height: 100%;
-  }
-   .arrows-prev,
-  .arrows-next {
-    bottom: 90px;
-  }
-
-  .arrows-prev {
-    left: 20px;
-  }
-  .arrows-next {
-    right: 20px;
-  }
-} 
 @media (max-width: 320px) {
   .featured-projects-container {
     top: 2380px;
@@ -231,9 +224,9 @@
   }
   .project-image {
     width: 80vw;
-    height: 100%;
+    height: 50vh;
   }
-   .arrows-prev,
+  .arrows-prev,
   .arrows-next {
     bottom: 60px;
   }

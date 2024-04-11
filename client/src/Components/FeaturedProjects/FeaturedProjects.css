@@ -149,11 +149,11 @@
     font-size: 35px;
   }
   .project-desc {
-    bottom: 110px;
+    bottom: 130px;
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 105px;
+    bottom: 120px;
   }
 
   .arrows-prev {
@@ -178,11 +178,11 @@
   }
 
   .project-desc {
-    bottom: 10px;
+    bottom: 25px;
   }
- .arrows-prev,
+  .arrows-prev,
   .arrows-next {
-    bottom: 10px;
+    bottom: 20px;
   }
 
   .arrows-prev {
@@ -198,7 +198,7 @@
     padding: 100px 20px;
     height: 70vh;
   }
-    .project-image {
+  .project-image {
     width: 90%;
     height: 300px;
   }
@@ -208,11 +208,11 @@
   }
 
   .project-desc {
-    bottom: 10px;
+    bottom: 25px;
   }
- .arrows-prev,
+  .arrows-prev,
   .arrows-next {
-    bottom: 10px;
+    bottom: 20px;
   }
 
   .arrows-prev {
@@ -228,13 +228,22 @@
     padding: 100px 20px;
     height: 60vh;
   }
-      .project-image {
+  .project-image {
     width: 90%;
     height: 250px;
   }
   .project-desc {
-    bottom: 5px;
+    bottom: 25px;
+  }
+   .arrows-prev,
+  .arrows-next {
+    bottom: 20px;
   }
 
- 
+  .arrows-prev {
+    left: 10px;
+  }
+  .arrows-next {
+    right: 10px;
+  }
 }

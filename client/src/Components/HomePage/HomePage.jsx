@@ -13,8 +13,8 @@ const HomePage = () => {
       <HomeAbout />
       <FeaturedServices />
       <FeaturedProjects />
-      {/* <HappyClients />
-      <Cta /> */}
+      <HappyClients />
+      {/* <Cta /> */}
     </>
   );
 };

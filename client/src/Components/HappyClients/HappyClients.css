@@ -2,7 +2,7 @@
   background: #11141b;
   color: #fff;
   position: absolute;
-  top: 2670px;
+  top: 2620px;
   z-index: 10;
   width: 100%;
   height: 60%;
@@ -21,7 +21,7 @@
   align-items: center;
   z-index: 10;
 }
-svg {
+.item svg {
   height: 40px;
   width: 40px;
   color: #12c2e9;
@@ -29,3 +29,77 @@ svg {
   margin-bottom: 10px;
 }
 
+@media (max-width: 768px) {
+  .happyclients-container {
+    top: 3150px;
+  }
+  .item h1 {
+    font-size: 1.8em;
+  }
+  .text {
+    font-size: 1em;
+  }
+  .item svg {
+    height: 30px;
+    width: 30px;
+  }
+  .items-container {
+    gap: 90px;
+  }
+}
+@media (max-width: 425px) {
+  .happyclients-container {
+    top: 2900px;
+    padding: 100px 20px;
+  }
+  .item h1 {
+    font-size: 1.6em;
+  }
+  .text {
+    font-size: 0.8em;
+  }
+  .item svg {
+    height: 25px;
+    width: 25px;
+  }
+  .items-container {
+    gap: 60px;
+  }
+}
+@media (max-width: 375px) {
+  .happyclients-container {
+    top: 2660px;
+    padding: 100px 20px;
+    height: 50vh;
+  }
+  .item h1 {
+    font-size: 1.5em;
+  }
+  .text {
+    font-size: 0.7em;
+  }
+  .item svg {
+    height: 20px;
+    width: 20px;
+  }
+  .items-container {
+    gap: 30px;
+  }
+}
+@media (max-width: 320px) {
+  .happyclients-container {
+    top: 2640px;
+    padding: 100px 20px;
+    height: 50vh;
+  }
+  .item h1 {
+    font-size: 1.5em;
+  }
+  .text {
+    font-size: 0.7em;
+  }
+
+  .items-container {
+    gap: 20px;
+  }
+}

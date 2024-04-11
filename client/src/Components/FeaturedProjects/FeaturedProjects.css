@@ -149,8 +149,9 @@
 }
 @media (max-width: 425px) {
   .featured-projects-container {
-    height: auto;
+    height: 80vh;
     padding: 100px 20px;
+    top: 2480px;
   }
   .recent-projects {
     font-size: 30px;
@@ -160,11 +161,11 @@
     height: 100%;
   }
   .project-desc {
-    bottom: 95px;
+    bottom: 25px;
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 80px;
+    bottom: 5px;
   }
 
   .arrows-prev {
@@ -176,20 +177,21 @@
 }
 @media (max-width: 375px) {
   .featured-projects-container {
-    top: 2440px;
+    top: 2340px;
     padding: 100px 20px;
-    height: 80vh;
+    height: 60vh;
   }
   .recent-projects {
     font-size: 24px;
+    padding-bottom: 35px;
   }
 
   .project-desc {
-    bottom: 45px;
+    bottom: 15px;
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 25px;
+    bottom: 5px;
   }
 
   .arrows-prev {
@@ -201,26 +203,28 @@
 }
 @media (max-width: 320px) {
   .featured-projects-container {
-    top: 2440px;
+    top: 2380px;
     padding: 100px 20px;
-    height: 80vh;
+    height: 50vh;
   }
   .recent-projects {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .project-desc {
-    bottom: 60px;
+    bottom: 5px;
+    padding: 10px 20px;
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 40px;
+    bottom: 1px;
+    font-size: 16px;
   }
 
   .arrows-prev {
-    left: 0;
+    left: 2px;
   }
   .arrows-next {
-    right: 0;
+    right: 2px;
   }
 }

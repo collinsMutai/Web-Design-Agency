@@ -176,11 +176,11 @@
     height: 200px;
   }
   .project-desc {
-    bottom: 100px;
+    bottom: 130px;
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 95px;
+    bottom: 110px;
   }
 
   .arrows-prev {
@@ -202,7 +202,7 @@
   }
 
   .project-desc {
-    bottom: 3px;
+    bottom: 20px;
   }
   .project-image {
     width: 80vw;
@@ -231,7 +231,7 @@
   }
 
   .project-desc {
-    bottom: 5px;
+    bottom: 25px;
     padding: 10px 20px;
   }
   .project-image {
@@ -240,7 +240,7 @@
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 3px;
+    bottom: 10px;
     font-size: 14px;
   }
 

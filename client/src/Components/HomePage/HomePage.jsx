@@ -13,7 +13,7 @@ const HomePage = () => {
       <HomeAbout />
       <FeaturedServices />
       <FeaturedProjects />
-      <HappyClients />
+      {/* <HappyClients /> */}
       {/* <Cta /> */}
     </>
   );

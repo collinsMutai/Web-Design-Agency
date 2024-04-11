@@ -51,7 +51,7 @@
 }
 @media (max-width: 425px) {
   .happyclients-container {
-    top: 3000px;
+    top: 3010px;
   }
   .item h1 {
     font-size: 1.6em;
@@ -69,7 +69,7 @@
 }
 @media (max-width: 375px) {
   .happyclients-container {
-    top: 2600px;
+    top: 2610px;
     height: 50vh;
   }
   .item h1 {
@@ -88,7 +88,7 @@
 }
 @media (max-width: 320px) {
   .happyclients-container {
-    top: 2640px;
+    top: 2650px;
     padding: 100px 20px;
     height: 50vh;
   }

@@ -198,7 +198,7 @@
   .featured-projects-container {
     top: 2340px;
     padding: 100px 20px;
-    height: 70vh;
+    
   }
   .project-image {
     width: 90%;
@@ -228,7 +228,7 @@
   .featured-projects-container {
     top: 2380px;
     padding: 100px 20px;
-    height: 60vh;
+    height: auto;
   }
   .project-image {
     width: 90%;

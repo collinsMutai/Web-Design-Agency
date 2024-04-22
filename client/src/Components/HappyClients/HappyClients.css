@@ -2,11 +2,11 @@
   background: #11141b;
   color: #fff;
   position: absolute;
-  top: 2620px;
+  top: 2870px;
   z-index: 10;
   width: 100%;
-  height: 60%;
-  padding: 130px 60px;
+  height: 40vh;
+  padding: 100px 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,8 +32,8 @@
 @media (max-width: 768px) {
   .happyclients-container {
     padding: 100px 20px;
-    top: 3370px;
-    height: 50vh;
+    top: 3300px;
+    height: auto;
   }
   .item h1 {
     font-size: 1.8em;
@@ -51,7 +51,8 @@
 }
 @media (max-width: 425px) {
   .happyclients-container {
-    top: 3910px;
+    top: 3150px;
+    height: auto;
   }
   .item h1 {
     font-size: 1.6em;
@@ -69,8 +70,8 @@
 }
 @media (max-width: 375px) {
   .happyclients-container {
-    top: 2800px;
-    height: 50vh;
+    top: 2710px;
+    height: auto;
   }
   .item h1 {
     font-size: 1.5em;
@@ -88,7 +89,7 @@
 }
 @media (max-width: 320px) {
   .happyclients-container {
-    top: 2850px;
+    top: 2700px;
     padding: 100px 20px;
     height: 50vh;
   }

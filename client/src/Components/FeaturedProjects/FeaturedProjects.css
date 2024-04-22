@@ -149,12 +149,12 @@
     font-size: 35px;
   }
   .project-desc {
-    bottom: 0;
+    bottom: 10%;
     width: 100%;
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 0;
+    bottom: 10%;
   }
 
   .arrows-prev {

@@ -149,12 +149,12 @@
     font-size: 35px;
   }
   .project-desc {
-    bottom: 10%;
+    bottom: 0;
     width: 100%;
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 10%;
+    bottom: 0;
   }
 
   .arrows-prev {
@@ -172,7 +172,7 @@
   }
   .project-image {
     width: 80%;
-    height: 350px;
+    height: auto;
   }
   .recent-projects {
     font-size: 30px;
@@ -180,11 +180,11 @@
 
   .project-desc {
     width: 100%;
-    bottom: 25px;
+    bottom: 0;
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 20px;
+    bottom: 0;
   }
 
   .arrows-prev {
@@ -202,7 +202,7 @@
   }
   .project-image {
     width: 90%;
-    height: 300px;
+    height: auto;
   }
   .recent-projects {
     font-size: 24px;
@@ -232,10 +232,10 @@
   }
   .project-image {
     width: 90%;
-    height: 250px;
+    height: auto;
   }
   .project-desc {
-    bottom: 5px;
+    bottom: 0;
   }
   .arrows-prev,
   .arrows-next {

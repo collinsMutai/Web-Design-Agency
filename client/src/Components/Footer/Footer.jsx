@@ -99,10 +99,26 @@ const Footer = () => {
       <div className="social-links">
         <h2 className="footer-title">Get Social</h2>
         <div className="social-icons">
-          <SocialIcon bgColor="#0c0f16" url="www.github.com" />
-          <SocialIcon bgColor="#0c0f16" url="www.linkedin.com" />
-          <SocialIcon bgColor="#0c0f16" url="www.instagram.com" />
-          <SocialIcon bgColor="#0c0f16" url="www.facebook.com" />
+          <SocialIcon
+            className="social-icon"
+            bgColor="#0c0f16"
+            url="www.github.com"
+          />
+          <SocialIcon
+            className="social-icon"
+            bgColor="#0c0f16"
+            url="www.linkedin.com"
+          />
+          <SocialIcon
+            className="social-icon"
+            bgColor="#0c0f16"
+            url="www.instagram.com"
+          />
+          <SocialIcon
+            className="social-icon"
+            bgColor="#0c0f16"
+            url="www.facebook.com"
+          />
         </div>
         <h4 className="copyright">© 2024, Collinsfrontend.</h4>
       </div>

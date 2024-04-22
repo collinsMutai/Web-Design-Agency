@@ -3,7 +3,6 @@ import "./Navbar.css";
 import { MenuData } from "./MenuData";
 import HomePage from "../HomePage/HomePage";
 
-
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
@@ -57,7 +56,6 @@ const Navbar = () => {
           ))}
         </ul>
       </nav>
-     {/* <HomePage /> */}
     </>
   );
 };

@@ -149,12 +149,11 @@
     font-size: 35px;
   }
   .project-desc {
-    bottom: 0;
-    width: 100%;
+    bottom: 10px;
   }
   .arrows-prev,
   .arrows-next {
-    bottom: 0;
+    bottom: 10px;
   }
 
   .arrows-prev {
@@ -180,11 +179,6 @@
 
   .project-desc {
     width: 100%;
-    bottom: 0;
-  }
-  .arrows-prev,
-  .arrows-next {
-    bottom: 0;
   }
 
   .arrows-prev {
@@ -198,7 +192,6 @@
   .featured-projects-container {
     top: 2340px;
     padding: 100px 20px;
-    
   }
   .project-image {
     width: 90%;
@@ -207,14 +200,6 @@
   .recent-projects {
     font-size: 24px;
     padding-bottom: 35px;
-  }
-
-  .project-desc {
-    bottom: 0;
-  }
-  .arrows-prev,
-  .arrows-next {
-    bottom: 0;
   }
 
   .arrows-prev {
@@ -233,13 +218,6 @@
   .project-image {
     width: 90%;
     height: auto;
-  }
-  .project-desc {
-    bottom: 0;
-  }
-  .arrows-prev,
-  .arrows-next {
-    bottom: 0;
   }
 
   .arrows-prev {

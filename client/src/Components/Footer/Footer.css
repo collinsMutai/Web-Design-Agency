@@ -2,12 +2,14 @@
   background: #0c0f16;
   padding: 100px 60px;
   width: 100%;
-  height: 70%;
+  height: auto;
   position: absolute;
-  top: 3350px;
+  top: 3490px;
   z-index: 10;
   display: flex;
-  gap: 300px;
+  align-items: top;
+  justify-content: center;
+  gap: 200px;
 }
 
 .footer-title {
@@ -77,4 +79,49 @@ li div:hover {
 .social-svg-icon:hover {
   fill: #12c2e9 !important;
 }
+.social-icon {
+  height: 40px !important;
+  width: 40px !important;
+}
 
+@media (max-width: 768px) {
+  .footer-container {
+    top: 3810px;
+    gap: 80px;
+    padding: 100px 20px;
+  }
+  .footer-title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 425px) {
+  .footer-container {
+    top: 3570px;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contact-us-icons svg {
+    width: 15px;
+    height: 15px;
+  }
+  .social-icon {
+    height: 30px !important;
+    width: 30px !important;
+  }
+}
+@media (max-width: 375px) {
+  .footer-container {
+    top: 3350px;
+    flex-direction: column;
+  }
+
+  .contact-us-icons svg {
+    width: 15px;
+    height: 15px;
+  }
+  .social-icon {
+    height: 30px !important;
+    width: 30px !important;
+  }
+}

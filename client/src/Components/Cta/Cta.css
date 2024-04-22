@@ -55,13 +55,14 @@ button {
 @media (max-width: 768px) {
   .cta-container {
     top: 3560px;
+    padding: 100px 20px;
   }
   h2 {
     font-size: 14px;
   }
   .cta-h2-one,
   .cta-h2-two {
-    font-size: 3vw;
+    font-size: 3.8vw;
   }
 }
 @media (max-width: 425px) {

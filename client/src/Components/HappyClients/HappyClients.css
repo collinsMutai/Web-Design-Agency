@@ -33,7 +33,7 @@
 @media (max-width: 768px) {
   .happyclients-container {
     padding: 100px 20px;
-    top: 3250px;
+    top: 3240px;
     height: auto;
   }
   .item h1 {
@@ -52,7 +52,7 @@
 }
 @media (max-width: 425px) {
   .happyclients-container {
-    top: 2990px;
+    top: 2980px;
     height: auto;
   }
   .item h1 {
@@ -71,7 +71,7 @@
 }
 @media (max-width: 375px) {
   .happyclients-container {
-    top: 2800px;
+    top: 2790px;
     height: auto;
   }
   .item h1 {
@@ -90,7 +90,7 @@
 }
 @media (max-width: 320px) {
   .happyclients-container {
-    top: 2810px;
+    top: 2800px;
     padding: 100px 20px;
     height: auto;
   }

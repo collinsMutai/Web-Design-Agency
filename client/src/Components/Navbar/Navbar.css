@@ -23,7 +23,7 @@
 }
 .nav-menu {
   display: grid;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(7, auto);
   grid-gap: 10px;
   list-style: none;
   align-items: center;
@@ -88,10 +88,11 @@
     top: 0;
     left: -110%;
     align-items: stretch;
-    padding: 80px 0 30px 0;
+    padding: 80px 0 30px 30px;
     margin: 0;
     z-index: -1;
     transition: all 0.3s ease-in-out;
+  
   }
   .nav-menu.active {
     left: 0%;
@@ -99,9 +100,9 @@
   .nav-links {
     display: block;
     widows: 100%;
-    padding: 2rem 0;
+    padding: .5rem 0;
     color: #fff;
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .nav-links:hover {
     background: #13c2e9;
@@ -110,12 +111,13 @@
     backdrop-filter: blur(20px);
   }
   .nav-links-donate-btn {
-    padding: 1.5rem;
+    padding: .8rem;
     display: block;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: bold;
     width: 80%;
     margin: auto;
   }
 }
+

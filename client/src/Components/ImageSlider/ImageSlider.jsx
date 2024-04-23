@@ -9,32 +9,27 @@ import hero4 from "../../Images/hero4.jpeg";
 export default [
   {
     title: "Web Design",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, unde.",
+   
     urls: hero1,
   },
   {
     title: "Web Development",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, unde.",
+   
     urls: hero2,
   },
   {
     title: "Graphic Design",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, unde.",
+    
     urls: hero3,
   },
   {
     title: "Digital Marketing & SEO Optimization",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, unde.",
+    
     urls: hero4,
   },
   {
     title: "Domain Registration & Web Hosting",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, unde.",
+    
     urls: hero4,
   },
 ];

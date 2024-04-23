@@ -183,7 +183,7 @@ svg:hover {
   .hero-btn {
     font-size: 16px;
     padding: 12px;
-    bottom: 20%;
+    bottom: 30%;
   }
   .prev,
   .next {
@@ -197,7 +197,7 @@ svg:hover {
     padding: 14px;
   }
   .all-dots {
-    bottom: 5%;
+    bottom: 15%;
   }
 }
 @media (max-width: 425px) {
@@ -205,14 +205,29 @@ svg:hover {
     font-size: 35px;
   }
   .hero-btn{
+    bottom: 15%;
+  }
+    .all-dots {
     bottom: 10%;
   }
 }
 @media (max-width: 375px) {
+     .hero-btn{
+    bottom: 15%;
+  }
+    .all-dots {
+    bottom: 10%;
+  }
 }
 
 @media (max-width: 320px) {
    .slide-title{
     font-size: 30px;
+  }
+   .hero-btn{
+    bottom: 20%;
+  }
+    .all-dots {
+    bottom: 15%;
   }
 }

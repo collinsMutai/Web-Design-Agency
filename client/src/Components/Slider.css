@@ -173,27 +173,21 @@ svg:hover {
 }
 @media (max-width: 768px) {
   .slide-title {
-    top: 20%;
+    top: 10%;
     font-size: 40px;
     font-weight: 800;
     letter-spacing: 2px;
     line-height: 1.4em;
   }
 
-  .slide-text {
-    top: 60%;
-    font-size: 18px;
-    line-height: 1.8em;
-    font-weight: 300;
-  }
   .hero-btn {
     font-size: 16px;
     padding: 12px;
-    bottom: 25%;
+    bottom: 20%;
   }
   .prev,
   .next {
-    top: 45%;
+    top: 50%;
   }
   .prev svg,
   .next svg {
@@ -203,87 +197,22 @@ svg:hover {
     padding: 14px;
   }
   .all-dots {
-    bottom: 20%;
+    bottom: 5%;
   }
 }
 @media (max-width: 425px) {
-  .slide-title {
-    top: 15%;
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    line-height: 1.4em;
+  .slide-title{
+    font-size: 35px;
   }
-
-
-  .hero-btn {
-    font-size: 14px;
-    padding: 10px;
-    bottom: 25%;
-  }
-  .prev,
-  .next {
-    top: 45%;
-  }
-  .prev svg,
-  .next svg {
-    height: 50px;
-    width: 50px;
-
-    padding: 14px;
-  }
-  .all-dots {
-    bottom: 20%;
+  .hero-btn{
+    bottom: 10%;
   }
 }
 @media (max-width: 375px) {
-  .slide-title {
-    top: 15%;
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    line-height: 1.4em;
-  }
-
-  .hero-btn {
-    font-size: 14px;
-    padding: 10px;
-    bottom: 25%;
-  }
-  .prev,
-  .next {
-    top: 45%;
-  }
-  .prev svg,
-  .next svg {
-    height: 45px;
-    width: 45px;
-    padding: 12px;
-  }
-  .all-dots {
-    bottom: 20%;
-  }
 }
 
 @media (max-width: 320px) {
-  .slide-title {
-    top: 10%;
-  }
-
-  .hero-btn {
-    bottom: 25%;
-  }
-  .prev,
-  .next {
-    top: 45%;
-  }
-  .prev svg,
-  .next svg {
-    height: 40px;
-    width: 40px;
-    padding: 10px;
-  }
-  .all-dots {
-    bottom: 20%;
+   .slide-title{
+    font-size: 30px;
   }
 }

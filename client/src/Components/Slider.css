@@ -1,5 +1,5 @@
 :root {
-  --heights: 100vh;
+  --heights: auto;
   --widths: 100%;
   --color-primary: #12c2e9;
   --color-secondary: #d641a7;
@@ -216,7 +216,7 @@ svg:hover {
   }
 
   .slide-text {
-    top: 55%;
+    top: 35%;
     font-size: 18px;
     line-height: 1.8em;
     font-weight: 300;
@@ -224,7 +224,7 @@ svg:hover {
   .hero-btn {
     font-size: 14px;
     padding: 10px;
-    bottom: 15%;
+    bottom: 10%;
   }
   .prev,
   .next {
@@ -251,7 +251,7 @@ svg:hover {
   }
 
   .slide-text {
-    top: 57%;
+   
     font-size: 16px;
     line-height: 1.8em;
     font-weight: 300;
@@ -259,7 +259,7 @@ svg:hover {
   .hero-btn {
     font-size: 14px;
     padding: 10px;
-    bottom: 12%;
+  
   }
   .prev,
   .next {
@@ -286,7 +286,7 @@ svg:hover {
   }
 
   .slide-text {
-    top: 55%;
+ 
     font-size: 16px;
     line-height: 1.8em;
     font-weight: 300;
@@ -294,7 +294,7 @@ svg:hover {
   .hero-btn {
     font-size: 14px;
     padding: 10px;
-    bottom: 12%;
+    
   }
   .prev,
   .next {

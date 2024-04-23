@@ -189,11 +189,11 @@ svg:hover {
   .hero-btn {
     font-size: 16px;
     padding: 12px;
-    bottom: 13%;
+    bottom: 20%;
   }
   .prev,
   .next {
-    top: 50%;
+    top: 45%;
   }
   .prev svg,
   .next svg {
@@ -203,7 +203,7 @@ svg:hover {
     padding: 14px;
   }
   .all-dots {
-    bottom: 3%;
+    bottom: 12%;
   }
 }
 @media (max-width: 425px) {
@@ -224,11 +224,11 @@ svg:hover {
   .hero-btn {
     font-size: 14px;
     padding: 10px;
-    bottom: 15%;
+    bottom: 20%;
   }
   .prev,
   .next {
-    top: 50%;
+    top: 45%;
   }
   .prev svg,
   .next svg {
@@ -238,7 +238,7 @@ svg:hover {
     padding: 14px;
   }
   .all-dots {
-    bottom: 3%;
+    bottom: 12%;
   }
 }
 @media (max-width: 375px) {
@@ -259,11 +259,11 @@ svg:hover {
   .hero-btn {
     font-size: 14px;
     padding: 10px;
-    bottom: 12%;
+    bottom: 20%;
   }
   .prev,
   .next {
-    top: 60%;
+    top: 45%;
   }
   .prev svg,
   .next svg {
@@ -272,7 +272,7 @@ svg:hover {
     padding: 12px;
   }
   .all-dots {
-    bottom: 3%;
+    bottom: 12%;
   }
 }
 
@@ -294,11 +294,11 @@ svg:hover {
   .hero-btn {
     font-size: 14px;
     padding: 10px;
-    bottom: 12%;
+    bottom: 20%;
   }
   .prev,
   .next {
-    top: 50%;
+    top: 45%;
   }
   .prev svg,
   .next svg {
@@ -308,6 +308,6 @@ svg:hover {
     padding: 10px;
   }
   .all-dots {
-    bottom: 3%;
+    bottom: 12%;
   }
 }

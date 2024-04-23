@@ -173,7 +173,7 @@ svg:hover {
 }
 @media (max-width: 768px) {
   .slide-title {
-    top: 14%;
+    top: 20%;
     font-size: 40px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -208,19 +208,14 @@ svg:hover {
 }
 @media (max-width: 425px) {
   .slide-title {
-    top: 10%;
+    top: 15%;
     font-size: 28px;
     font-weight: 800;
     letter-spacing: 2px;
     line-height: 1.4em;
   }
 
-  .slide-text {
-    top: 55%;
-    font-size: 18px;
-    line-height: 1.8em;
-    font-weight: 300;
-  }
+
   .hero-btn {
     font-size: 14px;
     padding: 10px;
@@ -243,19 +238,13 @@ svg:hover {
 }
 @media (max-width: 375px) {
   .slide-title {
-    top: 8%;
+    top: 15%;
     font-size: 24px;
     font-weight: 800;
     letter-spacing: 2px;
     line-height: 1.4em;
   }
 
-  .slide-text {
-    top: 57%;
-    font-size: 16px;
-    line-height: 1.8em;
-    font-weight: 300;
-  }
   .hero-btn {
     font-size: 14px;
     padding: 10px;
@@ -279,21 +268,9 @@ svg:hover {
 @media (max-width: 320px) {
   .slide-title {
     top: 10%;
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    line-height: 1.4em;
   }
 
-  .slide-text {
-    top: 55%;
-    font-size: 16px;
-    line-height: 1.8em;
-    font-weight: 300;
-  }
   .hero-btn {
-    font-size: 14px;
-    padding: 10px;
     bottom: 20%;
   }
   .prev,
@@ -304,7 +281,6 @@ svg:hover {
   .next svg {
     height: 40px;
     width: 40px;
-
     padding: 10px;
   }
   .all-dots {

@@ -7,6 +7,9 @@ import { AppContext } from "../../AppContext";
 const Cta = () => {
   const { pathName, top, setTop } = useContext(AppContext);
 
+  if (pathName === "/") {
+    setTop(3190);
+  }
   if (pathName === "/portfolio") {
     setTop(250);
   }

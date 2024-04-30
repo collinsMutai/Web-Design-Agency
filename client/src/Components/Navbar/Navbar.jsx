@@ -65,6 +65,7 @@ const Navbar = () => {
                 textDecoration: "none",
               })}
               to={item.url}
+              onClick={(e) => (toggle ? setToggle(false) : setToggle(true))}
             >
               {item.title}
             </NavLink>

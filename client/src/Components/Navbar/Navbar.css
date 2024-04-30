@@ -20,6 +20,8 @@
   justify-self: start;
   cursor: pointer;
   font-size: 14px;
+  height: 100px;
+  width: 100px;
 }
 .nav-menu {
   display: grid;

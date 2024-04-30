@@ -14,6 +14,11 @@ export const MenuData = [
     url: "/services",
     cName: "nav-links",
   },
+  {
+    title: "Portfolio",
+    url: "/portfolio",
+    cName: "nav-links",
+  },
  
   {
     title: "Contact",

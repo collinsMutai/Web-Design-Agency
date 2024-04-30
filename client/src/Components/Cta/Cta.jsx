@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Cta.css";
 import home_workplace_image from "../../Images/workplace4.jpeg";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../AppContext";
 
 const Cta = () => {
+  const { pathName, top, setTop } = useContext(AppContext);
+
+  if (pathName === "/portfolio") {
+    setTop(250);
+  }
   return (
     <div
       className="cta-container"
@@ -15,6 +21,7 @@ const Cta = () => {
         objectFit: "cover",
         backgroundPosition: "center center",
         opacity: "0.9",
+        top: `${top}px`,
       }}
     >
       <div className="text">

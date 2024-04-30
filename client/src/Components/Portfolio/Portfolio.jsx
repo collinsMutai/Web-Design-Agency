@@ -1,10 +1,16 @@
-import React from 'react'
-import "./Portfolio.css"
+import React from "react";
+import "./Portfolio.css";
+import Cta from "../Cta/Cta";
 
 const Portfolio = () => {
   return (
-    <div>Portfolio</div>
-  )
-}
+    <>
+      <div className="portfolio-container">
+        <h1>Portfolio</h1>
+      </div>
+      <Cta />
+    </>
+  );
+};
 
-export default Portfolio
+export default Portfolio;

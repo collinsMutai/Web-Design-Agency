@@ -45,6 +45,10 @@
 .left ul {
   list-style: none;
   padding-bottom: 30px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 200px;
 }
 .left li {
   display: flex;
@@ -167,13 +171,16 @@
     font-size: 16px;
     letter-spacing: 2px;
   }
+   .left ul{
+    gap: 100px;
+  }
   .left p,
   .left li {
     font-size: 15px;
   }
   .left svg {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
   }
   .left button {
     font-size: 14px;
@@ -202,13 +209,16 @@
     font-size: 14px;
     letter-spacing: 2px;
   }
+  .left ul{
+    gap: 80px;
+  }
   .left p,
   .left li {
     font-size: 14px;
   }
   .left svg {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
   }
   .left button {
     font-size: 14px;
@@ -237,13 +247,16 @@
     font-size: 14px;
     letter-spacing: 2.5px;
   }
+  .left ul{
+    gap: 40px;
+  }
   .left p,
   .left li {
     font-size: 14px;
   }
   .left svg {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
   }
   .left button {
     font-size: 14px;

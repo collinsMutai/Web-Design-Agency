@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { MenuData } from "./MenuData";
 import HomePage from "../HomePage/HomePage";
+import logo from "../../Images/collinsfrontendlogo.png"
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
     <>
       <nav className="NavbarItems">
-        <h1 className="logo">Collinsfrontend</h1>
+        <img className="logo" src={logo} alt="" />
+        {/* <h1 className="logo">Collinsfrontend</h1> */}
         <div
           className="menu-icons"
           onClick={(e) => (toggle ? setToggle(false) : setToggle(true))}

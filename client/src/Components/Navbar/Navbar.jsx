@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { MenuData } from "./MenuData";
 import HomePage from "../HomePage/HomePage";
-import logo from "../../Images/collinsfrontendlogo.png"
+import logo from "../../Images/collinsfrontendlogo.png";
+import { Link, NavLink, redirect } from "react-router-dom";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+
+  const logoHandler = () => {
+    return redirect("/");
+  };
   return (
     <>
       <nav className="NavbarItems">
-        <img className="logo" src={logo} alt="" />
-        {/* <h1 className="logo">Collinsfrontend</h1> */}
+        <NavLink to={"/"}>
+          <img src={logo} className="logo" alt="" onClick={logoHandler} />
+        </NavLink>
+
         <div
           className="menu-icons"
           onClick={(e) => (toggle ? setToggle(false) : setToggle(true))}
@@ -50,11 +57,17 @@ const Navbar = () => {
         </div>
         <ul className={toggle ? "nav-menu active" : "nav-menu"}>
           {MenuData.map((item, index) => (
-            <li key={index}>
-              <a className={item.cName} href={item.url}>
-                {item.title}
-              </a>
-            </li>
+            <NavLink
+              key={index}
+              className={item.cName}
+              style={({ isActive }) => ({
+                color: isActive ? "#13c2e9" : "",
+                textDecoration: "none",
+              })}
+              to={item.url}
+            >
+              {item.title}
+            </NavLink>
           ))}
         </ul>
       </nav>

@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.c03b20cc.css",
-    "main.js": "/static/js/main.0694331f.js",
+    "main.css": "/static/css/main.6015e4fa.css",
+    "main.js": "/static/js/main.5552302a.js",
+    "static/media/fitbit.png": "/static/media/fitbit.234f4de8f68efc45b94c.png",
     "static/media/workplace4.jpeg": "/static/media/workplace4.9744f078ef4cc8f8078d.jpeg",
     "static/media/hero1.jpeg": "/static/media/hero1.e134bd2acafa7773c5d0.jpeg",
     "static/media/hero3.jpeg": "/static/media/hero3.6d330e912d7c4a2aabc9.jpeg",
+    "static/media/hr-job-board.png": "/static/media/hr-job-board.14107256b2a4ee6a922a.png",
     "static/media/workplace2.jpeg": "/static/media/workplace2.015f6ac9e862dfe2eb0f.jpeg",
     "static/media/hero4.jpeg": "/static/media/hero4.be389c8a536b290abf49.jpeg",
     "static/media/collinsfrontendlogo.png": "/static/media/collinsfrontendlogo.64734844bf4d01eb5486.png",
     "static/media/hero2.jpeg": "/static/media/hero2.2a54aeb022a094aa83e6.jpeg",
     "index.html": "/index.html",
-    "main.c03b20cc.css.map": "/static/css/main.c03b20cc.css.map",
-    "main.0694331f.js.map": "/static/js/main.0694331f.js.map"
+    "main.6015e4fa.css.map": "/static/css/main.6015e4fa.css.map",
+    "main.5552302a.js.map": "/static/js/main.5552302a.js.map"
   },
   "entrypoints": [
-    "static/css/main.c03b20cc.css",
-    "static/js/main.0694331f.js"
+    "static/css/main.6015e4fa.css",
+    "static/js/main.5552302a.js"
   ]
 }

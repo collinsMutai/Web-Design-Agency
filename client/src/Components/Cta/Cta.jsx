@@ -10,9 +10,9 @@ const Cta = () => {
   if (pathName === "/") {
     setTop(3190);
   }
-  // if (pathName === "/portfolio") {
-  //   setTop(450);
-  // }
+  if (pathName === "/portfolio") {
+    setTop(450);
+  }
   return (
     <div
       className="cta-container"

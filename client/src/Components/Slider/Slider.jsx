@@ -4,31 +4,35 @@ import ImageSlider from "../ImageSlider/ImageSlider";
 import Arrows from "../Arrows/Arrows";
 import Dots from "../Dots/Dots";
 import "../Slider.css";
+
 const len = ImageSlider.length - 1;
 
-const Slider = (props) => {
+const Slider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex(activeIndex === len ? 0 : activeIndex + 1);
+      setActiveIndex((prevIndex) => (prevIndex === len ? 0 : prevIndex + 1));
     }, 5000);
     return () => clearInterval(interval);
-  }, [activeIndex]);
+  }, []);
+
+  const handlePrevSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex === 0 ? len : prevIndex - 1));
+  };
+
+  const handleNextSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex === len ? 0 : prevIndex + 1));
+  };
+
   return (
     <div className="slider-container">
       <SliderContent activeIndex={activeIndex} imageSlider={ImageSlider} />
-      <Arrows
-        prevSlide={() =>
-          setActiveIndex(activeIndex < 1 ? len : activeIndex - 1)
-        }
-        nextSlide={() =>
-          setActiveIndex(activeIndex === len ? 0 : activeIndex + 1)
-        }
-      />
+      <Arrows prevSlide={handlePrevSlide} nextSlide={handleNextSlide} />
       <Dots
         activeIndex={activeIndex}
         imageSlider={ImageSlider}
-        onClick={(activeIndex) => setActiveIndex(activeIndex)}
+        onClick={(index) => setActiveIndex(index)}
       />
     </div>
   );

@@ -1,12 +1,8 @@
 .happyclients-container {
   background: #11141b;
   color: #fff;
-  position: absolute;
-  top: 2850px;
-  z-index: 10;
   width: 100%;
-  height: auto;
-  padding: 100px 60px;
+  padding: 80px 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,9 +28,7 @@
 
 @media (max-width: 768px) {
   .happyclients-container {
-    padding: 100px 20px;
-    top: 3240px;
-    height: auto;
+    padding: 40px 20px;
   }
   .item h1 {
     font-size: 1.8em;
@@ -51,15 +45,14 @@
   }
 }
 @media (max-width: 425px) {
-  .happyclients-container {
-    top: 2980px;
-    height: auto;
+    .happyclients-container {
+    padding: 20px;
   }
   .item h1 {
-    font-size: 1.6em;
+    font-size: 16px;
   }
   .text {
-    font-size: 0.8em;
+    font-size: 14px;
   }
   .item svg {
     height: 25px;
@@ -70,15 +63,11 @@
   }
 }
 @media (max-width: 375px) {
-  .happyclients-container {
-    top: 2790px;
-    height: auto;
-  }
   .item h1 {
-    font-size: 1.5em;
+    font-size: 15px;
   }
   .text {
-    font-size: 0.7em;
+    font-size: 12px;
   }
   .item svg {
     height: 20px;
@@ -89,11 +78,7 @@
   }
 }
 @media (max-width: 320px) {
-  .happyclients-container {
-    top: 2800px;
-    padding: 100px 20px;
-    height: auto;
-  }
+ 
   .item h1 {
     font-size: 1.5em;
   }

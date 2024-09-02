@@ -2,13 +2,9 @@
   background: #11141b;
   text-align: center;
   color: #fff;
-  height: 120vh;
+  height: auto;
   width: 100%;
-  padding: 130px 60px;
-  position: absolute;
-  top: 1360px;
-
-  z-index: 10;
+  padding: 40px 60px;
 }
 .title {
   display: flex;
@@ -65,16 +61,14 @@
 
 @media (max-width: 1024px) {
   .featured-services-container {
-   height: auto;
-    
-    top: 1420px;
+    height: auto;
   }
 }
 
 @media (max-width: 768px) {
   .featured-services-container {
     height: auto;
-    padding: 100px 20px;
+    padding: 20px;
   }
 
   .title h3 {
@@ -104,7 +98,7 @@
   }
   .card {
     gap: 30px;
-        padding: 20px;
+    padding: 20px;
   }
   .card svg {
     width: 20px;
@@ -121,9 +115,12 @@
   .title h6 {
     font-size: 14px;
   }
+  .cards{
+    padding-top: 20px;
+  }
   .card {
     gap: 20px;
-     padding: 15px;
+    padding: 15px;
   }
   .card h6 {
     font-size: 13px;
@@ -138,7 +135,6 @@
   }
   .card {
     gap: 20px;
-   
   }
   .card h6 {
     font-size: 14px;

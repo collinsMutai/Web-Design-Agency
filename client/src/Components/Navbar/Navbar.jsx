@@ -64,8 +64,8 @@ const Navbar = () => {
                 color: isActive ? "#13c2e9" : "",
                 textDecoration: "none",
               })}
-              to={item.url}
-              onClick={(e) => (toggle ? setToggle(false) : setToggle(true))}
+              // to={item.url}
+              // onClick={(e) => (toggle ? setToggle(false) : setToggle(true))}
             >
               {item.title}
             </NavLink>

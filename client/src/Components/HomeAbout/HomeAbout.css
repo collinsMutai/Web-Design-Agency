@@ -1,18 +1,19 @@
-.container {
+.main-container {
   background: #0c0f16;
   color: #fff;
-  height: 120vh;
   width: 100%;
-  padding: 130px 60px;
-  position: absolute;
-  z-index: 10;
+  padding: 60px;
+
+}
+.container {
   display: flex;
   gap: 40px;
+  padding-bottom: 40px;
 }
-.left,
-.right {
+.left, .right{
   flex: 1;
 }
+
 
 .left h2 {
   font-size: 31px;
@@ -39,7 +40,7 @@
   -webkit-text-fill-color: transparent;
 }
 .left p {
-  color: #888888;
+  color: #fff;
   padding-bottom: 20px;
 }
 .left ul {
@@ -54,7 +55,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #c8c8c8;
+  color: #fff;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5em;
@@ -84,13 +85,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-   object-position: left 50% bottom 30px;
+  object-position: center center;
   z-index: 10;
 }
 
 @media (max-width: 1024px) {
   .container {
-    padding: 100px 20px;
+    padding: 20px;
     height: 100vh;
   }
   .left h2 {
@@ -114,19 +115,22 @@
     border-radius: 50px 50px 50px 50px;
     padding: 15px 32px 15px 32px;
   }
-        .right img {
+  .right img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-     object-position: left 50% bottom 30px;
+    object-position: left 50% bottom 30px;
     z-index: 10;
   }
 }
 @media (max-width: 768px) {
+  .main-container {
+    padding: 60px;
+}
   .container {
-    padding: 100px 20px;
+    padding: 20px;
     flex-direction: column;
-    height: 200vh;
+  
   }
   .left h2 {
     font-size: 34px;
@@ -149,17 +153,20 @@
     border-radius: 50px 50px 50px 50px;
     padding: 10px 25px 10px 25px;
   }
-      .right img {
+  .right img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-   object-position: left 50% bottom 30px;
+    object-position: left 50% bottom 30px;
     z-index: 10;
   }
 }
 @media (max-width: 425px) {
+  .main-container{
+    padding: 20px;
+  }
   .container {
-    padding: 100px 20px;
+    padding: 20px;
     flex-direction: column;
     height: 200vh;
   }
@@ -171,7 +178,7 @@
     font-size: 16px;
     letter-spacing: 2px;
   }
-   .left ul{
+  .left ul {
     gap: 100px;
   }
   .left p,
@@ -187,20 +194,16 @@
     border-radius: 50px 50px 50px 50px;
     padding: 10px 25px 10px 25px;
   }
-    .right img {
+  .right img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-      object-position: left 50% bottom 30px;
+    object-position: left 50% bottom 30px;
     z-index: 10;
   }
 }
 @media (max-width: 375px) {
-  .container {
-    padding: 100px 20px;
-    flex-direction: column;
-    height: 200vh;
-  }
+  
   .left h2 {
     font-size: 26px;
     line-height: 2.2rem;
@@ -209,7 +212,7 @@
     font-size: 14px;
     letter-spacing: 2px;
   }
-  .left ul{
+  .left ul {
     gap: 80px;
   }
   .left p,
@@ -229,16 +232,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-  object-position: left 50% bottom 30px;
+    object-position: left 50% bottom 30px;
     z-index: 10;
   }
 }
 @media (max-width: 320px) {
-  .container {
-    padding: 100px 20px;
-    flex-direction: column;
-    height: 200vh;
-  }
+
   .left h2 {
     font-size: 24px;
     line-height: 2rem;
@@ -247,7 +246,7 @@
     font-size: 14px;
     letter-spacing: 2.5px;
   }
-  .left ul{
+  .left ul {
     gap: 40px;
   }
   .left p,

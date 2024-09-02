@@ -8,8 +8,11 @@ const Portfolio = () => {
   return (
     <>
       <div className="portfolio-container">
-        <Header />
-       <PortfolioCards />
+        <Header
+          title="Recent Projects"
+          description="Browse through my portfolio to see some of my latest projects."
+        />
+        <PortfolioCards />
       </div>
       {/* <Cta /> */}
     </>

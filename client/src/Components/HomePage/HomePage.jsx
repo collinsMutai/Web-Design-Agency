@@ -5,6 +5,9 @@ import Hero from "../Hero/Hero";
 import HomeAbout from "../HomeAbout/HomeAbout";
 import HappyClients from "../HappyClients/HappyClients";
 import Cta from "../Cta/Cta";
+import Footer from "../Footer/Footer";
+import PortfolioCards from "../PortfolioCards/PortfolioCards";
+
 
 const HomePage = () => {
   return (
@@ -13,8 +16,10 @@ const HomePage = () => {
       <HomeAbout />
       <FeaturedServices />
       <FeaturedProjects />
+      <PortfolioCards />
       <HappyClients />
       <Cta />
+      <Footer />
     </>
   );
 };

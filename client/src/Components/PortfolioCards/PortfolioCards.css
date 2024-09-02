@@ -1,11 +1,8 @@
 .portfolio-cards-container {
   background-color: #11141b;
   color: #fff;
-  height: auto;
   width: 100%;
-  position: absolute;
-  top: 79%;
-  padding: 120px 60px;
+  padding: 80px 60px;
 }
 .portfolio-filter {
   display: block;
@@ -33,8 +30,8 @@
   padding-top: 50px;
 }
 .gallery .item {
-  width: 500px;
-  height: 550px;
+  width: 100%;
+  height: 300px;
 }
 .gallery .item .item-img img {
   width: 100%;
@@ -44,7 +41,7 @@
   cursor: pointer;
 }
 .gallery .item .item-img img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .gallery .item .content {
@@ -73,4 +70,24 @@
   );
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
+}
+@media (max-width: 768px) {
+  .portfolio-cards-container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .gallery .item {
+    height: auto;
+  }
+  .gallery .item .content h6 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 375px) {
+  .gallery {
+    gap: 20px;
+    padding-top: 20px;
+  }
 }

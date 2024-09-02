@@ -3,9 +3,6 @@
   padding: 100px 60px;
   width: 100%;
   height: auto;
-  position: absolute;
-  top: 3490px;
-  z-index: 10;
   display: flex;
   align-items: top;
   justify-content: center;
@@ -47,7 +44,7 @@ li {
   color: #12c2e9;
 }
 li div {
-  color: #888;
+  color: #fff;
   font-size: 15px;
   font-weight: 300;
   line-height: 1.8em;
@@ -60,7 +57,7 @@ li div:hover {
 }
 
 .copyright {
-  color: #888888;
+  color: #fff;
   font-size: 13px;
   font-weight: 300;
   line-height: 2em;
@@ -88,7 +85,7 @@ li div:hover {
   .footer-container {
     top: 3810px;
     gap: 80px;
-    padding: 100px 20px;
+    padding: 40px 20px;
   }
   .footer-title {
     font-size: 20px;
@@ -98,7 +95,7 @@ li div:hover {
   .footer-container {
     top: 3570px;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
   }
 
   .contact-us-icons svg {

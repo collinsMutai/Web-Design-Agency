@@ -16,18 +16,30 @@ const PortfolioCards = () => {
       </div>
       <div className="gallery">
         <div className="item">
-          <div className="item-img">
-            <img src={fitbit} alt="" />
-          </div>
+          <a
+            href="https://fitbit.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="item-img">
+              <img src={fitbit} alt="" />
+            </div>
+          </a>
           <div className="content">
             <h6>Fitbit</h6>
             <span>React</span>
           </div>
         </div>
         <div className="item">
-          <div className="item-img">
-            <img src={hrjobboard} alt="" />
-          </div>
+          <a
+            href="https://hr-board.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="item-img">
+              <img src={hrjobboard} alt="" />
+            </div>
+          </a>
           <div className="content">
             <h6>HR Job Board</h6>
             <span>Angular</span>

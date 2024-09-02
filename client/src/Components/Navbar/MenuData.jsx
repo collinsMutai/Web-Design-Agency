@@ -11,12 +11,12 @@ export const MenuData = [
   },
   {
     title: "Services",
-    url: "/services",
+    url: "#",
     cName: "nav-links",
   },
   {
     title: "Portfolio",
-    url: "/portfolio",
+    url: "#",
     cName: "nav-links",
   },
  

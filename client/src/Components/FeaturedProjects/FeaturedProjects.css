@@ -2,16 +2,13 @@
   background: #11141b;
   text-align: center;
   color: #fff;
-  height: 100vh;
   width: 100%;
-  padding: 130px 60px;
-  position: absolute;
-  top: 2000px;
-  z-index: 10;
+  padding: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 .recent-projects {
   font-size: 38px;
@@ -21,8 +18,8 @@
   padding-bottom: 80px;
 }
 .project-image {
-  width: 80%;
-  height: 480px;
+  width: 100%;
+  height: 280px;
   object-fit: cover;
 }
 .active {
@@ -70,6 +67,13 @@
   text-decoration: none;
   transition: ease 0.3s;
 }
+.arrows {
+  position: absolute; /* Absolute positioning to keep arrows fixed */
+  bottom: 20px; /* Adjust this value based on where you want the arrows */
+  width: 100%; /* Full width for arrows container */
+  display: flex;
+  justify-content: space-between; /* Space out the arrows */
+}
 .arrows-prev,
 .arrows-next {
   cursor: pointer;
@@ -87,12 +91,7 @@
   color: #fff;
   transition: all 0.5s ease-in;
 }
-.arrows-prev {
-  left: 250px;
-}
-.arrows-next {
-  right: 250px;
-}
+
 .arrows svg {
   color: #fff;
   height: 25px;
@@ -120,9 +119,6 @@
     height: auto;
   }
 
-  .project-desc {
-    bottom: 130px;
-  }
   .arrows-prev,
   .arrows-next {
     bottom: 115px;
@@ -138,19 +134,16 @@
 @media (max-width: 768px) {
   .featured-projects-container {
     height: auto;
-    top: 2600px;
-    padding: 100px 20px;
+    padding: 20px;
   }
   .project-image {
-    width: 70%;
+    width: 100%;
     height: auto;
   }
   .recent-projects {
     font-size: 35px;
   }
-  .project-desc {
-    bottom: 10px;
-  }
+
   .arrows-prev,
   .arrows-next {
     bottom: 10px;
@@ -166,37 +159,31 @@
 @media (max-width: 425px) {
   .featured-projects-container {
     height: auto;
+  }
 
-    top: 2480px;
-  }
-  .project-image {
-    width: 80%;
-    height: auto;
-  }
   .recent-projects {
     font-size: 30px;
   }
 
   .project-desc {
-    width: 100%;
+    width: 70%;
+    bottom: 20px;
   }
-
+ .arrows-prev,
+  .arrows-next {
+    bottom: 50px;
+  }
   .arrows-prev {
-    left: 10px;
+    left: 5px;
   }
   .arrows-next {
-    right: 10px;
+    right: 5px;
   }
+  
 }
 @media (max-width: 375px) {
-  .featured-projects-container {
-    top: 2340px;
-    padding: 100px 20px;
-  }
-  .project-image {
-    width: 90%;
-    height: auto;
-  }
+ 
+
   .recent-projects {
     font-size: 24px;
     padding-bottom: 35px;
@@ -208,13 +195,10 @@
   .arrows-next {
     right: 10px;
   }
+  
 }
 @media (max-width: 320px) {
-  .featured-projects-container {
-    top: 2380px;
-    padding: 100px 20px;
-    height: auto;
-  }
+
   .project-image {
     width: 90%;
     height: auto;

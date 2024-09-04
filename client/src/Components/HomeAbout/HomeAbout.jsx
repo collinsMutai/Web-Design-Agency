@@ -18,7 +18,7 @@ const HomeAbout = () => {
             Welcome to Collinsfrontend, where passion meets innovation in the
             world of web design and full-stack web development. Our journey
             began with a simple idea: to transform our clients' visions into
-            engaging, functional, and beautifully crafted websites. Today, we
+            engaging, functional, and beautifully crafted websites. <br></br> <br></br>Today, we
             take pride in being a dynamic team of web design experts dedicated
             to pushing the boundaries of digital design and technology. From
             ecommerce and school websites to NGOs, churches, and

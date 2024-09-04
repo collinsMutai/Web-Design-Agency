@@ -16,8 +16,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity to your preference */
-  z-index: 1; /* Ensure it sits between the image and text/buttons */
+  background-color: rgba(0, 0, 0, 0.4); 
+  z-index: 1; 
 }
 
 .slider-container {
@@ -47,7 +47,7 @@
   position: absolute;
   text-align: center;
   width: 100%;
-  z-index: 2; /* Ensure text and buttons are above the overlay */
+  z-index: 2; 
 }
 
 .slide-title {
@@ -137,13 +137,12 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  z-index: 2; /* Ensure dots are above the overlay */
+  z-index: 2; 
 }
 
-/* Responsive Styling */
 @media (max-width: 1024px) {
   .slide-title {
-    top: 17%;
+    top: 50%;
     font-size: 58px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -158,8 +157,9 @@
 
   .hero-btn {
     font-size: 16px;
-    padding: 12px;
+    padding: 10px;
     bottom: 18%;
+    width: 150px;
   }
 
   .prev svg,

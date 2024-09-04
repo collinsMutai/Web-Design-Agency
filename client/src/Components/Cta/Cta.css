@@ -1,5 +1,5 @@
 .cta-container {
-  padding: 130px 60px;
+  padding: 80px 60px;
   width: 100%;
   height: auto;
   display: flex;
@@ -64,7 +64,6 @@ button {
 }
 @media (max-width: 425px) {
   .cta-container {
- 
     flex-direction: column;
     justify-content: center;
     gap: 30px;
@@ -76,10 +75,10 @@ button {
   }
 }
 @media (max-width: 375px) {
-
+  .cta-container {
+    padding: 60px 20px;
+  }
   button {
     padding: 10px 20px;
   }
 }
-
-

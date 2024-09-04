@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1096baea.css",
-    "main.js": "/static/js/main.44c53e09.js",
+    "main.css": "/static/css/main.7f722de1.css",
+    "main.js": "/static/js/main.f136fa63.js",
     "static/media/fitbit.png": "/static/media/fitbit.234f4de8f68efc45b94c.png",
     "static/media/workplace4.jpeg": "/static/media/workplace4.9744f078ef4cc8f8078d.jpeg",
     "static/media/hero1.jpeg": "/static/media/hero1.e134bd2acafa7773c5d0.jpeg",
@@ -12,11 +12,11 @@
     "static/media/collinsfrontendlogo.png": "/static/media/collinsfrontendlogo.64734844bf4d01eb5486.png",
     "static/media/hero2.jpeg": "/static/media/hero2.2a54aeb022a094aa83e6.jpeg",
     "index.html": "/index.html",
-    "main.1096baea.css.map": "/static/css/main.1096baea.css.map",
-    "main.44c53e09.js.map": "/static/js/main.44c53e09.js.map"
+    "main.7f722de1.css.map": "/static/css/main.7f722de1.css.map",
+    "main.f136fa63.js.map": "/static/js/main.f136fa63.js.map"
   },
   "entrypoints": [
-    "static/css/main.1096baea.css",
-    "static/js/main.44c53e09.js"
+    "static/css/main.7f722de1.css",
+    "static/js/main.f136fa63.js"
   ]
 }

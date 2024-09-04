@@ -7,7 +7,7 @@ import HappyClients from "../HappyClients/HappyClients";
 import Cta from "../Cta/Cta";
 import Footer from "../Footer/Footer";
 import PortfolioCards from "../PortfolioCards/PortfolioCards";
-
+import ContactForm from "../ContactForm/ContactForm";
 
 const HomePage = () => {
   return (
@@ -19,6 +19,7 @@ const HomePage = () => {
       <PortfolioCards />
       <HappyClients />
       <Cta />
+      {/* <ContactForm /> */}
       <Footer />
     </>
   );

@@ -2,7 +2,7 @@
   background: #11141b;
   color: #fff;
   width: 100%;
-  padding: 80px 60px;
+  padding: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +28,8 @@
 
 @media (max-width: 768px) {
   .happyclients-container {
-    padding: 40px 20px;
+    padding: 60px;
+    padding-top: 20px;
   }
   .item h1 {
     font-size: 1.8em;
@@ -45,8 +46,8 @@
   }
 }
 @media (max-width: 425px) {
-    .happyclients-container {
-    padding: 20px;
+  .happyclients-container {
+    padding-top: 40px;
   }
   .item h1 {
     font-size: 16px;
@@ -63,6 +64,9 @@
   }
 }
 @media (max-width: 375px) {
+  .happyclients-container {
+    padding: 40px 20px;
+  }
   .item h1 {
     font-size: 15px;
   }
@@ -78,7 +82,6 @@
   }
 }
 @media (max-width: 320px) {
- 
   .item h1 {
     font-size: 1.5em;
   }

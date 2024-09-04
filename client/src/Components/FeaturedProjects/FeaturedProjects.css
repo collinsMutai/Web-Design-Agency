@@ -46,6 +46,7 @@
   visibility: visible;
   font-size: 14px;
   font-weight: 500;
+  height: 40px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 10px;
@@ -68,11 +69,11 @@
   transition: ease 0.3s;
 }
 .arrows {
-  position: absolute; /* Absolute positioning to keep arrows fixed */
-  bottom: 20px; /* Adjust this value based on where you want the arrows */
-  width: 100%; /* Full width for arrows container */
+  position: absolute; 
+  bottom: 20px;
+  width: 100%; 
   display: flex;
-  justify-content: space-between; /* Space out the arrows */
+  justify-content: space-between; 
 }
 .arrows-prev,
 .arrows-next {
@@ -138,10 +139,10 @@
   }
   .project-image {
     width: 100%;
-    height: auto;
   }
   .recent-projects {
-    font-size: 35px;
+    font-size: 30px;
+    padding-bottom: 60px;
   }
 
   .arrows-prev,
@@ -162,7 +163,8 @@
   }
 
   .recent-projects {
-    font-size: 30px;
+    font-size: 28px;
+    padding-bottom: 40px;
   }
 
   .project-desc {
@@ -201,7 +203,6 @@
 
   .project-image {
     width: 90%;
-    height: auto;
   }
 
   .arrows-prev {

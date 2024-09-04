@@ -32,7 +32,7 @@ const Cta = () => {
         <h2 className="cta-h2-one">About Your</h2>
         <h2 className="cta-h2-two">Next Project</h2>
       </div>
-      <Link to={"/contact"}>
+      <Link to={"#"}>
         <button>Get in touch</button>
       </Link>
     </div>

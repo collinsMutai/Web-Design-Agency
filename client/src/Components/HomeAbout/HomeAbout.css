@@ -2,13 +2,13 @@
   background: #0c0f16;
   color: #fff;
   width: 100%;
-  padding: 60px;
+  padding: 100px 60px;
 
 }
 .container {
   display: flex;
   gap: 40px;
-  padding-bottom: 40px;
+  padding: 40px;
 }
 .left, .right{
   flex: 1;
@@ -130,6 +130,7 @@
   .container {
     padding: 20px;
     flex-direction: column;
+    height: auto;
   
   }
   .left h2 {
@@ -168,7 +169,7 @@
   .container {
     padding: 20px;
     flex-direction: column;
-    height: 200vh;
+  
   }
   .left h2 {
     font-size: 30px;

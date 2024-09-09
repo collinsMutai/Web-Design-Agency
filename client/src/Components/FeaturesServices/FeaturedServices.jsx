@@ -26,6 +26,13 @@ const FeaturedServices = () => {
           </svg>
 
           <h6>Web Design</h6>
+          <p>
+            Transform your vision into reality with our custom website design
+            services. We create websites that are not only visually stunning but
+            also functional and user-friendly. With our responsive website
+            design, your site will look and perform beautifully across all
+            devices, ensuring a seamless experience for your users.
+          </p>
         </div>
         <div className="card">
           <svg
@@ -44,6 +51,14 @@ const FeaturedServices = () => {
           </svg>
 
           <h6>Web Development</h6>
+          <p>
+            Our web development team turns designs into dynamic, fully
+            functional websites. From front-end to back-end development, we
+            handle all aspects of web creation to ensure a seamless and
+            efficient build. We handle all aspects of development, including
+            front-end and back-end coding, database integration, and custom
+            functionality.
+          </p>
         </div>
         <div className="card">
           <svg
@@ -61,6 +76,15 @@ const FeaturedServices = () => {
             />
           </svg>
           <h6>Graphic Design</h6>
+          <p>
+            Our creative graphic design services bring your brand to life with
+            visually engaging materials. Whether you need a new logo, marketing
+            collateral, or social media graphics, we create designs that
+            captivate and communicate effectively.We help establish a strong
+            brand identity through branding and identity design services. From
+            logo creation to complete brand guidelines, we craft a visual
+            identity that sets you apart in your industry.
+          </p>
         </div>
         <div className="card">
           <svg
@@ -79,6 +103,15 @@ const FeaturedServices = () => {
           </svg>
 
           <h6>Digital Marketing & SEO Optimization</h6>
+          <p>
+            Boost your online visibility with our affordable SEO optimization.
+            Our search engine optimization agency employs SEO marketing
+            strategies to ensure you rank higher in search results. Maximize
+            your ROI with our expert Pay-Per-Click Advertising (PPC) Management,
+            which targets the right audience for your business. Our content
+            marketing services create compelling content that resonates with
+            your audience and supports your overall digital marketing strategy
+          </p>
         </div>
         <div className="card">
           <svg
@@ -97,6 +130,45 @@ const FeaturedServices = () => {
           </svg>
 
           <h6>Domain Registration & Web Hosting</h6>
+          <p>
+            Secure your online identity with our affordable domain registration
+            services. We offer a range of options, including buying a domain
+            name, registering a domain for your website, and business domain
+            registration. Choose from our reliable web hosting services,
+            including affordable web hosting, secure web hosting, and
+            specialized hosting services for scalable and flexible solutions.
+          </p>
+        </div>
+        <div className="card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-book"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+            <path d="M3 6l0 13" />
+            <path d="M12 6l0 13" />
+            <path d="M21 6l0 13" />
+          </svg>
+
+          <h6>Website Content Writing</h6>
+          <p>
+            Engage and inform your visitors with our expert website content
+            writing services. We craft clear, compelling, and SEO-friendly
+            content that captures your brand’s voice and enhances user
+            experience. Develop a robust content strategy with our expert
+            guidance. We help plan, create, and manage content that aligns with
+            your business objectives and engages your target audience.
+          </p>
         </div>
       </div>
     </div>

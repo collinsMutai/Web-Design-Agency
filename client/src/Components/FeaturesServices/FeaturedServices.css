@@ -6,12 +6,14 @@
   width: 100%;
   padding: 40px 60px;
 }
+
 .title {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
 .title h6 {
   font-weight: 300;
   font-size: 17px;
@@ -19,6 +21,7 @@
   letter-spacing: 7px;
   margin-bottom: 10px;
 }
+
 .title h3 {
   font-size: 48px;
   font-weight: 500;
@@ -32,111 +35,156 @@
   -webkit-text-fill-color: transparent;
   text-shadow: 0px 0px transparent;
 }
+
 .cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
   gap: 20px;
   padding-top: 80px;
 }
+
 .card {
   background-color: #0c0f16;
   border: none;
   outline: none;
-  height: 230px;
-  width: 250px;
+  height: auto; /* Fit content dynamically */
   padding: 30px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
   text-align: left;
 }
+
 .card svg {
   width: 40px;
   height: 40px;
   color: rgba(18, 194, 233, 1);
 }
+
 .card h6 {
   font-size: 16px;
   line-height: 1.7;
 }
 
+.card-content {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.card-content p {
+  margin-bottom: 10px;
+}
+
 @media (max-width: 1024px) {
-  .featured-services-container {
-    height: auto;
+  .cards {
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row for tablets and smaller screens */
   }
 }
 
 @media (max-width: 768px) {
   .featured-services-container {
-    height: auto;
     padding: 20px;
   }
 
   .title h3 {
     font-size: 40px;
   }
+
   .cards {
+    grid-template-columns: 1fr; /* One card per row for smaller screens */
     gap: 25px;
-    flex-direction: column;
     padding-top: 60px;
   }
+
   .card {
     height: auto;
     width: auto;
     padding: 30px;
   }
+
   .card svg {
     width: 30px;
     height: 30px;
   }
+
   .card h6 {
     font-size: 14px;
   }
+
+  .card-content {
+    font-size: 12px;
+  }
 }
+
 @media (max-width: 425px) {
   .title h3 {
     font-size: 30px;
   }
+
   .card {
     gap: 30px;
     padding: 20px;
   }
+
   .card svg {
     width: 20px;
     height: 20px;
   }
+
   .card h6 {
     font-size: 15px;
   }
+
+  .card-content {
+    font-size: 11px;
+  }
 }
+
 @media (max-width: 375px) {
   .title h3 {
     font-size: 24px;
   }
+
   .title h6 {
     font-size: 14px;
   }
-  .cards{
+
+  .cards {
     padding-top: 20px;
   }
+
   .card {
     gap: 20px;
     padding: 15px;
   }
+
   .card h6 {
     font-size: 13px;
   }
+
+  .card-content {
+    font-size: 10px;
+  }
 }
+
 @media (max-width: 320px) {
   .title h3 {
     font-size: 20px;
   }
+
   .title h6 {
     font-size: 13px;
   }
+
   .card {
     gap: 20px;
   }
+
   .card h6 {
     font-size: 14px;
+  }
+
+  .card-content {
+    font-size: 9px;
   }
 }

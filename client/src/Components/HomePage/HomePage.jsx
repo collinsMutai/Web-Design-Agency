@@ -19,7 +19,7 @@ const HomePage = () => {
       <PortfolioCards />
       <HappyClients />
       <Cta />
-      {/* <ContactForm /> */}
+      <ContactForm />
       <Footer />
     </>
   );

@@ -1,6 +1,6 @@
 .footer-container {
   background: #0c0f16;
-  padding: 100px 60px;
+  padding: 20px;
   width: 100%;
   height: auto;
   display: flex;
@@ -82,22 +82,11 @@ li div:hover {
 }
 
 @media (max-width: 768px) {
-  .footer-container {
-    top: 3810px;
-    gap: 80px;
-    padding: 40px 20px;
-  }
   .footer-title {
     font-size: 20px;
   }
 }
 @media (max-width: 425px) {
-  .footer-container {
-    top: 3570px;
-    flex-direction: column;
-    gap: 20px;
-  }
-
   .contact-us-icons svg {
     width: 15px;
     height: 15px;
@@ -108,11 +97,6 @@ li div:hover {
   }
 }
 @media (max-width: 375px) {
-  .footer-container {
-    top: 3350px;
-    flex-direction: column;
-  }
-
   .contact-us-icons svg {
     width: 15px;
     height: 15px;

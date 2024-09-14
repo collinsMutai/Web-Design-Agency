@@ -3,9 +3,11 @@ import "./Footer.css";
 import { SocialIcon } from "react-social-icons";
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
+
   return (
     <div className="footer-container">
-      <div className="contact-details">
+      {/* <div className="contact-details">
         <h2 className="footer-title">Contact Us</h2>
         <div className="list-items">
           <ul>
@@ -82,8 +84,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="menu-links">
+      </div> */}
+      {/* <div className="menu-links">
         <h2 className="footer-title">Menu</h2>
         <div className="list-items">
           <ul className="text">
@@ -95,8 +97,8 @@ const Footer = () => {
             <li>Donations</li>
           </ul>
         </div>
-      </div>
-      <div className="social-links">
+      </div> */}
+      {/* <div className="social-links">
         <h2 className="footer-title">Get Social</h2>
         <div className="social-icons">
           <SocialIcon
@@ -120,8 +122,8 @@ const Footer = () => {
             url="www.facebook.com"
           />
         </div>
-        <h4 className="copyright">© 2024, Collinsfrontend.</h4>
-      </div>
+      </div> */}
+      <h4 className="copyright">© {currentYear}. Collinsfrontend.</h4>
     </div>
   );
 };

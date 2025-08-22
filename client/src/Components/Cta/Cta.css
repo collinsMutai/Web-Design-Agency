@@ -6,6 +6,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 100px;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  opacity: 0.9;
+}
+
+.text h2:first-of-type {
+  color: #fff !important;
 }
 
 h2 {
@@ -18,62 +26,69 @@ h2 {
   letter-spacing: 5px;
   padding-bottom: 10px;
 }
+
 .cta-h2-one {
   font-size: 4vw;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   color: transparent;
 }
+
 .cta-h2-two {
-  color: #ffffff;
   font-size: 4vw;
   font-weight: 800;
   text-transform: uppercase;
   line-height: 1.2em;
   background: linear-gradient(90deg, #12c2e9 0%, #c471ed 50%, #f64f59 100%);
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
 }
 
 button {
   background: transparent;
   padding: 12px 35px;
   position: relative;
-  overflow: hidden;
   cursor: pointer;
   display: inline-block;
   text-transform: uppercase;
-  color: #000;
+  color: #fff;
   border: 2px solid #fff;
   font-weight: 500;
   font-size: 13px;
   letter-spacing: 2px;
-  color: #fff;
 }
 
 @media (max-width: 768px) {
   .cta-container {
-    top: 3560px;
     padding: 100px 20px;
+    flex-direction: column;
+    justify-content: center;
   }
   h2 {
     font-size: 14px;
+    padding: 10px;
+    text-align: center;
   }
   .cta-h2-one,
   .cta-h2-two {
     font-size: 3.8vw;
   }
 }
+
 @media (max-width: 425px) {
   .cta-container {
     flex-direction: column;
     justify-content: center;
+
     gap: 30px;
   }
-
   button {
     padding: 10px 20px;
     margin-bottom: 30px;
   }
 }
+
 @media (max-width: 375px) {
   .cta-container {
     padding: 60px 20px;

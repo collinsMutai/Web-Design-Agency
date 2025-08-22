@@ -1,185 +1,127 @@
-// import React, { useState, useRef } from "react";
-// import "./ContactForm.css";
-// import emailjs from "@emailjs/browser";
-
-// const ContactForm = () => {
-//   const form = useRef();
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const SERVICE_ID = process.env.REACT_APP_API_SERVICE_ID;
-//     const TEMPLATE_ID = process.env.REACT_APP_API_TEMPLATE_ID;
-//     const PUBLIC_KEY = process.env.REACT_APP_API_PUBLIC_KEY;
-//     // const SERVICE_ID = "service_h393bwf";
-//     // const TEMPLATE_ID = "template_n0a81g7";
-//     // const PUBLIC_KEY = "R6ZgSLMEaBK549gOt";
-
-//     emailjs
-//       .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
-//         publicKey: PUBLIC_KEY,
-//       })
-//       .then(
-//         () => {
-//           form.current.reset()
-//           console.log("SUCCESS!");
-//         },
-//         (error) => {
-//           console.log("FAILED...", error.text);
-//         }
-//       );
-//   };
-//   return (
-//     <div className="contactform-container">
-//       <h2 className="recent-projects">Contact Us</h2>
-//       <div className="info">
-//         <div className="form">
-//           <h3>Send A Message</h3>
-//           <form ref={form} onSubmit={handleSubmit}>
-//             <input name="user_name" type="text" placeholder="Name" />
-//             <input type="text" name="user_phone" placeholder="Phone" />
-//             <input type="text" name="user_email" placeholder="Email" />
-//             <textarea name="message" placeholder="Message" rows={5} />
-//             <button type="submit">Send</button>
-//           </form>
-//         </div>
-//         <div className="contact-info">
-//           <h3>Contact Information</h3>
-//           <div className="item">
-//             <svg
-//               xmlns="http://www.w3.org/2000/svg"
-//               width="24"
-//               height="24"
-//               viewBox="0 0 24 24"
-//               fill="none"
-//               stroke="currentColor"
-//               stroke-width="2"
-//               stroke-linecap="round"
-//               stroke-linejoin="round"
-//               class="icon icon-tabler icons-tabler-outline icon-tabler-phone"
-//             >
-//               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-//               <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
-//             </svg>
-//             <p>Phone: +254 726 097 666</p>
-//           </div>
-//           <div className="item">
-//             <svg
-//               xmlns="http://www.w3.org/2000/svg"
-//               width="24"
-//               height="24"
-//               viewBox="0 0 24 24"
-//               fill="none"
-//               stroke="currentColor"
-//               stroke-width="2"
-//               stroke-linecap="round"
-//               stroke-linejoin="round"
-//               class="icon icon-tabler icons-tabler-outline icon-tabler-mail"
-//             >
-//               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-//               <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
-//               <path d="M3 7l9 6l9 -6" />
-//             </svg>
-//             <p>Email: info@collinsfrontend.com</p>
-//           </div>
-//           <div className="item">
-//             <svg
-//               xmlns="http://www.w3.org/2000/svg"
-//               width="24"
-//               height="24"
-//               viewBox="0 0 24 24"
-//               fill="currentColor"
-//               class="icon icon-tabler icons-tabler-filled icon-tabler-map-pin"
-//             >
-//               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-//               <path d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z" />
-//             </svg>
-//             <p>Nairobi, Kenya.</p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ContactForm;
-
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./ContactForm.css";
 import emailjs from "@emailjs/browser";
-import ReCAPTCHA from "react-google-recaptcha";
+import { toast, ToastContainer } from "react-toastify"; // Import Toastify
+import "react-toastify/dist/ReactToastify.css"; // Import default styles
 
-const ContactForm = () => {
+const ContactForm = React.forwardRef((props, ref) => {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
-  const [message, setMessage] = useState("");
-  const recaptchaRef = useRef();
-  const [captchaValue, setCaptchaValue] = useState(null);
+
+  const SERVICE_ID = process.env.REACT_APP_API_SERVICE_ID;
+  const TEMPLATE_ID = process.env.REACT_APP_API_TEMPLATE_ID;
+  const PUBLIC_KEY = process.env.REACT_APP_API_PUBLIC_KEY;
+  const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+
+  // Dynamically load reCAPTCHA API script
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [RECAPTCHA_SITE_KEY]);
+
+  const showToast = (message, type = "success") => {
+    // Using React Toastify to show the notification
+    toast[type](message);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSending(true);
 
-    if (!captchaValue) {
-      setMessage("Please complete the reCAPTCHA.");
+    // Form Validation
+    const userName = form.current.user_name.value;
+    const userPhone = form.current.user_phone.value;
+    const userEmail = form.current.user_email.value;
+    const message = form.current.message.value;
+
+    if (!userName || !userPhone || !userEmail || !message) {
+      showToast("Please fill out all required fields.", "error");
+      setIsSending(false);
       return;
     }
 
-    setIsSending(true);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(userEmail)) {
+      showToast("Please enter a valid email address.", "error");
+      setIsSending(false);
+      return;
+    }
 
-    const SERVICE_ID = process.env.REACT_APP_API_SERVICE_ID;
-    const TEMPLATE_ID = process.env.REACT_APP_API_TEMPLATE_ID;
-    const PUBLIC_KEY = process.env.REACT_APP_API_PUBLIC_KEY;
+    // Generic phone number validation
+    const phoneRegex = /^[+\d]?(?:[\d-.\s()]*)$/;
+    if (!phoneRegex.test(userPhone)) {
+      showToast("Please enter a valid phone number.", "error");
+      setIsSending(false);
+      return;
+    }
 
-    emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
-      .then(
-        (result) => {
-          console.log("Email successfully sent:", result.text);
-          setMessage("Your message has been sent successfully!");
-          form.current.reset(); // Reset form fields
-          recaptchaRef.current.reset(); // Reset the reCAPTCHA widget
-          setCaptchaValue(null);
-        },
-        (error) => {
-          console.error("Failed to send email:", error.text);
-          setMessage("Failed to send your message. Please try again later.");
-        }
-      )
-      .finally(() => {
-        setIsSending(false);
-      });
-  };
+    // reCAPTCHA validation
+    if (!window.grecaptcha) {
+      showToast("reCAPTCHA is not ready. Please refresh and try again.", "error");
+      setIsSending(false);
+      return;
+    }
 
-  const handleCaptchaChange = (value) => {
-    setCaptchaValue(value);
+    window.grecaptcha.ready(() => {
+      new Promise((resolve, reject) => {
+        window.grecaptcha
+          .execute(RECAPTCHA_SITE_KEY, { action: "submit" })
+          .then(resolve)
+          .catch(reject);
+      })
+        .then((token) => {
+          const existingTokenInput = form.current.querySelector(
+            'input[name="g-recaptcha-response"]'
+          );
+          if (existingTokenInput) existingTokenInput.remove();
+
+          const tokenInput = document.createElement("input");
+          tokenInput.type = "hidden";
+          tokenInput.name = "g-recaptcha-response";
+          tokenInput.value = token;
+          form.current.appendChild(tokenInput);
+
+          return emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY);
+        })
+        .then(() => {
+          showToast("Your message has been sent successfully!", "success");
+          form.current.reset();
+        })
+        .catch((error) => {
+          console.error("Failed to send email:", error);
+          showToast("Failed to send your message. Please try again later.", "error");
+        })
+        .finally(() => {
+          setIsSending(false);
+        });
+    });
   };
 
   return (
-    <div className="contactform-container">
+    <div className="contactform-container" ref={ref} id="contact">
       <h2 className="recent-projects">Contact Us</h2>
+
       <div className="info">
         <div className="form">
           <h3>Send A Message</h3>
           <form ref={form} onSubmit={handleSubmit}>
+            <input name="to_name" type="hidden" value="Collins Frontend" />
             <input name="user_name" type="text" placeholder="Name" required />
-            <input name="user_phone" type="text" placeholder="Phone" />
-            <input
-              name="user_email"
-              type="email"
-              placeholder="Email"
-              required
-            />
+            <input name="user_phone" type="tel" placeholder="Phone" required />
+            <input name="user_email" type="email" placeholder="Email" required />
             <textarea name="message" placeholder="Message" rows={5} required />
-            <ReCAPTCHA
-              sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} // Use environment variable
-              onChange={handleCaptchaChange}
-              ref={recaptchaRef}
-            />
             <button type="submit" disabled={isSending}>
               {isSending ? "Sending..." : "Send"}
             </button>
           </form>
-          {message && <p className="message">{message}</p>}
         </div>
+
         <div className="contact-info">
           <h3>Contact Information</h3>
           <div className="item">
@@ -193,7 +135,7 @@ const ContactForm = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="icon icon-tabler icon-tabler-phone"
+              className="icon"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
@@ -211,7 +153,7 @@ const ContactForm = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="icon icon-tabler icon-tabler-mail"
+              className="icon"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
@@ -226,17 +168,28 @@ const ContactForm = () => {
               height="24"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="icon icon-tabler icon-tabler-map-pin"
+              className="icon"
             >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z" />
             </svg>
             <p>Nairobi, Kenya.</p>
           </div>
         </div>
       </div>
+
+      {/* Toast container */}
+      <ToastContainer 
+        position="top-right" 
+        autoClose={5000} 
+        hideProgressBar 
+        closeOnClick 
+        pauseOnHover 
+        draggable 
+        pauseOnFocusLoss 
+        rtl={false}
+      />
     </div>
   );
-};
+});
 
 export default ContactForm;

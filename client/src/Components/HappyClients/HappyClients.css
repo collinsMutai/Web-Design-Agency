@@ -45,7 +45,7 @@
     gap: 90px;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 426px) {
   .happyclients-container {
     padding-top: 40px;
   }

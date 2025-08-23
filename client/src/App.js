@@ -12,7 +12,25 @@ import { Route, Routes } from "react-router-dom";
 import Portfolio from "./Components/Portfolio/Portfolio";
 import AppContextProvider from "./AppContext";
 
+import React, { useState, useEffect } from "react";
+
 function App() {
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollButton(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <AppContextProvider>
       <Routes>
@@ -26,6 +44,59 @@ function App() {
           <Route path="/donations" element={<DonationsPage />} />
         </Route>
       </Routes>
+
+      {/* ✅ Scroll to Top Button with SVG */}
+{showScrollButton && (
+  <button
+    onClick={handleScrollToTop}
+    style={{
+      position: "fixed",
+      bottom: "30px",
+      right: "20px",
+      zIndex: 1000,
+      backgroundColor: "#007bff",
+      border: "none",
+      borderRadius: "8px",
+      width: "48px",
+      height: "48px",
+      padding: 0,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      cursor: "pointer",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+    }}
+    aria-label="Scroll to top"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      style={{ display: "block" }}
+    >
+      <path
+        d="M7 11l5 -5l5 5"
+        fill="none"
+        stroke="#ffffff"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7 17l5 -5l5 5"
+        fill="none"
+        stroke="#ffffff"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </button>
+)}
+
+
+
     </AppContextProvider>
   );
 }

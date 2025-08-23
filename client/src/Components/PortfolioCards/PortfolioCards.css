@@ -5,6 +5,15 @@
   padding: 80px 60px;
 }
 
+.recent-projects {
+  font-size: 38px;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  font-weight: 700;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
 .portfolio-filter {
   display: block;
   text-align: center;
@@ -24,6 +33,17 @@
   text-transform: uppercase;
   margin: 0 20px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.portfolio-filter span:hover {
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.portfolio-filter .active-filter {
+  color: #fff;
+  border-bottom: 2px solid var(--color-primary); /* Add your main color here */
 }
 
 .item-img img {
@@ -70,6 +90,10 @@
 /* Media query for max-width: 425px (mobile devices) */
 @media (max-width: 426px) {
   .portfolio-cards-container {
-    padding: 60px 20px !important; /* Updated padding for mobile */
+    padding: 60px 20px !important;
+  }
+   .recent-projects {
+    font-size: 28px;
+    padding-bottom: 40px;
   }
 }

@@ -1,5 +1,4 @@
-import React from "react";
-import FeaturedProjects from "../FeaturedProjects/FeaturedProjects";
+import React, { useRef } from "react";
 import FeaturedServices from "../FeaturesServices/FeaturedServices";
 import Hero from "../Hero/Hero";
 import HomeAbout from "../HomeAbout/HomeAbout";
@@ -10,16 +9,17 @@ import PortfolioCards from "../PortfolioCards/PortfolioCards";
 import ContactForm from "../ContactForm/ContactForm";
 
 const HomePage = () => {
+  const contactSectionRef = useRef(null); // 👈 Create a ref here
+
   return (
     <>
       <Hero />
       <HomeAbout />
       <FeaturedServices />
-      <FeaturedProjects />
       <PortfolioCards />
       <HappyClients />
-      <Cta />
-      <ContactForm />
+      <Cta scrollToRef={contactSectionRef} /> {/* 👈 Pass the ref as a prop */}
+      <ContactForm ref={contactSectionRef} /> {/* 👈 Attach the ref */}
       <Footer />
     </>
   );

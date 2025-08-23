@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.97cbb749.css",
+    "main.js": "/static/js/main.b5e1c328.js",
+    "static/media/Jambosafariafrica.jpg": "/static/media/Jambosafariafrica.4af55e6af91a6291de11.jpg",
+    "static/media/workplace4.jpeg": "/static/media/workplace4.9744f078ef4cc8f8078d.jpeg",
+    "static/media/Novelcoffee.jpg": "/static/media/Novelcoffee.b79dfee2d03528177bf2.jpg",
+    "static/media/HCcarwash.jpg": "/static/media/HCcarwash.1e68a17aa707f66ebdf2.jpg",
+    "static/media/hero1.jpeg": "/static/media/hero1.e134bd2acafa7773c5d0.jpeg",
+    "static/media/hero3.jpeg": "/static/media/hero3.6d330e912d7c4a2aabc9.jpeg",
+    "static/media/Thewisebuilders.jpg": "/static/media/Thewisebuilders.bae6c250482398cb6c90.jpg",
+    "static/media/Africansaharalogistics.jpg": "/static/media/Africansaharalogistics.1f8f3c5f3baeb6bd3787.jpg",
+    "static/media/Techsergeanttechnologies.jpg": "/static/media/Techsergeanttechnologies.7ea9b86af4595291980f.jpg",
+    "static/media/Bellpowerinternational.jpg": "/static/media/Bellpowerinternational.e5807df4bc240ceba5a2.jpg",
+    "static/media/workplace2.jpeg": "/static/media/workplace2.015f6ac9e862dfe2eb0f.jpeg",
+    "static/media/SSBgroup.jpg": "/static/media/SSBgroup.a1ecb18b49c4e2c76890.jpg",
+    "static/media/hero4.jpeg": "/static/media/hero4.be389c8a536b290abf49.jpeg",
+    "static/media/collinsfrontendlogo.png": "/static/media/collinsfrontendlogo.64734844bf4d01eb5486.png",
+    "static/media/hero2.jpeg": "/static/media/hero2.2a54aeb022a094aa83e6.jpeg",
+    "static/media/Leempirecleaningservices.jpg": "/static/media/Leempirecleaningservices.9c2ca58eb57f4559a404.jpg",
+    "index.html": "/index.html",
+    "main.97cbb749.css.map": "/static/css/main.97cbb749.css.map",
+    "main.b5e1c328.js.map": "/static/js/main.b5e1c328.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97cbb749.css",
+    "static/js/main.b5e1c328.js"
+  ]
+}

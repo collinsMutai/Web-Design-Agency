@@ -188,10 +188,12 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 426px) {
   .slide-title {
     top: 45%;
     font-size: 35px;
+        padding: 0 4vw;
+
   }
 
   .hero-btn {

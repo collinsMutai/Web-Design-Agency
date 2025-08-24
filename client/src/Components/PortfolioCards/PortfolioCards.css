@@ -3,6 +3,9 @@
   color: #fff;
   width: 100%;
   padding: 80px 60px;
+    height: auto;         /* 👈 Ensure height fits content */
+  overflow: visible;
+  
 }
 
 .recent-projects {
@@ -17,6 +20,7 @@
 .portfolio-filter {
   display: block;
   text-align: center;
+  padding-bottom: 40px;
 }
 
 .portfolio-filter div {
@@ -114,7 +118,14 @@
   transform: scale(1.05);
 }
 
-/* Responsive Tweaks */
+@media (max-width: 1024px) {
+  .portfolio-cards-container {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 60px 30px; /* Adjust as needed for smaller screens */
+  }
+}
+
 @media (max-width: 426px) {
   .portfolio-cards-container {
     padding: 60px 20px !important;

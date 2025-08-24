@@ -5,30 +5,32 @@ import Arrows from "../Arrows/Arrows";
 import Dots from "../Dots/Dots";
 import "../Slider.css";
 
-const len = ImageSlider.length - 1;
-
-const Slider = () => {
+const Slider = ({ scrollToRef }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const lastIndex = ImageSlider.length - 1;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex === len ? 0 : prevIndex + 1));
+      setActiveIndex((prev) => (prev === lastIndex ? 0 : prev + 1));
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
-
-  const handlePrevSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex === 0 ? len : prevIndex - 1));
-  };
-
-  const handleNextSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex === len ? 0 : prevIndex + 1));
-  };
+  }, [lastIndex]);
 
   return (
     <div className="slider-container">
-      <SliderContent activeIndex={activeIndex} imageSlider={ImageSlider} />
-      <Arrows prevSlide={handlePrevSlide} nextSlide={handleNextSlide} />
+      <SliderContent
+        activeIndex={activeIndex}
+        imageSlider={ImageSlider}
+        scrollToRef={scrollToRef}
+      />
+      <Arrows
+        prevSlide={() =>
+          setActiveIndex((prev) => (prev === 0 ? lastIndex : prev - 1))
+        }
+        nextSlide={() =>
+          setActiveIndex((prev) => (prev === lastIndex ? 0 : prev + 1))
+        }
+      />
       <Dots
         activeIndex={activeIndex}
         imageSlider={ImageSlider}

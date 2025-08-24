@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.41a88827.css",
-    "main.js": "/static/js/main.d9e20d63.js",
+    "main.css": "/static/css/main.8efbd7a0.css",
+    "main.js": "/static/js/main.056023a0.js",
     "static/media/Jambosafariafrica.jpg": "/static/media/Jambosafariafrica.4af55e6af91a6291de11.jpg",
     "static/media/Novelcoffee.jpg": "/static/media/Novelcoffee.b79dfee2d03528177bf2.jpg",
     "static/media/HCcarwash.jpg": "/static/media/HCcarwash.0e5f304f469084fc79c1.jpg",
@@ -30,11 +30,11 @@
     "static/media/Crystalclearcarwashbusinesscard7.jpg": "/static/media/Crystalclearcarwashbusinesscard7.f15fc73bfde114d4e246.jpg",
     "static/media/Crystalclearcarwashlogo.png": "/static/media/Crystalclearcarwashlogo.de4ee35d76be7f508314.png",
     "index.html": "/index.html",
-    "main.41a88827.css.map": "/static/css/main.41a88827.css.map",
-    "main.d9e20d63.js.map": "/static/js/main.d9e20d63.js.map"
+    "main.8efbd7a0.css.map": "/static/css/main.8efbd7a0.css.map",
+    "main.056023a0.js.map": "/static/js/main.056023a0.js.map"
   },
   "entrypoints": [
-    "static/css/main.41a88827.css",
-    "static/js/main.d9e20d63.js"
+    "static/css/main.8efbd7a0.css",
+    "static/js/main.056023a0.js"
   ]
 }

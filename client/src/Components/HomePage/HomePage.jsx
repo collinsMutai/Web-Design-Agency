@@ -9,17 +9,18 @@ import PortfolioCards from "../PortfolioCards/PortfolioCards";
 import ContactForm from "../ContactForm/ContactForm";
 
 const HomePage = () => {
-  const contactSectionRef = useRef(null); // 👈 Create a ref here
+  const contactSectionRef = useRef(null);
+  const homeAboutRef = useRef(null); // 👈 Add this ref
 
   return (
     <>
-      <Hero />
-      <HomeAbout />
+      <Hero scrollToRef={homeAboutRef} />
+      <HomeAbout ref={homeAboutRef} />
       <FeaturedServices />
       <PortfolioCards />
       <HappyClients />
-      <Cta scrollToRef={contactSectionRef} /> {/* 👈 Pass the ref as a prop */}
-      <ContactForm ref={contactSectionRef} /> {/* 👈 Attach the ref */}
+      <Cta scrollToRef={contactSectionRef} />
+      <ContactForm ref={contactSectionRef} />
       <Footer />
     </>
   );

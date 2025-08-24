@@ -24,26 +24,166 @@ import Crystalclearcarwashbusinesscard8 from "../../Images/Crystalclearcarwashbu
 import Crystalclearcarwashbusinesscard9 from "../../Images/Crystalclearcarwashbusinesscard9.jpg";
 
 const portfolioData = [
-  { id: 1, image: Techsergeanttechnologies, title: "Tech Sergeant Technologies", category: "Angular", type: "Web development", url: "https://techsergeanttechnologies.com/" },
-  { id: 2, image: Novelcoffee, title: "Novel Coffee", category: "Angular", type: "Web design", url: "https://novelcoffeellc.com/" },
-  { id: 3, image: Bellpowerinternational, title: "Bell Power International", category: "Angular", type: "Web development", url: "https://bellpowerinternational.com/" },
-  { id: 4, image: SSBgroup, title: "SSB Group", category: "Angular", type: "Web design", url: "https://ssbgroupllc.com/" },
-  { id: 5, image: Jambosafariafrica, title: "Jambo Safari Africa", category: "Angular", type: "Web design", url: "https://www.jambosafariafrica.com/" },
-  { id: 6, image: HCcarwash, title: "H&C Carwash", category: "Angular, NodeJS", type: "Web development", url: "https://jupscarwash.onrender.com/" },
-  { id: 7, image: Africansaharalogistics, title: "African Sahara Logistics", category: "Angular", type: "Web design", url: "https://africsahara.com/" },
-  { id: 8, image: Leempirecleaningservices, title: "LeEmpire Cleaning Services", category: "Angular", type: "Web design", url: "https://leempirecleaningservices.com/" },
-  { id: 9, image: Thewisebuilders, title: "The Wise Builders", category: "Angular", type: "Web design", url: "https://thewisebuilders.org/" },
-  { id: 10, image: Crystalclearcarwash, title: "Crystal Clear Carwash", category: "Graphic Design", type: "Graphic design", url: "#" },
-  { id: 11, image: Crystalclearcarwashlogo, title: "Crystal Clear Carwash Logo", category: "Graphic Design", type: "Graphic design", url: "#" },
-  { id: 12, image: Crystalclearcarwashbusinesscard1, title: "Crystal Clear Business Card 1", category: "Graphic Design", type: "Graphic design", url: "#" },
-  { id: 13, image: Crystalclearcarwashbusinesscard2, title: "Crystal Clear Business Card 2", category: "Graphic Design", type: "Graphic design", url: "#" },
-  { id: 14, image: Crystalclearcarwashbusinesscard3, title: "Crystal Clear Business Card 3", category: "Graphic Design", type: "Graphic design", url: "#" },
-  { id: 15, image: Crystalclearcarwashbusinesscard4, title: "Crystal Clear Business Card 4", category: "Graphic Design", type: "Graphic design", url: "#" },
-  { id: 16, image: Crystalclearcarwashbusinesscard5, title: "Crystal Clear Business Card 5", category: "Graphic Design", type: "Graphic design", url: "#" },
-  { id: 17, image: Crystalclearcarwashbusinesscard6, title: "Crystal Clear Business Card 6", category: "Graphic Design", type: "Graphic design", url: "#" },
-  { id: 18, image: Crystalclearcarwashbusinesscard7, title: "Crystal Clear Business Card 7", category: "Graphic Design", type: "Graphic design", url: "#" },
-  { id: 19, image: Crystalclearcarwashbusinesscard8, title: "Crystal Clear Business Card 8", category: "Graphic Design", type: "Graphic design", url: "#" },
-  { id: 20, image: Crystalclearcarwashbusinesscard9, title: "Crystal Clear Business Card 9", category: "Graphic Design", type: "Graphic design", url: "#" },
+  {
+    id: 1,
+    image: Techsergeanttechnologies,
+    title: "Tech Sergeant Technologies",
+    category: "Angular",
+    type: "Web development",
+    url: "https://techsergeanttechnologies.com/",
+  },
+  {
+    id: 2,
+    image: Novelcoffee,
+    title: "Novel Coffee",
+    category: "Angular",
+    type: "Web design",
+    url: "https://novelcoffeellc.com/",
+  },
+  {
+    id: 3,
+    image: Bellpowerinternational,
+    title: "Bell Power International",
+    category: "Angular",
+    type: "Web development",
+    url: "https://bellpowerinternational.com/",
+  },
+  {
+    id: 4,
+    image: SSBgroup,
+    title: "SSB Group",
+    category: "Angular",
+    type: "Web design",
+    url: "https://ssbgroupllc.com/",
+  },
+  {
+    id: 5,
+    image: Jambosafariafrica,
+    title: "Jambo Safari Africa",
+    category: "Angular",
+    type: "Web design",
+    url: "https://www.jambosafariafrica.com/",
+  },
+  {
+    id: 6,
+    image: HCcarwash,
+    title: "H&C Carwash",
+    category: "Angular, NodeJS",
+    type: "Web development",
+    url: "https://jupscarwash.onrender.com/",
+  },
+  {
+    id: 7,
+    image: Africansaharalogistics,
+    title: "African Sahara Logistics",
+    category: "Angular",
+    type: "Web design",
+    url: "https://africsahara.com/",
+  },
+  {
+    id: 8,
+    image: Leempirecleaningservices,
+    title: "LeEmpire Cleaning Services",
+    category: "Angular",
+    type: "Web design",
+    url: "https://leempirecleaningservices.com/",
+  },
+  {
+    id: 9,
+    image: Thewisebuilders,
+    title: "The Wise Builders",
+    category: "Angular",
+    type: "Web design",
+    url: "https://thewisebuilders.org/",
+  },
+  {
+    id: 10,
+    image: Crystalclearcarwash,
+    title: "Crystal Clear Carwash",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
+  {
+    id: 11,
+    image: Crystalclearcarwashlogo,
+    title: "Crystal Clear Carwash Logo",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
+  {
+    id: 12,
+    image: Crystalclearcarwashbusinesscard1,
+    title: "Crystal Clear Business Card 1",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
+  {
+    id: 13,
+    image: Crystalclearcarwashbusinesscard2,
+    title: "Crystal Clear Business Card 2",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
+  {
+    id: 14,
+    image: Crystalclearcarwashbusinesscard3,
+    title: "Crystal Clear Business Card 3",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
+  {
+    id: 15,
+    image: Crystalclearcarwashbusinesscard4,
+    title: "Crystal Clear Business Card 4",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
+  {
+    id: 16,
+    image: Crystalclearcarwashbusinesscard5,
+    title: "Crystal Clear Business Card 5",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
+  {
+    id: 17,
+    image: Crystalclearcarwashbusinesscard6,
+    title: "Crystal Clear Business Card 6",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
+  {
+    id: 18,
+    image: Crystalclearcarwashbusinesscard7,
+    title: "Crystal Clear Business Card 7",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
+  {
+    id: 19,
+    image: Crystalclearcarwashbusinesscard8,
+    title: "Crystal Clear Business Card 8",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
+  {
+    id: 20,
+    image: Crystalclearcarwashbusinesscard9,
+    title: "Crystal Clear Business Card 9",
+    category: "Graphic Design",
+    type: "Graphic design",
+    url: "#",
+  },
 ];
 
 const PortfolioCards = () => {
@@ -91,19 +231,21 @@ const PortfolioCards = () => {
 
       <div className="portfolio-filter">
         <div>
-          {["All", "Web design", "Web development", "Graphic design"].map((type) => (
-            <span
-              key={type}
-              onClick={() => handleFilterClick(type)}
-              className={selectedFilter === type ? "active-filter" : ""}
-            >
-              {type}
-            </span>
-          ))}
+          {["All", "Web design", "Web development", "Graphic design"].map(
+            (type) => (
+              <span
+                key={type}
+                onClick={() => handleFilterClick(type)}
+                className={selectedFilter === type ? "active-filter" : ""}
+              >
+                {type}
+              </span>
+            )
+          )}
         </div>
       </div>
 
-      <div className="container">
+      <div className="">
         <div className="row">
           {filteredData.map((item, index) => (
             <div
@@ -115,11 +257,17 @@ const PortfolioCards = () => {
               }`}
             >
               <div className="item">
-                <a href={item.url} target="_blank" rel="noopener noreferrer">
-                  <div className="item-img">
+                {item.url && item.url !== "#" ? (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    <div className="item-img">
+                      <img src={item.image} alt={item.title} loading="lazy" />
+                    </div>
+                  </a>
+                ) : (
+                  <div className="item-img" style={{ cursor: "default" }}>
                     <img src={item.image} alt={item.title} loading="lazy" />
                   </div>
-                </a>
+                )}
                 <div className="content">
                   <h6>{item.title}</h6>
                   <span>{item.category}</span>

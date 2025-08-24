@@ -1,29 +1,40 @@
 {
   "files": {
-    "main.css": "/static/css/main.97cbb749.css",
-    "main.js": "/static/js/main.b5e1c328.js",
+    "main.css": "/static/css/main.41a88827.css",
+    "main.js": "/static/js/main.d9e20d63.js",
     "static/media/Jambosafariafrica.jpg": "/static/media/Jambosafariafrica.4af55e6af91a6291de11.jpg",
-    "static/media/workplace4.jpeg": "/static/media/workplace4.9744f078ef4cc8f8078d.jpeg",
     "static/media/Novelcoffee.jpg": "/static/media/Novelcoffee.b79dfee2d03528177bf2.jpg",
-    "static/media/HCcarwash.jpg": "/static/media/HCcarwash.1e68a17aa707f66ebdf2.jpg",
+    "static/media/HCcarwash.jpg": "/static/media/HCcarwash.0e5f304f469084fc79c1.jpg",
     "static/media/hero1.jpeg": "/static/media/hero1.e134bd2acafa7773c5d0.jpeg",
     "static/media/hero3.jpeg": "/static/media/hero3.6d330e912d7c4a2aabc9.jpeg",
     "static/media/Thewisebuilders.jpg": "/static/media/Thewisebuilders.bae6c250482398cb6c90.jpg",
+    "static/media/Crystalclearcarwash.jpg": "/static/media/Crystalclearcarwash.9bdc24446589b7392d2a.jpg",
+    "static/media/workplace4.jpeg": "/static/media/workplace4.6fce494fe209c536b2b6.jpeg",
     "static/media/Africansaharalogistics.jpg": "/static/media/Africansaharalogistics.1f8f3c5f3baeb6bd3787.jpg",
     "static/media/Techsergeanttechnologies.jpg": "/static/media/Techsergeanttechnologies.7ea9b86af4595291980f.jpg",
     "static/media/Bellpowerinternational.jpg": "/static/media/Bellpowerinternational.e5807df4bc240ceba5a2.jpg",
     "static/media/workplace2.jpeg": "/static/media/workplace2.015f6ac9e862dfe2eb0f.jpeg",
     "static/media/SSBgroup.jpg": "/static/media/SSBgroup.a1ecb18b49c4e2c76890.jpg",
     "static/media/hero4.jpeg": "/static/media/hero4.be389c8a536b290abf49.jpeg",
-    "static/media/collinsfrontendlogo.png": "/static/media/collinsfrontendlogo.64734844bf4d01eb5486.png",
     "static/media/hero2.jpeg": "/static/media/hero2.2a54aeb022a094aa83e6.jpeg",
     "static/media/Leempirecleaningservices.jpg": "/static/media/Leempirecleaningservices.9c2ca58eb57f4559a404.jpg",
+    "static/media/Crystalclearcarwashbusinesscard6.jpg": "/static/media/Crystalclearcarwashbusinesscard6.a8d80c7fd4307ffd1e1b.jpg",
+    "static/media/Crystalclearcarwashbusinesscard1.jpg": "/static/media/Crystalclearcarwashbusinesscard1.3e223ce83470c14ea942.jpg",
+    "static/media/Crystalclearcarwashbusinesscard8.jpg": "/static/media/Crystalclearcarwashbusinesscard8.c6c5c46a9595da0eac9c.jpg",
+    "static/media/Crystalclearcarwashbusinesscard3.jpg": "/static/media/Crystalclearcarwashbusinesscard3.2b686e57b95df5a3cf13.jpg",
+    "static/media/collinsfrontendlogo.png": "/static/media/collinsfrontendlogo.11c5ff200659a43187a5.png",
+    "static/media/Crystalclearcarwashbusinesscard2.jpg": "/static/media/Crystalclearcarwashbusinesscard2.c0f17f66e551345dc072.jpg",
+    "static/media/Crystalclearcarwashbusinesscard4.jpg": "/static/media/Crystalclearcarwashbusinesscard4.6c94cc7b57e56ea285f5.jpg",
+    "static/media/Crystalclearcarwashbusinesscard9.jpg": "/static/media/Crystalclearcarwashbusinesscard9.71cdbd2236efd9e98eb9.jpg",
+    "static/media/Crystalclearcarwashbusinesscard5.jpg": "/static/media/Crystalclearcarwashbusinesscard5.5b0bb42886f51d5aa1f1.jpg",
+    "static/media/Crystalclearcarwashbusinesscard7.jpg": "/static/media/Crystalclearcarwashbusinesscard7.f15fc73bfde114d4e246.jpg",
+    "static/media/Crystalclearcarwashlogo.png": "/static/media/Crystalclearcarwashlogo.de4ee35d76be7f508314.png",
     "index.html": "/index.html",
-    "main.97cbb749.css.map": "/static/css/main.97cbb749.css.map",
-    "main.b5e1c328.js.map": "/static/js/main.b5e1c328.js.map"
+    "main.41a88827.css.map": "/static/css/main.41a88827.css.map",
+    "main.d9e20d63.js.map": "/static/js/main.d9e20d63.js.map"
   },
   "entrypoints": [
-    "static/css/main.97cbb749.css",
-    "static/js/main.b5e1c328.js"
+    "static/css/main.41a88827.css",
+    "static/js/main.d9e20d63.js"
   ]
 }

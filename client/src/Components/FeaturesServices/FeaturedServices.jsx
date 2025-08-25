@@ -1,9 +1,9 @@
-import React from "react";
+import React, {forwardRef} from "react";
 import "./FeaturedServices.css";
 
-const FeaturedServices = () => {
+const FeaturedServices = forwardRef((props,ref) => {
   return (
-    <div className="featured-services-container">
+    <div className="featured-services-container" ref={ref}  id="services">
       <div className="title">
         <h6>Our Services</h6>
         <h3>We are a one stop web design agency</h3>
@@ -173,6 +173,6 @@ const FeaturedServices = () => {
       </div>
     </div>
   );
-};
+});
 
 export default FeaturedServices;

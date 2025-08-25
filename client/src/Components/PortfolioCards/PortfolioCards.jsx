@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, forwardRef} from "react";
 import "./PortfolioCards.css";
 
 // Import your images here (you already have this part)
@@ -186,7 +186,7 @@ const portfolioData = [
   },
 ];
 
-const PortfolioCards = () => {
+const PortfolioCards = forwardRef((props, ref) => {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [visibleItems, setVisibleItems] = useState(new Set());
   const itemRefs = useRef([]);
@@ -226,7 +226,7 @@ const PortfolioCards = () => {
   }, [filteredData]);
 
   return (
-    <div className="portfolio-cards-container">
+    <div className="portfolio-cards-container" ref={ref}>
       <h2 className="recent-projects">Recent Projects</h2>
 
       <div className="portfolio-filter">
@@ -279,6 +279,6 @@ const PortfolioCards = () => {
       </div>
     </div>
   );
-};
+});
 
 export default PortfolioCards;

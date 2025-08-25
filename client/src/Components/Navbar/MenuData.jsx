@@ -6,23 +6,23 @@ export const MenuData = [
   },
   {
     title: "About",
-    url: "/about",
+    url: "#about",
     cName: "nav-links",
   },
   {
     title: "Services",
-    url: "#",
+    url: "#services",
     cName: "nav-links",
   },
   {
     title: "Portfolio",
-    url: "#",
+    url: "#portfolio",
     cName: "nav-links",
   },
  
   {
     title: "Contact",
-    url: "/contact",
+    url: "#contact",
     cName: "nav-links",
   },
   {

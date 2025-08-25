@@ -4,7 +4,7 @@ import home_workplace_image from "../../Images/workplace2.jpeg";
 
 const HomeAbout = forwardRef((props, ref) => {
   return (
-    <div className="main-container" ref={ref}> {/* 👈 Attach ref here */}
+    <div className="main-container" ref={ref} id="about"> {/* 👈 Attach ref here */}
       <div className="container">
         <div className="left">
           <h3>Digital consulting</h3>

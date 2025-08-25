@@ -78,6 +78,10 @@
   transition: all 0.2s ease-in-out;
 }
 
+.nav-links:active {
+  color: #13c2e9;
+}
+
 .nav-links-donate-btn {
   white-space: nowrap;
   text-decoration: none;
@@ -101,24 +105,24 @@
   .menu-icons {
     display: block;
   }
-  
+
   .nav-menu {
     display: none;
   }
-  
+
   .nav-menu.active {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .nav-links {
     display: block;
     width: 100%;
     padding: 0.5rem;
     text-align: center;
   }
-  
+
   .nav-links-donate-btn {
     padding: 0.8rem;
     display: block;

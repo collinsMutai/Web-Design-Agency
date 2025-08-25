@@ -31,8 +31,8 @@ export const MenuData = [
     cName: "nav-links",
   },
   {
-    title: "Donations",
-    url: "/donations",
+    title: "Scholarship",
+    url: "/scholarship-donations",
     cName: "nav-links-donate-btn",
   },
 ];

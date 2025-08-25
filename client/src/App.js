@@ -1,18 +1,15 @@
-import "./App.css";
-
-import AboutPage from "./Components/AboutPage/AboutPage";
-import HomePage from "./Components/HomePage/HomePage";
-import DonationsPage from "./Components/DonationsPage/DonationsPage";
-import ServicesPage from "./Components/ServicesPage/ServicesPage";
-import ContactPage from "./Components/ContactPage/ContactPage";
-import BlogPage from "./Components/BlogPage/BlogPage";
-import Layout from "./Components/Layout";
-import Navbar from "./Components/Navbar/Navbar";
-import { Route, Routes } from "react-router-dom";
-import Portfolio from "./Components/Portfolio/Portfolio";
-import AppContextProvider from "./AppContext";
-
 import React, { useState, useEffect, useRef } from "react";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./Components/Layout";
+import HomePage from "./Components/HomePage/HomePage";
+import AboutPage from "./Components/AboutPage/AboutPage";
+import FeaturedServices from "./Components/FeaturesServices/FeaturedServices";
+import Portfolio from "./Components/Portfolio/Portfolio";
+import ContactForm from "./Components/ContactForm/ContactForm";
+import BlogPage from "./Components/BlogPage/BlogPage";
+import Scholarship from "./Components/Scholarship/Scholarship";
+import AppContextProvider from "./AppContext";
+import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -39,39 +36,18 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Scroll to specific section on route change
-  useEffect(() => {
-    if (window.location.hash) {
-      const target = document.getElementById(window.location.hash.substring(1));
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, []);
-
   return (
     <AppContextProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route
-            path="/about"
-            element={<AboutPage ref={homeAboutRef} />}
-          />
-          <Route
-            path="/services"
-            element={<ServicesPage ref={servicesRef} />}
-          />
-          <Route
-            path="/portfolio"
-            element={<Portfolio ref={portfolioRef} />}
-          />
-          <Route
-            path="/contact"
-            element={<ContactPage ref={contactRef} />}
-          />
+          <Route path="/about" element={<AboutPage ref={homeAboutRef} />} />
+          <Route path="/services" element={<FeaturedServices ref={servicesRef} />} />
+          <Route path="/portfolio" element={<Portfolio ref={portfolioRef} />} />
+          <Route path="/contact" element={<ContactForm ref={contactRef} />} />
           <Route path="/blog" element={<BlogPage />} />
-          <Route path="/donations" element={<DonationsPage />} />
+          {/* Scholarship Donations route */}
+          <Route path="/scholarship-donations" element={<Scholarship />} />
         </Route>
       </Routes>
 

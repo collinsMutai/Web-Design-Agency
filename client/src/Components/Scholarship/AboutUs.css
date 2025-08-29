@@ -1,0 +1,238 @@
+/* Container for the whole About Us section */
+.about-us-container {
+  margin-bottom: 40px;
+  padding: 40px 40px 100px 40px;
+  opacity: 0; /* Initially hide the section for animation */
+  animation: fadeIn 1s forwards; /* Fade-in effect */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Styling for the Who We Are and Mission sections */
+.who-we-are,
+.mission {
+  margin-bottom: 15px;
+  opacity: 0; /* Initially hide sections for animation */
+  animation: fadeUp 1s forwards; /* Slide-up effect */
+  text-align: center; /* Center text in the Mission section */
+  transition: opacity 1s ease-out;
+}
+
+/* Slide-up animation */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Slide from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Slide to the normal position */
+  }
+}
+
+/* Apply staggered animations to text */
+.who-we-are-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 60px;
+  opacity: 0; /* Initially hidden for animation */
+  animation: fadeInContent 1s 0.5s forwards; /* Staggered fade-in */
+}
+
+/* Staggered fade-in animation for Who We Are content */
+@keyframes fadeInContent {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.who-we-are .image,
+.who-we-are .text {
+  flex: 1;
+  height: 100%;
+  display: flex;
+}
+
+.who-we-are .image {
+  justify-content: end;
+}
+
+.who-we-are .image img {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0;
+  animation: fadeInImage 1s 0.5s forwards; /* Image fade-in animation */
+}
+
+/* Fade-in animation for the image */
+@keyframes fadeInImage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.who-we-are .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeInText 1s 1s forwards; /* Text fade-in animation */
+}
+
+/* Fade-in animation for the text */
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Slide from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Slide to the normal position */
+  }
+}
+
+/* Text styling for 'Who We Are' */
+.text h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+/* General styling for all paragraph text */
+.text p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.6;
+}
+
+/* Mission Section Styling */
+.mission {
+  padding: 100px 40px;
+  opacity: 0;
+  animation: fadeInMission 1s 1.5s forwards; /* Mission fade-in animation */
+}
+
+.mission h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.mission p {
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 1.6;
+  margin: 0 auto;
+  width: 80%; /* Limit width for better readability */
+}
+
+/* Fade-in animation for the mission text */
+@keyframes fadeInMission {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .about-us-container {
+    padding: 40px 10px 100px 10px;
+  }
+
+  .who-we-are-content {
+    gap: 40px;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .who-we-are .image img {
+    max-width: 100%;
+    margin-bottom: 10px;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .who-we-are .text {
+    width: 100%;
+  }
+
+  .text h2 {
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .text p {
+    line-height: 1.2;
+  }
+
+  .mission {
+    padding: 0px;
+    padding-top: 30px;
+  }
+
+  .mission p {
+    font-size: 24px;
+    width: 100%; /* Adjust for smaller screen sizes */
+    text-align: center;
+  }
+}
+
+/* Mobile responsiveness: 426px and below */
+@media (max-width: 426px) {
+  .about-us-container {
+    padding: 40px 0px 100px 0px;
+  }
+
+  .who-we-are .image,
+  .who-we-are .text {
+    flex: 1 1 100%;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .who-we-are .image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    margin-bottom: 15px;
+  }
+
+  .who-we-are-content {
+    gap: 20px;
+  }
+
+  .text h2 {
+    font-size: 28px;
+  }
+
+  .mission {
+    padding-top: 10px;
+  }
+}

@@ -8,19 +8,21 @@
   
 } */
 
-h1,h2 {
+h1,
+h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
 }
 
-h3, h6 {
+h3,
+h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
-p{
+p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -28,9 +30,7 @@ p{
   letter-spacing: 1.2px;
   font-size: 16px;
 }
-li, button{
-   font-family: "Roboto", sans-serif;
-
+li,
+button {
+  font-family: "Roboto", sans-serif;
 }
-
-

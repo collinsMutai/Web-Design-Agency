@@ -35,7 +35,7 @@ const Cta = ({ scrollToRef }) => {
       }}
     >
       <div className="text">
-        <h2>Let's Talk</h2>
+        <h2 className="cta-h2">Let's Talk</h2>
         <h2 className="cta-h2-one">About Your</h2>
         <h2 className="cta-h2-two">Next Project</h2>
       </div>

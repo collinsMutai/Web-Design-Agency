@@ -12,7 +12,7 @@
   opacity: 0.9;
 }
 
-.text h2:first-of-type {
+.text .cta-h2{
   color: #fff !important;
 }
 

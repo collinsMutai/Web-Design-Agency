@@ -1,3 +1,4 @@
+/* Scholarship.css */
 .scholarship-container {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -25,12 +26,6 @@ section {
   margin-bottom: 40px;
 }
 
-h2 {
-  font-size: 28px;
-  color: #2d89e5;
-  margin-bottom: 15px;
-}
-
 p, ul {
   font-size: 16px;
   line-height: 1.6;
@@ -39,20 +34,6 @@ p, ul {
 ul {
   list-style-type: square;
   padding-left: 20px;
-}
-
-.offer-list {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.offer-item {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 30%;
 }
 
 footer {

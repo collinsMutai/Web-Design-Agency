@@ -1,67 +1,26 @@
+// Scholarship.js
 import React from 'react';
 import './Scholarship.css';
+import WhatWeOffer from './WhatWeOffer'; // Import the WhatWeOffer component
+import AboutUs from './AboutUs'; // Import the AboutUs component
+import Header  from '../Header/Header'
 
 const Scholarship = () => {
   return (
+    <>
+    
+    
+   
+       <Header
+        title="Tech Scholarship"
+        description="Empowering Tech Enthusiasts. Transforming Lives."
+      />
     <div className="scholarship-container">
-      <header className="scholarship-header">
-        <h1>TechFuture Scholarship Foundation</h1>
-        <p>Empowering Tech Enthusiasts. Transforming Lives.</p>
-      </header>
-      
-      <section className="who-we-are">
-        <h2>Who We Are</h2>
-        <p>
-          At TechFuture Scholarship Foundation, we believe that passion and talent should never be limited by finances.
-        </p>
-        <p>
-          Whether you’re a college student in Kenya, a working professional looking to upskill, a self-employed creative, or someone unemployed but eager to learn, we’re here to help you unlock the power of technology and build a future you’re proud of.
-        </p>
-      </section>
+    
 
-      <section className="mission">
-        <h2>Our Mission</h2>
-        <p>
-          To make world-class tech education affordable and accessible to anyone, anywhere — starting with a community of dreamers, doers, and innovators who are ready to transform their lives.
-        </p>
-      </section>
+      <AboutUs /> {/* Render AboutUs component here */}
 
-      <section className="what-we-offer">
-        <h2>What We Offer</h2>
-        <div className="offer-list">
-          <div className="offer-item">
-            <h3>Sponsored Learning</h3>
-            <p>
-              Through generous PayPal donations, we sponsor access to affordable, high-quality courses from platforms like:
-              <ul>
-                <li>Udemy – for beginners and career changers</li>
-                <li>Moringa School – hands-on, career-ready bootcamps</li>
-                <li>ALX Africa – intensive programs for future software engineers and tech leaders</li>
-              </ul>
-            </p>
-          </div>
-          <div className="offer-item">
-            <h3>Tailored Learning Paths</h3>
-            <p>Choose your own journey — we’ll support you every step of the way:</p>
-            <ul>
-              <li>Full-Stack Web Development</li>
-              <li>Mobile App Development</li>
-              <li>DevOps & Cloud Engineering</li>
-              <li>Digital Marketing & SEO</li>
-              <li>Machine Learning & AI</li>
-              <li>Blockchain & Web3</li>
-              <li>UI/UX Design</li>
-              <li>Graphic Design</li>
-            </ul>
-          </div>
-          <div className="offer-item">
-            <h3>Equipment Support</h3>
-            <p>
-              No laptop? No problem. If you show commitment and passion, we’ll help provide the tools you need to learn and grow.
-            </p>
-          </div>
-        </div>
-      </section>
+      <WhatWeOffer />  {/* Render WhatWeOffer component here */}
 
       <section className="who-can-apply">
         <h2>Who Can Apply</h2>
@@ -118,6 +77,7 @@ const Scholarship = () => {
         <p>Together, we can turn passion into profession and dreamers into innovators.</p>
       </footer>
     </div>
+     </>
   );
 }
 

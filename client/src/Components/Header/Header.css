@@ -1,29 +1,134 @@
+/* Header Container */
 .header-container {
   width: 100%;
-  height: 60vh;
-  position: fixed;
+  height: 50vh; /* Adjust height as needed */
   background: #1a2a34;
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10;
+  gap: 10px;
   padding: 80px;
+  padding-bottom: 0px;
+  border-bottom-left-radius: 13px; /* Rounded bottom-left corner */
+  border-bottom-right-radius: 13px; /* Rounded bottom-right corner */
 }
 
+/* Header Text Styling */
 .header-container h1 {
   font-size: 60px;
   font-weight: 800;
   letter-spacing: 2px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: #fff;
   background: linear-gradient(to right, #12c2e9, #d641a7, #f64f59);
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
   text-shadow: 0px 0px transparent;
   text-align: center;
+  margin: 0; /* Ensures no extra space around the title */
+  padding-bottom: 30px;
 }
-.header-container p{
+
+/* Paragraph Styling */
+.header-container p {
   text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+  line-height: 1.6; /* Improved readability */
+}
+
+/* Breadcrumb Navigation */
+.breadcrumbs {
+  display: flex;
+  align-items: center; /* Ensure vertical centering of icon and text */
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 20px;
+  gap: 5px; /* Adds space between icon and text */
+}
+
+.breadcrumb-item {
+  text-decoration: none !important;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center; /* Vertically center icon and text */
+}
+
+.breadcrumb-separator {
+  margin: 0 8px;
+  display: flex;
+  align-items: center; /* Vertically center separator */
+}
+
+.breadcrumb-item i {
+  font-size: 14px; /* Icon size */
+  margin-right: 5px; /* Space between icon and text */
+  vertical-align: middle; /* Vertically align the icon */
+}
+
+.breadcrumb-item:hover {
+  color: #12c2e9; /* Highlight color on hover */
+}
+
+.breadcrumb-separator i {
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Mobile Media Query for screens less than 768px */
+@media (max-width: 768px) {
+  .header-container {
+ padding: 160px 20px 60px 20px;
+    height: 45vh; /* Adjust height for better appearance */
+  }
+
+  .header-container h1 {
+    font-size: 40px; /* Smaller header on tablets */
+    padding-bottom: 20px;
+  }
+
+  .header-container p {
+    font-size: 16px; /* Slightly smaller font size for readability */
+  }
+
+  .breadcrumbs {
+    font-size: 14px; /* Adjust breadcrumb font size */
+    margin-bottom: 15px;
+  }
+
+  .breadcrumb-item i {
+    font-size: 12px; /* Adjust icon size for smaller screens */
+  }
+}
+
+/* Mobile Media Query for screens less than 426px (Phones) */
+@media (max-width: 426px) {
+  .header-container {
+   
+    padding: 120px 20px 40px 20px; /* Even smaller padding for phones */
+    height: 40vh; /* Reduce header height */
+  }
+
+  .header-container h1 {
+    font-size: 30px; /* Smaller title for mobile screens */
+    padding-bottom: 15px;
+  }
+
+  .header-container p {
+    font-size: 14px; /* Reduce paragraph font size */
+    margin-top: 8px; /* Adjust margin to make it tighter */
+  }
+
+  .breadcrumbs {
+    font-size: 12px; /* Even smaller breadcrumb font size */
+    margin-bottom: 10px; /* Less margin for phones */
+  }
+
+  .breadcrumb-item i {
+    font-size: 10px; /* Reduce icon size */
+    margin-right: 4px; /* Adjust margin */
+  }
 }

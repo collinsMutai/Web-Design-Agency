@@ -10,8 +10,12 @@ import BlogPage from "./Components/BlogPage/BlogPage";
 import Scholarship from "./Components/Scholarship/Scholarship";
 import AppContextProvider from "./AppContext";
 import Navbar from "./Components/Navbar/Navbar";
+import MaintenancePage from "./MaintenancePage";
+
 
 function App() {
+    const isMaintenanceMode = process.env.REACT_APP_MAINTENANCE === "true";
+
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   // Refs for sections
@@ -35,8 +39,13 @@ function App() {
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  
+    if (isMaintenanceMode) {
+    return <MaintenancePage />;
+  }
 
   return (
+    
     <AppContextProvider>
       <Routes>
         <Route path="/" element={<Layout />}>

@@ -17,12 +17,12 @@
   word-wrap: break-word;
   padding-bottom: 15px;
 }
-li {
+/* li {
   padding-bottom: 15px;
   display: flex;
   align-items: center;
   gap: 13px;
-}
+} */
 
 .text li {
   font-size: 14px;

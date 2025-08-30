@@ -1,29 +1,162 @@
-.offer-list {
+/* === Keyframes for Load Animation === */
+@keyframes fadeInSection {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInCard {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Section Styles === */
+.offer-section {
+  padding: 40px;
+  animation: fadeInSection 1s ease-out;
+}
+
+/* === Title === */
+.offer-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+/* === Card Container === */
+.offer-card-container {
   display: flex;
   justify-content: space-between;
   gap: 20px;
 }
 
-.offer-item {
+/* === Card Item === */
+.offer-card-item {
+  width: 30%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  animation: fadeInCard 1s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* For hover */
+}
+
+/* === Hover Animation === */
+.offer-card-item:hover {
+  transform: translateY(-10px); /* Slide up on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Add depth on hover */
+}
+
+/* === Card Base === */
+.offer-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background-color: #fff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 30%;
+  overflow: hidden;
 }
 
-.offer-item h3 {
+/* === Card Body === */
+.offer-card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === Card Image === */
+.offer-card-img {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px auto;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .offer-card-img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* === Card Title === */
+.offer-card-title {
   font-size: 22px;
   color: #2d89e5;
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
-.offer-item p, .offer-item ul {
-  font-size: 16px;
+.offer-card-body h5 {
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
   line-height: 1.6;
 }
 
-.offer-item ul {
-  list-style-type: square;
-  padding-left: 20px;
+/* === Card Text === */
+.offer-card-text p,
+.offer-card-text ul li {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.6;
+}
+
+/* === Custom List === */
+.offer-card-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.offer-card-text ul li i {
+  color: #13c2e9;
+  margin-right: 10px;
+}
+
+/* === Responsive Styles === */
+@media (max-width: 426px) {
+  .offer-section {
+    padding: 0px;
+  }
+
+  .offer-card-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .offer-title {
+    font-size: 28px;
+  }
+
+  .offer-card-item {
+    width: 100%;
+  }
+
+  .offer-card-body h5 {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .offer-card-text p,
+  .offer-card-text ul li {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.4;
+  }
 }

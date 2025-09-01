@@ -1,0 +1,425 @@
+/* === Animations === */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-section {
+  animation: slideUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade {
+  animation: slideUp 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+/* === Section Header === */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 32px;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* === Join Movement Section === */
+.join-movement {
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.join-container {
+  padding: 40px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.join-text {
+  flex: 1 1 50%;
+}
+
+.join-form {
+  flex: 1 1 40%;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* === Left Column Enhancements === */
+.join-text h5,
+.join-form h5 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 20px 0 10px;
+  color: #333;
+}
+
+.join-text h5 i {
+  color: #2d89e5;
+}
+
+/* === Contact Info === */
+.contact-info {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.contact-info i {
+  color: #2d89e5;
+  font-size: 18px;
+}
+
+/* === Social Icons === */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  font-size: 20px;
+  color: #2d89e5;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #1f6ec1;
+}
+
+/* === Section Block === */
+.join-section {
+  margin: 20px 0;
+}
+
+/* === Donate Button === */
+.donate-button {
+  background-color: #e52d2d;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.donate-button:hover {
+  background-color: #c72121;
+}
+
+/* === Main Application Form === */
+.join-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.join-form input,
+.join-form textarea {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.join-form input::placeholder,
+.join-form textarea::placeholder {
+  color: #666;
+}
+
+.join-form button {
+  background-color: #2d89e5;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.join-form button:hover {
+  background-color: #1f6ec1;
+}
+
+/* === Inline Form (Volunteer) === */
+.inline-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+/* === Volunteer Container === */
+.volunteer-container {
+  position: relative;
+  margin: 60px auto;
+  padding: 100px 40px;
+  max-width: 100%;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: white;
+  background: url('https://cdn.pixabay.com/photo/2016/02/16/21/07/christmas-background-1204029_1280.jpg') center/cover no-repeat;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Dark overlay */
+.volunteer-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.volunteer-left,
+.volunteer-right {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 45%;
+  min-width: 250px;
+}
+
+.volunteer-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.volunteer-heading-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.volunteer-heading-wrapper h5 {
+  font-size: 42px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+  margin: 0;
+  text-align: left;
+}
+
+.volunteer-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* === Input With Button === */
+.input-with-button {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.input-with-button input {
+  width: 100%;
+  padding: 20px 200px 20px 25px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+.input-with-button input::placeholder {
+  color: #000;
+  font-size: 16px;
+}
+
+.input-with-button button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  height: calc(100% - 12px);
+  padding: 10px 24px;
+  background: #000 !important;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.input-with-button button:hover {
+  background: #333 !important;
+}
+
+/* === Responsive Design === */
+
+/* For tablets and smaller, keep side-by-side layout but reduce sizes */
+@media (max-width: 768px) {
+  .join-container {
+    flex-wrap: nowrap; /* keep side by side */
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .join-text,
+  .join-form {
+    flex: 1 1 48%; /* smaller width */
+  }
+
+  /* Smaller font sizes */
+  .section-header h2 {
+    font-size: 28px;
+  }
+
+  .section-header p {
+    font-size: 16px;
+  }
+
+  .join-text h5,
+  .join-form h5 {
+    font-size: 16px;
+  }
+
+  .contact-info,
+  .social-icons a,
+  .donate-button,
+  .join-form input,
+  .join-form textarea,
+  .join-form button {
+    font-size: 14px;
+  }
+
+  /* Reduce padding of main container */
+  .join-movement {
+    padding: 30px;
+  }
+
+  /* Smaller inputs */
+  .join-form input,
+  .join-form textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  /* Smaller buttons */
+  .join-form button,
+  .donate-button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  /* Volunteer container */
+  .volunteer-container {
+    padding: 60px 20px;
+  }
+
+  .volunteer-container h5 {
+    font-size: 36px;
+  }
+
+  .input-with-button {
+    max-width: 400px;
+  }
+
+  .input-with-button input {
+    padding: 14px 150px 14px 15px;
+    font-size: 14px;
+  }
+
+  .input-with-button button {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+/* For mobile screens: stack the two sections and reduce widths, padding, and sizes */
+@media (max-width: 426px) {
+  .join-container {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .join-text,
+  .join-form {
+    flex: 1 1 100%;
+  }
+
+  .join-form input,
+  .join-form textarea {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .join-form button,
+  .donate-button {
+    font-size: 14px;
+    padding: 10px 14px;
+    width: 100%;
+  }
+
+  .input-with-button {
+    max-width: 100%;
+  }
+
+  .input-with-button input {
+    padding: 12px 100px 12px 12px;
+    font-size: 14px;
+  }
+
+  .input-with-button button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  .volunteer-container h5 {
+    font-size: 25px;
+  }
+  .volunteer-right{
+    justify-content: center;
+  }
+}

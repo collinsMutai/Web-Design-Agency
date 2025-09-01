@@ -4,6 +4,7 @@ import WhatWeOffer from "./WhatWeOffer";
 import AboutUs from "./AboutUs";
 import ScholarshipDetails from "./ScholarshipDetails"; // ✅ Import new component
 import Header from "../Header/Header";
+import ApplicationForm from "./ApplicationForm";
 
 const Scholarship = () => {
   return (
@@ -15,7 +16,8 @@ const Scholarship = () => {
       <div className="scholarship-container">
         <AboutUs />
         <WhatWeOffer />
-        <ScholarshipDetails /> {/* ✅ Render new component */}
+        <ScholarshipDetails /> 
+        <ApplicationForm />
       </div>
     </>
   );

@@ -151,53 +151,6 @@ section p i.fa-check {
   margin-right: 8px;
 }
 
-/* Footer: Join the Movement */
-footer.join-movement {
-  background-color: #2d89e5;
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
-  border-radius: 8px;
-  margin-top: 60px;
-  opacity: 0;
-  animation: fadeInUp 1s ease-out forwards;
-  animation-delay: 1s;
-}
-
-footer.join-movement h5 {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  text-transform: capitalize;
-}
-
-footer.join-movement ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-footer.join-movement ul li {
-  position: relative;
-  padding-left: 28px;
-  font-size: 16px;
-  margin: 8px 0;
-  font-weight: normal;
-}
-
-footer.join-movement ul li i.fa-check {
-  position: absolute;
-  left: 0;
-  top: 2px;
-  color: white;
-}
-
-footer.join-movement p {
-  font-size: 16px;
-  margin-top: 20px;
-  font-weight: normal;
-}
-
 /* Responsive layout */
 @media (max-width: 426px) {
   .scholarship-grid {
@@ -225,15 +178,6 @@ footer.join-movement p {
   section li {
     font-size: 15px;
     line-height: 1.4;
-  }
-
-  footer.join-movement h5 {
-    font-size: 30px;
-  }
-
-  footer.join-movement p,
-  footer.join-movement ul li {
-    font-size: 15px;
   }
 
   .scholarship-grid-wrapper {

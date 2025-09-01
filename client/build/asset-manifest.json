@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.21f076a5.css",
-    "main.js": "/static/js/main.5a801980.js",
+    "main.css": "/static/css/main.750a5896.css",
+    "main.js": "/static/js/main.d8895e92.js",
     "static/media/Jambosafariafrica.jpg": "/static/media/Jambosafariafrica.4af55e6af91a6291de11.jpg",
     "static/media/Novelcoffee.jpg": "/static/media/Novelcoffee.b79dfee2d03528177bf2.jpg",
     "static/media/HCcarwash.jpg": "/static/media/HCcarwash.0e5f304f469084fc79c1.jpg",
@@ -20,6 +20,7 @@
     "static/media/Leempirecleaningservices.jpg": "/static/media/Leempirecleaningservices.9c2ca58eb57f4559a404.jpg",
     "static/media/Crystalclearcarwashbusinesscard6.jpg": "/static/media/Crystalclearcarwashbusinesscard6.a8d80c7fd4307ffd1e1b.jpg",
     "static/media/Crystalclearcarwashbusinesscard1.jpg": "/static/media/Crystalclearcarwashbusinesscard1.3e223ce83470c14ea942.jpg",
+    "static/media/mentor.png": "/static/media/mentor.8b973831d477ca0b68b4.png",
     "static/media/Crystalclearcarwashbusinesscard8.jpg": "/static/media/Crystalclearcarwashbusinesscard8.c6c5c46a9595da0eac9c.jpg",
     "static/media/Crystalclearcarwashbusinesscard3.jpg": "/static/media/Crystalclearcarwashbusinesscard3.2b686e57b95df5a3cf13.jpg",
     "static/media/collinsfrontendlogo.png": "/static/media/collinsfrontendlogo.11c5ff200659a43187a5.png",
@@ -30,11 +31,11 @@
     "static/media/Crystalclearcarwashbusinesscard7.jpg": "/static/media/Crystalclearcarwashbusinesscard7.f15fc73bfde114d4e246.jpg",
     "static/media/Crystalclearcarwashlogo.png": "/static/media/Crystalclearcarwashlogo.de4ee35d76be7f508314.png",
     "index.html": "/index.html",
-    "main.21f076a5.css.map": "/static/css/main.21f076a5.css.map",
-    "main.5a801980.js.map": "/static/js/main.5a801980.js.map"
+    "main.750a5896.css.map": "/static/css/main.750a5896.css.map",
+    "main.d8895e92.js.map": "/static/js/main.d8895e92.js.map"
   },
   "entrypoints": [
-    "static/css/main.21f076a5.css",
-    "static/js/main.5a801980.js"
+    "static/css/main.750a5896.css",
+    "static/js/main.d8895e92.js"
   ]
 }

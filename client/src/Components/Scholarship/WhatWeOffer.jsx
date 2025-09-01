@@ -3,7 +3,7 @@ import "./WhatWeOffer.css"; // Import custom CSS for image and text styling
 
 const WhatWeOffer = () => {
   return (
-    <section className="offer-section">
+    <section className="offer-section" >
       <h2 className="offer-title">What We Offer</h2>
       <div className="offer-card-container">
         <div className="offer-card-item">

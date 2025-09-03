@@ -11,7 +11,7 @@ const app = express();
 
 // ✅ Connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb+srv://nodejsshop23:nodejsshop23@cluster0.npgx5av.mongodb.net/mpesa', {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

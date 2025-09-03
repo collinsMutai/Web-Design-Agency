@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import "./ApplicationForm.css";
 import Mentor from "../../Images/mentor.png";
@@ -14,56 +14,114 @@ const ApplicationForm = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  // Payment method state: 'mpesa' or 'paypal'
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Donation handlers
-const handleMpesaDonate = async () => {
-  try {
-    const res = await fetch("http://localhost:5000/api/mpesa/stkpush", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        amount: 1,
-        phone: "254726097666",
-      }),
-    });
+  const pollPaymentStatus = (checkoutId) => {
+    return new Promise((resolve, reject) => {
+      let elapsed = 0;
+      const pollIntervalMs = 5000;
+      const timeoutMs = 60000;
 
-    const data = await res.json();
+      const interval = setInterval(async () => {
+        elapsed += pollIntervalMs;
 
-    if (data?.data?.ResponseCode === "0") {
-      alert("✅ Donation initiated. Check your phone to complete the payment.");
+        try {
+          const res = await fetch(`http://localhost:5000/api/mpesa/status/${checkoutId}`);
+          const data = await res.json();
 
-      const checkoutId = data.data.CheckoutRequestID;
-
-      // Poll every 5 seconds for payment status
-      const pollInterval = setInterval(async () => {
-        const statusRes = await fetch(
-          `http://localhost:5000/api/mpesa/status/${checkoutId}`
-        );
-        const statusData = await statusRes.json();
-
-        if (statusData.status === "success") {
-          clearInterval(pollInterval);
-          alert("🎉 Payment successful! Thank you for your donation.");
-        } else if (statusData.status === "failed") {
-          clearInterval(pollInterval);
-          alert(`❌ Payment failed: ${statusData.description}`);
+          if (data.status === "success") {
+            clearInterval(interval);
+            resolve({ success: true });
+          } else if (
+            [
+              "failed",
+              "cancelled_by_user",
+              "timeout_user_unreachable",
+              "insufficient_funds",
+              "invalid_phone_number",
+            ].includes(data.status)
+          ) {
+            clearInterval(interval);
+            resolve({ success: false, message: data.message });
+          } else if (elapsed >= timeoutMs) {
+            clearInterval(interval);
+            resolve({ success: false, message: "Payment confirmation timed out." });
+          }
+          // else: still pending, continue polling
+        } catch (err) {
+          clearInterval(interval);
+          reject(err);
         }
+      }, pollIntervalMs);
+    });
+  };
 
-        // else still pending — do nothing
-      }, 5000);
-    } else {
-      alert("❌ Donation failed to initiate.");
+  // Single useEffect to check for pending payment on reload
+  useEffect(() => {
+    const checkPendingPayment = async () => {
+      const checkoutId = localStorage.getItem("lastMpesaCheckoutId");
+      if (!checkoutId) return;
+
+      setIsLoading(true);
+
+      try {
+        const result = await pollPaymentStatus(checkoutId);
+        localStorage.removeItem("lastMpesaCheckoutId");
+
+        if (result.success) {
+          alert("🎉 Your pending M-Pesa donation went through. Thank you!");
+        } else {
+          alert(`❌ Previous donation attempt: ${result.message}`);
+        }
+      } catch (error) {
+        console.error("Error checking pending payment:", error);
+        alert("⚠️ Could not verify previous donation.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkPendingPayment();
+  }, []);
+
+  const handleMpesaDonate = async () => {
+    setIsLoading(true);
+
+    try {
+      const res = await fetch("http://localhost:5000/api/mpesa/stkpush", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: 1, phone: "254726097666" }),
+      });
+
+      const data = await res.json();
+
+      if (data?.success && data?.checkoutRequestID) {
+        alert("✅ Donation initiated. Check your phone to complete the payment.");
+
+        const checkoutId = data.checkoutRequestID;
+        localStorage.setItem("lastMpesaCheckoutId", checkoutId);
+
+        const result = await pollPaymentStatus(checkoutId);
+
+        localStorage.removeItem("lastMpesaCheckoutId");
+
+        if (result.success) {
+          alert("🎉 Payment successful! Thank you for your donation.");
+        } else {
+          alert(`❌ Payment status: ${result.message}`);
+        }
+      } else {
+        alert("❌ Donation failed to initiate.");
+      }
+    } catch (error) {
+      console.error("Donation error:", error);
+      alert("⚠️ Failed to initiate donation.");
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) {
-    console.error("Donation error:", error);
-    alert("⚠️ Failed to initiate donation.");
-  }
-};
-
+  };
 
   const handlePaypalDonate = () => {
     window.location.href = "http://localhost:5000/api/paypal/donate";
@@ -141,8 +199,8 @@ const handleMpesaDonate = async () => {
                     value="mpesa"
                     checked={paymentMethod === "mpesa"}
                     onChange={() => setPaymentMethod("mpesa")}
+                    disabled={isLoading}
                   />
-                    {/* <span className="mpesa-button-text">Lipa na M‑Pesa</span> */}
                   <img
                     src={Mpesa}
                     alt="M-Pesa Logo"
@@ -158,26 +216,30 @@ const handleMpesaDonate = async () => {
                     value="paypal"
                     checked={paymentMethod === "paypal"}
                     onChange={() => setPaymentMethod("paypal")}
+                    disabled={isLoading}
                   />
                   <img
                     src={PayPal}
                     alt="PayPal Logo"
                     className="paypal-logo-img"
                   />
-                  {/* <span className="paypal-button-text">
-                    <span className="paypal-text-pay">Pay</span>
-                    <span className="paypal-text-pal">Pal</span> Donate
-                  </span> */}
                 </label>
               </div>
 
               <button
                 className="donate-button"
                 onClick={handleDonate}
-                disabled={!paymentMethod}
+                disabled={!paymentMethod || isLoading}
                 style={{ marginTop: "15px" }}
               >
-                Donate
+                {isLoading ? (
+                  <>
+                    <span className="spinner" aria-label="Loading" />
+                    Processing...
+                  </>
+                ) : (
+                  "Donate"
+                )}
               </button>
             </div>
 
@@ -193,7 +255,7 @@ const handleMpesaDonate = async () => {
               <input
                 type="tel"
                 placeholder="Phone Number *"
-                pattern="[0-9]{10}"
+                pattern="(\+?254|0)?7\d{8}"
                 required
               />
               <textarea

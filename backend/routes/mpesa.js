@@ -3,15 +3,13 @@ const axios = require("axios");
 const router = express.Router();
 require("dotenv").config();
 
-const latestCallbacks = {}; // In-memory store
+const MpesaTransaction = require("../models/MpesaTransaction");
 
 // === Utility: Get Access Token ===
 const getAccessToken = async () => {
   const auth = Buffer.from(
     `${process.env.MPESA_CONSUMER_KEY}:${process.env.MPESA_CONSUMER_SECRET}`
   ).toString("base64");
-
-  console.log("🔐 Fetching M-Pesa access token...");
 
   const res = await axios.get(
     "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials",
@@ -20,7 +18,6 @@ const getAccessToken = async () => {
     }
   );
 
-  console.log("✅ Access token received.");
   return res.data.access_token;
 };
 
@@ -37,7 +34,7 @@ const getTimestamp = () => {
   );
 };
 
-// === Utility: Translate ResultCode to UX-friendly status and message ===
+// === Utility: Translate ResultCode to status and message ===
 const getResultDetails = (code) => {
   const map = {
     0: {
@@ -72,10 +69,6 @@ const getResultDetails = (code) => {
 router.post("/stkpush", async (req, res) => {
   const { phone, amount } = req.body;
 
-  console.log("📲 Initiating STK Push...");
-  console.log("➡️ Phone:", phone);
-  console.log("➡️ Amount:", amount);
-
   try {
     const accessToken = await getAccessToken();
     const timestamp = getTimestamp();
@@ -97,8 +90,6 @@ router.post("/stkpush", async (req, res) => {
       TransactionDesc: "Donation to FutureTech",
     };
 
-    console.log("📡 Sending STK Push request to M-Pesa...");
-
     const response = await axios.post(
       "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
       payload,
@@ -112,16 +103,14 @@ router.post("/stkpush", async (req, res) => {
 
     const data = response.data;
 
-    console.log("✅ STK Push initiated.");
-    console.log("🆔 CheckoutRequestID:", data.CheckoutRequestID);
-    console.log("💬 Message from M-Pesa:", data.CustomerMessage);
-
-    // Store initial pending status
-    latestCallbacks[data.CheckoutRequestID] = {
+    // ✅ Save initial pending transaction to MongoDB
+    await MpesaTransaction.create({
+      phone,
+      amount,
+      checkoutRequestID: data.CheckoutRequestID,
       status: "pending",
       message: "📲 Waiting for user to authorize the transaction...",
-      timestamp: new Date().toISOString(),
-    };
+    });
 
     return res.status(200).json({
       success: true,
@@ -137,53 +126,57 @@ router.post("/stkpush", async (req, res) => {
 });
 
 // === M-PESA Callback Route ===
-router.post("/callback", (req, res) => {
+router.post("/callback", async (req, res) => {
   const callback = req.body?.Body?.stkCallback;
 
   if (!callback) {
-    console.error("❌ Invalid callback received:", JSON.stringify(req.body));
     return res.status(400).json({ message: "Invalid callback structure" });
   }
 
   const { CheckoutRequestID, ResultCode, ResultDesc } = callback;
-
-  console.log("📥 M-Pesa Callback Received:");
-  console.log("🆔 CheckoutRequestID:", CheckoutRequestID);
-  console.log("📊 ResultCode:", ResultCode);
-  console.log("📝 ResultDesc:", ResultDesc);
-
   const { status, message } = getResultDetails(ResultCode);
 
-  latestCallbacks[CheckoutRequestID] = {
-    status,
-    message,
-    resultCode: ResultCode,
-    description: ResultDesc,
-    timestamp: new Date().toISOString(),
-  };
+  try {
+    // ✅ Update transaction in MongoDB
+    await MpesaTransaction.findOneAndUpdate(
+      { checkoutRequestID: CheckoutRequestID },
+      {
+        status,
+        resultCode: ResultCode,
+        description: ResultDesc,
+        message,
+        timestamp: new Date(),
+      }
+    );
 
-  console.log(`✅ Status updated: ${status}`);
-  return res.status(200).json({ message: "Callback received successfully" });
+    return res.status(200).json({ message: "Callback received successfully" });
+  } catch (error) {
+    console.error("❌ Callback update error:", error.message);
+    return res.status(500).json({ message: "Failed to process callback" });
+  }
 });
 
 // === GET Payment Status ===
-router.get("/status/:checkoutId", (req, res) => {
+router.get("/status/:checkoutId", async (req, res) => {
   const { checkoutId } = req.params;
 
-  console.log("📤 Status requested for CheckoutRequestID:", checkoutId);
-
-  const status = latestCallbacks[checkoutId];
-
-  if (!status) {
-    console.warn("⚠️ No record found for this CheckoutRequestID.");
-    return res.status(404).json({
-      status: "unknown",
-      message: "No transaction found with that CheckoutRequestID",
+  try {
+    const transaction = await MpesaTransaction.findOne({
+      checkoutRequestID: checkoutId,
     });
-  }
 
-  console.log("✅ Status response:", status);
-  return res.json(status);
+    if (!transaction) {
+      return res.status(404).json({
+        status: "unknown",
+        message: "No transaction found with that CheckoutRequestID",
+      });
+    }
+
+    return res.json(transaction);
+  } catch (error) {
+    console.error("❌ Status check error:", error.message);
+    return res.status(500).json({ message: "Failed to fetch transaction" });
+  }
 });
 
 module.exports = router;

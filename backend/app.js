@@ -1,22 +1,30 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 const pesapalRoutes = require('./routes/pesapal');
-const mpesaRoutes = require("./routes/mpesa");
+const mpesaRoutes = require('./routes/mpesa');
 const paypalRoutes = require('./routes/paypal');
-
-
 
 const app = express();
 
-// ✅ CORS setup with headers
+// ✅ Connect to MongoDB
+mongoose
+  .connect(process.env.MONGODB_URI || 'mongodb+srv://nodejsshop23:nodejsshop23@cluster0.npgx5av.mongodb.net/mpesa', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('✅ MongoDB connected'))
+  .catch((err) => console.error('❌ MongoDB connection error:', err));
+
+// ✅ CORS setup
 app.use(cors({
   origin: 'http://localhost:3000',
-  credentials: true, // if using cookies or sessions
+  credentials: true,
 }));
 
-// ✅ Custom Headers Middleware
+// ✅ Headers middleware
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Credentials', 'true');
@@ -29,10 +37,8 @@ app.use(express.json());
 
 // ✅ Routes
 app.use('/api/pesapal', pesapalRoutes);
-app.use("/api/mpesa", mpesaRoutes);
-app.use("/api/paypal", paypalRoutes);
-
-
+app.use('/api/mpesa', mpesaRoutes);
+app.use('/api/paypal', paypalRoutes);
 
 // ✅ Start server
 const PORT = process.env.PORT || 5000;

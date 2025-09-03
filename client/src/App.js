@@ -8,6 +8,8 @@ import Portfolio from "./Components/Portfolio/Portfolio";
 import ContactForm from "./Components/ContactForm/ContactForm";
 import BlogPage from "./Components/BlogPage/BlogPage";
 import Scholarship from "./Components/Scholarship/Scholarship";
+import DonationSuccess from "./Components/PayPalDonationSuccess/PaypalDonationSuccess";
+import PaypalDonationFailure from "./Components/PaypalDonationFailure/PaypalDonationFailure";
 import AppContextProvider from "./AppContext";
 import Navbar from "./Components/Navbar/Navbar";
 import MaintenancePage from "./MaintenancePage";
@@ -57,6 +59,10 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           {/* Scholarship Donations route */}
           <Route path="/scholarship-donations" element={<Scholarship />} />
+          <Route path="/donation-success" element={<DonationSuccess />} />
+          <Route path="/donation-cancel" element={<PaypalDonationFailure />} />
+
+
         </Route>
       </Routes>
 

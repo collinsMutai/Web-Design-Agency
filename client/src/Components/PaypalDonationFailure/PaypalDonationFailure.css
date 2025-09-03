@@ -1,0 +1,25 @@
+/* PaypalDonationFailure.css */
+.paypal-donation-failure-container {
+  padding: 200px 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: red;
+}
+
+.donate-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.donate-link:hover {
+  background-color: #0056b3;
+}

@@ -119,6 +119,55 @@
   margin: 20px 0;
 }
 
+/* === Payment Options (Radio Buttons + Logos) === */
+.payment-options {
+  display: flex;
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  color: #444;
+  font-size: 16px;
+}
+
+.payment-option input[type="radio"] {
+  accent-color: #53d469; /* Green like M-Pesa */
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Adjust accent color for PayPal option */
+.payment-option input[type="radio"][value="paypal"] {
+  accent-color: #0070ba;
+}
+
+/* Add extra spacing between PayPal radio and its logo */
+.payment-option input[type="radio"][value="paypal"] + .paypal-logo-img {
+  margin-left: 12px; /* increase space as needed */
+}
+
+.mpesa-logo-img,
+.paypal-logo-img {
+  height: 28px;
+  width: auto;
+  user-select: none;
+  pointer-events: none; /* prevent image from capturing clicks */
+}
+
+.mpesa-button-text,
+.paypal-button-text {
+  display: inline-block;
+  user-select: none;
+}
+
 /* === Donate Button === */
 .donate-button {
   background-color: #e52d2d;
@@ -132,7 +181,12 @@
   margin-top: 10px;
 }
 
-.donate-button:hover {
+.donate-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.donate-button:hover:not(:disabled) {
   background-color: #c72121;
 }
 
@@ -272,6 +326,7 @@
   outline: none;
   border: none;
 }
+
 
 .input-with-button input::placeholder {
   color: #000;
@@ -419,7 +474,7 @@
   .volunteer-container h5 {
     font-size: 25px;
   }
-  .volunteer-right{
+  .volunteer-right {
     justify-content: center;
   }
 }

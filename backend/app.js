@@ -4,6 +4,8 @@ require('dotenv').config();
 
 const pesapalRoutes = require('./routes/pesapal');
 const mpesaRoutes = require("./routes/mpesa");
+const paypalRoutes = require('./routes/paypal');
+
 
 
 const app = express();
@@ -28,6 +30,8 @@ app.use(express.json());
 // ✅ Routes
 app.use('/api/pesapal', pesapalRoutes);
 app.use("/api/mpesa", mpesaRoutes);
+app.use("/api/paypal", paypalRoutes);
+
 
 
 // ✅ Start server

@@ -1,7 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import "./ApplicationForm.css";
 import Mentor from "../../Images/mentor.png";
+import PayPal from "../../Images/paypallogo.png";
+import Mpesa from "../../Images/mpesalogo.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -12,8 +14,11 @@ const ApplicationForm = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  // 🚀 Donation handler
-const handleDonate = async () => {
+  // Payment method state: 'mpesa' or 'paypal'
+  const [paymentMethod, setPaymentMethod] = useState("");
+
+  // Donation handlers
+const handleMpesaDonate = async () => {
   try {
     const res = await fetch("http://localhost:5000/api/mpesa/stkpush", {
       method: "POST",
@@ -21,15 +26,35 @@ const handleDonate = async () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        amount: 1, // donation amount in KES
-        phone: "254726097666", // phone in international format (e.g., 2547xxxxxxx)
+        amount: 1,
+        phone: "254726097666",
       }),
     });
 
     const data = await res.json();
 
-    if (data.ResponseCode === "0") {
+    if (data?.data?.ResponseCode === "0") {
       alert("✅ Donation initiated. Check your phone to complete the payment.");
+
+      const checkoutId = data.data.CheckoutRequestID;
+
+      // Poll every 5 seconds for payment status
+      const pollInterval = setInterval(async () => {
+        const statusRes = await fetch(
+          `http://localhost:5000/api/mpesa/status/${checkoutId}`
+        );
+        const statusData = await statusRes.json();
+
+        if (statusData.status === "success") {
+          clearInterval(pollInterval);
+          alert("🎉 Payment successful! Thank you for your donation.");
+        } else if (statusData.status === "failed") {
+          clearInterval(pollInterval);
+          alert(`❌ Payment failed: ${statusData.description}`);
+        }
+
+        // else still pending — do nothing
+      }, 5000);
     } else {
       alert("❌ Donation failed to initiate.");
     }
@@ -39,6 +64,20 @@ const handleDonate = async () => {
   }
 };
 
+
+  const handlePaypalDonate = () => {
+    window.location.href = "http://localhost:5000/api/paypal/donate";
+  };
+
+  const handleDonate = () => {
+    if (paymentMethod === "mpesa") {
+      handleMpesaDonate();
+    } else if (paymentMethod === "paypal") {
+      handlePaypalDonate();
+    } else {
+      alert("Please select a payment method first.");
+    }
+  };
 
   return (
     <>
@@ -75,16 +114,69 @@ const handleDonate = async () => {
             <div className="join-section">
               <h5>Follow us for updates</h5>
               <div className="social-icons">
-                <a href="#"><i className="fab fa-twitter"></i></a>
-                <a href="#"><i className="fab fa-instagram"></i></a>
-                <a href="#"><i className="fab fa-linkedin"></i></a>
-                <a href="#"><i className="fab fa-facebook"></i></a>
+                <a href="#">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                  <i className="fab fa-linkedin"></i>
+                </a>
+                <a href="#">
+                  <i className="fab fa-facebook"></i>
+                </a>
               </div>
             </div>
 
             <div className="join-section">
               <h5>Donate to help others</h5>
-              <button className="donate-button" onClick={handleDonate}>
+
+              <div className="payment-options">
+                <label className="payment-option" htmlFor="mpesa-radio">
+                  <input
+                    type="radio"
+                    id="mpesa-radio"
+                    name="paymentMethod"
+                    value="mpesa"
+                    checked={paymentMethod === "mpesa"}
+                    onChange={() => setPaymentMethod("mpesa")}
+                  />
+                    {/* <span className="mpesa-button-text">Lipa na M‑Pesa</span> */}
+                  <img
+                    src={Mpesa}
+                    alt="M-Pesa Logo"
+                    className="mpesa-logo-img"
+                  />
+                </label>
+
+                <label className="payment-option" htmlFor="paypal-radio">
+                  <input
+                    type="radio"
+                    id="paypal-radio"
+                    name="paymentMethod"
+                    value="paypal"
+                    checked={paymentMethod === "paypal"}
+                    onChange={() => setPaymentMethod("paypal")}
+                  />
+                  <img
+                    src={PayPal}
+                    alt="PayPal Logo"
+                    className="paypal-logo-img"
+                  />
+                  {/* <span className="paypal-button-text">
+                    <span className="paypal-text-pay">Pay</span>
+                    <span className="paypal-text-pal">Pal</span> Donate
+                  </span> */}
+                </label>
+              </div>
+
+              <button
+                className="donate-button"
+                onClick={handleDonate}
+                disabled={!paymentMethod}
+                style={{ marginTop: "15px" }}
+              >
                 Donate
               </button>
             </div>

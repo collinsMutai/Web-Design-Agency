@@ -1,0 +1,17 @@
+.donation-success-container {
+  padding: 200px 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.status-success {
+  color: green;
+}
+
+.status-failed,
+.status-error,
+.status-missing {
+  color: red;
+}

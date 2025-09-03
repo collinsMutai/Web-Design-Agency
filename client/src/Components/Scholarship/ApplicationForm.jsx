@@ -27,7 +27,9 @@ const ApplicationForm = () => {
         elapsed += pollIntervalMs;
 
         try {
-          const res = await fetch(`http://localhost:5000/api/mpesa/status/${checkoutId}`);
+          const res = await fetch(
+            `http://localhost:5000/api/mpesa/status/${checkoutId}`
+          );
           const data = await res.json();
 
           if (data.status === "success") {
@@ -46,9 +48,11 @@ const ApplicationForm = () => {
             resolve({ success: false, message: data.message });
           } else if (elapsed >= timeoutMs) {
             clearInterval(interval);
-            resolve({ success: false, message: "Payment confirmation timed out." });
+            resolve({
+              success: false,
+              message: "⌛ Timeout: No response received. Please try again.",
+            });
           }
-          // else: still pending, continue polling
         } catch (err) {
           clearInterval(interval);
           reject(err);
@@ -57,8 +61,9 @@ const ApplicationForm = () => {
     });
   };
 
-  // Single useEffect to check for pending payment on reload
   useEffect(() => {
+    let cancelled = false;
+
     const checkPendingPayment = async () => {
       const checkoutId = localStorage.getItem("lastMpesaCheckoutId");
       if (!checkoutId) return;
@@ -67,27 +72,37 @@ const ApplicationForm = () => {
 
       try {
         const result = await pollPaymentStatus(checkoutId);
+
+        if (cancelled) return;
+
         localStorage.removeItem("lastMpesaCheckoutId");
 
         if (result.success) {
           alert("🎉 Your pending M-Pesa donation went through. Thank you!");
         } else {
-          alert(`❌ Previous donation attempt: ${result.message}`);
+          alert(`❌ Payment status: ${result.message}`);
         }
-      } catch (error) {
-        console.error("Error checking pending payment:", error);
-        alert("⚠️ Could not verify previous donation.");
+      } catch (err) {
+        if (!cancelled) {
+          console.error("Error checking pending payment:", err);
+          alert("⚠️ Could not verify previous donation.");
+        }
       } finally {
-        setIsLoading(false);
+        if (!cancelled) {
+          setIsLoading(false);
+        }
       }
     };
 
     checkPendingPayment();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const handleMpesaDonate = async () => {
     setIsLoading(true);
-
     try {
       const res = await fetch("http://localhost:5000/api/mpesa/stkpush", {
         method: "POST",
@@ -98,7 +113,9 @@ const ApplicationForm = () => {
       const data = await res.json();
 
       if (data?.success && data?.checkoutRequestID) {
-        alert("✅ Donation initiated. Check your phone to complete the payment.");
+        alert(
+          "✅ Donation initiated. Check your phone to complete the payment."
+        );
 
         const checkoutId = data.checkoutRequestID;
         localStorage.setItem("lastMpesaCheckoutId", checkoutId);
@@ -106,6 +123,7 @@ const ApplicationForm = () => {
         const result = await pollPaymentStatus(checkoutId);
 
         localStorage.removeItem("lastMpesaCheckoutId");
+        setIsLoading(false);
 
         if (result.success) {
           alert("🎉 Payment successful! Thank you for your donation.");
@@ -113,13 +131,13 @@ const ApplicationForm = () => {
           alert(`❌ Payment status: ${result.message}`);
         }
       } else {
+        setIsLoading(false);
         alert("❌ Donation failed to initiate.");
       }
     } catch (error) {
       console.error("Donation error:", error);
-      alert("⚠️ Failed to initiate donation.");
-    } finally {
       setIsLoading(false);
+      alert("⚠️ Failed to initiate donation.");
     }
   };
 
@@ -230,7 +248,27 @@ const ApplicationForm = () => {
                 className="donate-button"
                 onClick={handleDonate}
                 disabled={!paymentMethod || isLoading}
-                style={{ marginTop: "15px" }}
+                style={{
+                  marginTop: "15px",
+                  backgroundColor:
+                    isLoading || !paymentMethod
+                      ? "#f39c12"
+                      : paymentMethod === "mpesa"
+                      ? "#28a745"
+                      : "#0070ba",
+                }}
+                onMouseOver={(e) => {
+                  if (!isLoading && paymentMethod) {
+                    e.currentTarget.style.backgroundColor =
+                      paymentMethod === "mpesa" ? "#218838" : "#005c99";
+                  }
+                }}
+                onMouseOut={(e) => {
+                  if (!isLoading && paymentMethod) {
+                    e.currentTarget.style.backgroundColor =
+                      paymentMethod === "mpesa" ? "#28a745" : "#0070ba";
+                  }
+                }}
               >
                 {isLoading ? (
                   <>

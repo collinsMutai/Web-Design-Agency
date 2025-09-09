@@ -1,0 +1,3 @@
+[2025-09-09T15:41:03.988Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_090920251841041797759858"}
+[2025-09-09T15:41:13.983Z] INFO: ✅ Callback processed {"checkoutRequestID":"ws_CO_090920251841041797759858"}
+[2025-09-09T15:41:19.670Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251841041797759858"}

@@ -1,5 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./ApplicationForm.css";
 import Mentor from "../../Images/mentor.png";
 import PayPal from "../../Images/paypallogo.png";
@@ -10,56 +12,85 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const ApplicationForm = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   const [paymentMethod, setPaymentMethod] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [token, setToken] = useState(null);
 
-  const pollPaymentStatus = (checkoutId) => {
-    return new Promise((resolve, reject) => {
-      let elapsed = 0;
-      const pollIntervalMs = 5000;
-      const timeoutMs = 60000;
+  useEffect(() => {
+    const getGuestToken = async () => {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/auth/guest-token`);
+        const data = await res.json();
+        setToken(data.token);
+      } catch (err) {
+        console.error("Failed to fetch guest token:", err);
+        toast.error(
+          "⚠️ Could not get guest token. Donations are temporarily unavailable."
+        );
+      }
+    };
 
-      const interval = setInterval(async () => {
-        elapsed += pollIntervalMs;
+    getGuestToken();
+  }, []);
 
-        try {
-          const res = await fetch(
-            `http://localhost:5000/api/mpesa/status/${checkoutId}`
-          );
-          const data = await res.json();
+  // ✅ Wrapped pollPaymentStatus in useCallback to avoid ESLint warning
+  const pollPaymentStatus = useCallback(
+    (checkoutId) => {
+      return new Promise((resolve, reject) => {
+        let elapsed = 0;
+        const pollIntervalMs = 5000;
+        const timeoutMs = 60000;
 
-          if (data.status === "success") {
+        const interval = setInterval(async () => {
+          elapsed += pollIntervalMs;
+
+          try {
+            const res = await fetch(
+              `${API_BASE_URL}/api/mpesa/status/${checkoutId}`,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+            const data = await res.json();
+
+            if (data.status === "success") {
+              clearInterval(interval);
+              resolve({ success: true });
+            } else if (
+              [
+                "failed",
+                "cancelled_by_user",
+                "timeout_user_unreachable",
+                "insufficient_funds",
+                "invalid_phone_number",
+              ].includes(data.status)
+            ) {
+              clearInterval(interval);
+              resolve({ success: false, message: data.message });
+            } else if (elapsed >= timeoutMs) {
+              clearInterval(interval);
+              resolve({
+                success: false,
+                message: "⌛ Timeout: No response received. Please try again.",
+              });
+            }
+          } catch (err) {
             clearInterval(interval);
-            resolve({ success: true });
-          } else if (
-            [
-              "failed",
-              "cancelled_by_user",
-              "timeout_user_unreachable",
-              "insufficient_funds",
-              "invalid_phone_number",
-            ].includes(data.status)
-          ) {
-            clearInterval(interval);
-            resolve({ success: false, message: data.message });
-          } else if (elapsed >= timeoutMs) {
-            clearInterval(interval);
-            resolve({
-              success: false,
-              message: "⌛ Timeout: No response received. Please try again.",
-            });
+            reject(err);
           }
-        } catch (err) {
-          clearInterval(interval);
-          reject(err);
-        }
-      }, pollIntervalMs);
-    });
-  };
+        }, pollIntervalMs);
+      });
+    },
+    [token]
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -78,14 +109,16 @@ const ApplicationForm = () => {
         localStorage.removeItem("lastMpesaCheckoutId");
 
         if (result.success) {
-          alert("🎉 Your pending M-Pesa donation went through. Thank you!");
+          toast.success(
+            "🎉 Your pending M-Pesa donation went through. Thank you!"
+          );
         } else {
-          alert(`❌ Payment status: ${result.message}`);
+          toast.error(`❌ Payment status: ${result.message}`);
         }
       } catch (err) {
         if (!cancelled) {
           console.error("Error checking pending payment:", err);
-          alert("⚠️ Could not verify previous donation.");
+          toast.error("⚠️ Could not verify previous donation.");
         }
       } finally {
         if (!cancelled) {
@@ -99,21 +132,30 @@ const ApplicationForm = () => {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [pollPaymentStatus]);
 
   const handleMpesaDonate = async () => {
+    if (!token) {
+      toast.error("⚠️ Unable to initiate donation. Token not available.");
+      return;
+    }
+
     setIsLoading(true);
+
     try {
-      const res = await fetch("http://localhost:5000/api/mpesa/stkpush", {
+      const res = await fetch(`${API_BASE_URL}/api/mpesa/stkpush`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 1, phone: "254726097666" }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ amount: 1, phone: "254797759858" }),
       });
 
       const data = await res.json();
 
       if (data?.success && data?.checkoutRequestID) {
-        alert(
+        toast.info(
           "✅ Donation initiated. Check your phone to complete the payment."
         );
 
@@ -126,23 +168,23 @@ const ApplicationForm = () => {
         setIsLoading(false);
 
         if (result.success) {
-          alert("🎉 Payment successful! Thank you for your donation.");
+          toast.success("🎉 Payment successful! Thank you for your donation.");
         } else {
-          alert(`❌ Payment status: ${result.message}`);
+          toast.error(`❌ Payment status: ${result.message}`);
         }
       } else {
         setIsLoading(false);
-        alert("❌ Donation failed to initiate.");
+        toast.error("❌ Donation failed to initiate.");
       }
     } catch (error) {
       console.error("Donation error:", error);
       setIsLoading(false);
-      alert("⚠️ Failed to initiate donation.");
+      toast.error("⚠️ Failed to initiate donation.");
     }
   };
 
   const handlePaypalDonate = () => {
-    window.location.href = "http://localhost:5000/api/paypal/donate";
+    window.location.href = `${API_BASE_URL}/api/paypal/donate`;
   };
 
   const handleDonate = () => {
@@ -151,7 +193,7 @@ const ApplicationForm = () => {
     } else if (paymentMethod === "paypal") {
       handlePaypalDonate();
     } else {
-      alert("Please select a payment method first.");
+      toast.warn("Please select a payment method first.");
     }
   };
 
@@ -282,6 +324,17 @@ const ApplicationForm = () => {
             </div>
 
             <p>Together, we turn dreamers into innovators.</p>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark" // or "dark"
+            />
           </motion.div>
 
           {/* Right Column - Application Form */}

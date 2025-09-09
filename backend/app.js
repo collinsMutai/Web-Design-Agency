@@ -6,6 +6,9 @@ require('dotenv').config();
 const pesapalRoutes = require('./routes/pesapal');
 const mpesaRoutes = require('./routes/mpesa');
 const paypalRoutes = require('./routes/paypal');
+const authRoutes = require('./routes/auth');
+
+
 
 const app = express();
 
@@ -39,6 +42,7 @@ app.use(express.json());
 app.use('/api/pesapal', pesapalRoutes);
 app.use('/api/mpesa', mpesaRoutes);
 app.use('/api/paypal', paypalRoutes);
+app.use('/api/auth', authRoutes);
 
 // ✅ Start server
 const PORT = process.env.PORT || 5000;

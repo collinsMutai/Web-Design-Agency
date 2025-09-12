@@ -4,13 +4,17 @@ const checkoutNodeJssdk = require("@paypal/checkout-server-sdk");
 require("dotenv").config();
 
 // === PayPal Client Configuration ===
-const Environment = checkoutNodeJssdk.core.SandboxEnvironment;
+const Environment = process.env.PAYPAL_MODE === "live"
+  ? checkoutNodeJssdk.core.LiveEnvironment
+  : checkoutNodeJssdk.core.SandboxEnvironment;
+
 const paypalClient = new checkoutNodeJssdk.core.PayPalHttpClient(
   new Environment(
     process.env.PAYPAL_CLIENT_ID,
     process.env.PAYPAL_CLIENT_SECRET
   )
 );
+
 
 // === /api/paypal/donate ===
 router.get("/donate", async (req, res) => {

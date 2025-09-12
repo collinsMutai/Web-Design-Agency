@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.750a5896.css",
-    "main.js": "/static/js/main.d8895e92.js",
+    "main.css": "/static/css/main.ad3f8a14.css",
+    "main.js": "/static/js/main.e8396cb6.js",
     "static/media/Jambosafariafrica.jpg": "/static/media/Jambosafariafrica.4af55e6af91a6291de11.jpg",
     "static/media/Novelcoffee.jpg": "/static/media/Novelcoffee.b79dfee2d03528177bf2.jpg",
     "static/media/HCcarwash.jpg": "/static/media/HCcarwash.0e5f304f469084fc79c1.jpg",
@@ -23,6 +23,7 @@
     "static/media/mentor.png": "/static/media/mentor.8b973831d477ca0b68b4.png",
     "static/media/Crystalclearcarwashbusinesscard8.jpg": "/static/media/Crystalclearcarwashbusinesscard8.c6c5c46a9595da0eac9c.jpg",
     "static/media/Crystalclearcarwashbusinesscard3.jpg": "/static/media/Crystalclearcarwashbusinesscard3.2b686e57b95df5a3cf13.jpg",
+    "static/media/paypallogo.png": "/static/media/paypallogo.9907652fbdf2226d490a.png",
     "static/media/collinsfrontendlogo.png": "/static/media/collinsfrontendlogo.11c5ff200659a43187a5.png",
     "static/media/Crystalclearcarwashbusinesscard2.jpg": "/static/media/Crystalclearcarwashbusinesscard2.c0f17f66e551345dc072.jpg",
     "static/media/Crystalclearcarwashbusinesscard4.jpg": "/static/media/Crystalclearcarwashbusinesscard4.6c94cc7b57e56ea285f5.jpg",
@@ -31,11 +32,11 @@
     "static/media/Crystalclearcarwashbusinesscard7.jpg": "/static/media/Crystalclearcarwashbusinesscard7.f15fc73bfde114d4e246.jpg",
     "static/media/Crystalclearcarwashlogo.png": "/static/media/Crystalclearcarwashlogo.de4ee35d76be7f508314.png",
     "index.html": "/index.html",
-    "main.750a5896.css.map": "/static/css/main.750a5896.css.map",
-    "main.d8895e92.js.map": "/static/js/main.d8895e92.js.map"
+    "main.ad3f8a14.css.map": "/static/css/main.ad3f8a14.css.map",
+    "main.e8396cb6.js.map": "/static/js/main.e8396cb6.js.map"
   },
   "entrypoints": [
-    "static/css/main.750a5896.css",
-    "static/js/main.d8895e92.js"
+    "static/css/main.ad3f8a14.css",
+    "static/js/main.e8396cb6.js"
   ]
 }

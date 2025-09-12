@@ -1,39 +1,46 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const checkoutNodeJssdk = require('@paypal/checkout-server-sdk');
-require('dotenv').config();
+const checkoutNodeJssdk = require("@paypal/checkout-server-sdk");
+require("dotenv").config();
 
 // === PayPal Client Configuration ===
 const Environment = checkoutNodeJssdk.core.SandboxEnvironment;
 const paypalClient = new checkoutNodeJssdk.core.PayPalHttpClient(
-  new Environment(process.env.PAYPAL_CLIENT_ID, process.env.PAYPAL_CLIENT_SECRET)
+  new Environment(
+    process.env.PAYPAL_CLIENT_ID,
+    process.env.PAYPAL_CLIENT_SECRET
+  )
 );
 
 // === /api/paypal/donate ===
-router.get('/donate', async (req, res) => {
+router.get("/donate", async (req, res) => {
   const request = new checkoutNodeJssdk.orders.OrdersCreateRequest();
-  request.prefer('return=representation');
+  request.prefer("return=representation");
 
   request.requestBody({
-    intent: 'CAPTURE',
-    purchase_units: [{
-      amount: {
-        currency_code: 'USD',
-        value: '5.00',
+    intent: "CAPTURE",
+    purchase_units: [
+      {
+        amount: {
+          currency_code: "USD",
+          value: "5.00",
+        },
       },
-    }],
+    ],
     application_context: {
       brand_name: "YourOrganizationName",
       landing_page: "LOGIN",
       user_action: "PAY_NOW",
-      return_url: "http://localhost:3000/donation-success",
-      cancel_url: "http://localhost:3000/donation-cancel",
+      return_url: process.env.PAYPAL_RETURN_URL,
+      cancel_url: process.env.PAYPAL_CANCEL_URL,
     },
   });
 
   try {
     const order = await paypalClient.execute(request);
-    const approvalUrl = order.result.links.find(link => link.rel === 'approve').href;
+    const approvalUrl = order.result.links.find(
+      (link) => link.rel === "approve"
+    ).href;
     res.redirect(approvalUrl);
   } catch (err) {
     console.error("PayPal donation error:", err);
@@ -42,11 +49,11 @@ router.get('/donate', async (req, res) => {
 });
 
 // Capture PayPal payment
-router.post('/capture', async (req, res) => {
+router.post("/capture", async (req, res) => {
   const { orderID } = req.body;
 
   if (!orderID) {
-    return res.status(400).json({ error: 'Missing order ID' });
+    return res.status(400).json({ error: "Missing order ID" });
   }
 
   const request = new checkoutNodeJssdk.orders.OrdersCaptureRequest(orderID);
@@ -65,6 +72,5 @@ router.post('/capture', async (req, res) => {
     res.status(500).json({ error: "Failed to capture payment" });
   }
 });
-
 
 module.exports = router;

@@ -1,3 +1,45 @@
 [2025-09-09T15:41:03.988Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_090920251841041797759858"}
 [2025-09-09T15:41:13.983Z] INFO: ✅ Callback processed {"checkoutRequestID":"ws_CO_090920251841041797759858"}
 [2025-09-09T15:41:19.670Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251841041797759858"}
+[2025-09-09T16:10:29.794Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_090920251910298797759858"}
+[2025-09-09T16:10:56.277Z] INFO: ✅ Callback processed {"checkoutRequestID":"ws_CO_090920251910298797759858"}
+[2025-09-09T16:12:34.150Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_090920251912343797759858"}
+[2025-09-09T16:12:45.244Z] INFO: ✅ Callback processed {"checkoutRequestID":"ws_CO_090920251912343797759858"}
+[2025-09-09T16:12:49.895Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251912343797759858"}
+[2025-09-09T16:29:34.957Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_090920251929350797759858"}
+[2025-09-09T16:29:40.283Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251929350797759858"}
+[2025-09-09T16:29:45.377Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251929350797759858"}
+[2025-09-09T16:29:50.270Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251929350797759858"}
+[2025-09-09T16:29:55.269Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251929350797759858"}
+[2025-09-09T16:29:57.435Z] INFO: ✅ Callback processed {"checkoutRequestID":"ws_CO_090920251929350797759858"}
+[2025-09-09T16:30:00.887Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251929350797759858"}
+[2025-09-09T16:30:29.126Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_090920251930293797759858"}
+[2025-09-09T16:30:34.687Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251930293797759858"}
+[2025-09-09T16:30:39.683Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251930293797759858"}
+[2025-09-09T16:30:44.685Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251930293797759858"}
+[2025-09-09T16:30:49.698Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251930293797759858"}
+[2025-09-09T16:30:54.698Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251930293797759858"}
+[2025-09-09T16:30:56.989Z] INFO: ✅ Callback processed {"checkoutRequestID":"ws_CO_090920251930293797759858"}
+[2025-09-09T16:30:59.672Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251930293797759858"}
+[2025-09-09T16:31:56.004Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:01.297Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:06.671Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:11.728Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:16.291Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:16.715Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:16.993Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:19.367Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:19.644Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:21.269Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:21.706Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:21.978Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:23.073Z] INFO: ✅ Callback processed {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:24.379Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:24.720Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:26.280Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:26.721Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:27.024Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251931561797759858"}
+[2025-09-09T16:32:35.254Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_090920251932353797759858"}
+[2025-09-09T16:32:40.548Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251932353797759858"}
+[2025-09-09T16:32:45.605Z] INFO: ✅ Callback processed {"checkoutRequestID":"ws_CO_090920251932353797759858"}
+[2025-09-09T16:32:47.522Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_090920251932353797759858"}

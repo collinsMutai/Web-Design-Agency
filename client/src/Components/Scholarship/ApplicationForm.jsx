@@ -6,6 +6,7 @@ import "./ApplicationForm.css";
 import Mentor from "../../Images/mentor.png";
 import PayPal from "../../Images/paypallogo.png";
 import Mpesa from "../../Images/mpesalogo.png";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -21,6 +22,8 @@ const ApplicationForm = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [token, setToken] = useState(null);
+  const [donationAmount, setDonationAmount] = useState("5.00"); // Default to 5.00
+  const [customAmount, setCustomAmount] = useState("");
 
   useEffect(() => {
     const getGuestToken = async () => {
@@ -285,42 +288,90 @@ const ApplicationForm = () => {
                   />
                 </label>
               </div>
+              <div className="custom-amount-field">
+                <label htmlFor="customAmount">Enter Amount (KES):</label>
+                <input
+                  type="number"
+                  id="customAmount"
+                  placeholder="e.g. 500"
+                  value={donationAmount}
+                  onChange={(e) => setDonationAmount(e.target.value)}
+                  min="1"
+                  disabled={isLoading}
+                />
+              </div>
 
-              <button
-                className="donate-button"
-                onClick={handleDonate}
-                disabled={!paymentMethod || isLoading}
-                style={{
-                  marginTop: "15px",
-                  backgroundColor:
-                    isLoading || !paymentMethod
-                      ? "#f39c12"
-                      : paymentMethod === "mpesa"
-                      ? "#28a745"
-                      : "#0070ba",
-                }}
-                onMouseOver={(e) => {
-                  if (!isLoading && paymentMethod) {
-                    e.currentTarget.style.backgroundColor =
-                      paymentMethod === "mpesa" ? "#218838" : "#005c99";
-                  }
-                }}
-                onMouseOut={(e) => {
-                  if (!isLoading && paymentMethod) {
-                    e.currentTarget.style.backgroundColor =
-                      paymentMethod === "mpesa" ? "#28a745" : "#0070ba";
-                  }
-                }}
-              >
-                {isLoading ? (
-                  <>
-                    <span className="spinner" aria-label="Loading" />
-                    Processing...
-                  </>
-                ) : (
-                  "Donate"
-                )}
-              </button>
+              {/* Conditional PayPal popup or M-Pesa donate button */}
+              {paymentMethod === "paypal" ? (
+                <div style={{ marginTop: "20px" }}>
+                  <PayPalButtons
+                    style={{
+                      layout: "vertical",
+                      color: "blue",
+                      label: "donate",
+                    }}
+                    createOrder={(data, actions) => {
+                      const amountValue =
+                        donationAmount && Number(donationAmount) > 0
+                          ? donationAmount
+                          : "5.00";
+
+                      return actions.order.create({
+                        purchase_units: [
+                          {
+                            amount: {
+                              value: amountValue,
+                            },
+                          },
+                        ],
+                      });
+                    }}
+                    onApprove={(data, actions) => {
+                      return actions.order.capture().then((details) => {
+                        toast.success(
+                          `🎉 Thank you, ${details.payer.name.given_name}! Donation successful.`
+                        );
+                      });
+                    }}
+                    onError={(err) => {
+                      console.error("PayPal Error:", err);
+                      toast.error(
+                        "⚠️ PayPal payment failed. Please try again."
+                      );
+                    }}
+                  />
+                </div>
+              ) : (
+                <button
+                  className="donate-button"
+                  onClick={handleDonate}
+                  disabled={!paymentMethod || isLoading}
+                  style={{
+                    marginTop: "15px",
+                    backgroundColor:
+                      isLoading || !paymentMethod ? "#f39c12" : "#28a745",
+                  }}
+                  onMouseOver={(e) => {
+                    if (!isLoading && paymentMethod === "mpesa") {
+                      e.currentTarget.style.backgroundColor = "#218838";
+                    }
+                  }}
+                  onMouseOut={(e) => {
+                    if (!isLoading && paymentMethod === "mpesa") {
+                      e.currentTarget.style.backgroundColor = "#28a745";
+                    }
+                  }}
+                >
+                  {isLoading ? (
+                    <>
+                      <span className="spinner" aria-label="Loading" />
+                      Processing...
+                    </>
+                  ) : (
+                    "Donate"
+                  )}
+                </button>
+              )}
             </div>
 
             <p>Together, we turn dreamers into innovators.</p>

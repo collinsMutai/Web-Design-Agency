@@ -329,16 +329,39 @@ const ApplicationForm = () => {
               <div className="custom-amount-field">
                 <label htmlFor="customAmount">Enter Amount (KES):</label>
                 <input
-                  type="number"
+                  type="text" // Use "text" for full control over input validation
                   id="customAmount"
                   placeholder="e.g. 500"
                   value={donationAmount}
                   onChange={(e) => {
-                    const val = e.target.value;
-                    if (/^(?!0\d)\d*(\.\d{0,2})?$/.test(val) || val === "") {
+                    const val = e.target.value.trim();
+
+                    // Allow empty string while typing
+                    if (val === "") {
                       setDonationAmount(val);
+                      return;
                     }
+
+                    // Reject if starts with '.' or leading zero like '01'
+                    if (/^\.|^0\d+/.test(val)) {
+                      return;
+                    }
+
+                    // Only allow numbers >= 1 with up to 2 decimal places
+                    const amountPattern = /^(?:[1-9]\d*)(?:\.\d{0,2})?$/;
+                    if (!amountPattern.test(val)) {
+                      return;
+                    }
+
+                    // Optional: parse to float and reject if < 1
+                    const numericVal = parseFloat(val);
+                    if (isNaN(numericVal) || numericVal < 1) {
+                      return;
+                    }
+
+                    setDonationAmount(val);
                   }}
+                  inputMode="decimal"
                   min="1"
                   step="0.01"
                   disabled={isLoading}
@@ -356,14 +379,38 @@ const ApplicationForm = () => {
                     }}
                     createOrder={async (data, actions) => {
                       try {
-                        const amount = parseFloat(donationAmount);
+                        const trimmedAmount = donationAmount.trim();
+
+                        // Reject if starts with '.' or leading zero like '01'
+                        if (/^\.|^0\d+/.test(trimmedAmount)) {
+                          toast.error(
+                            "⚠️ Enter a valid donation amount (e.g., 1.00, 5, 10.50)."
+                          );
+                          throw new Error(
+                            "Invalid format: starts with '.' or leading zero"
+                          );
+                        }
+
+                        // Regex for numbers >= 1 with up to 2 decimal places
+                        const amountPattern = /^(?:[1-9]\d*)(?:\.\d{0,2})?$/;
+
+                        if (!amountPattern.test(trimmedAmount)) {
+                          toast.error(
+                            "⚠️ Enter a valid donation amount (e.g., 1.00, 5, 10.50)."
+                          );
+                          throw new Error("Invalid format");
+                        }
+
+                        const amount = parseFloat(trimmedAmount);
+
                         if (isNaN(amount) || amount < 1) {
                           toast.error(
                             "⚠️ Please enter a valid donation amount (minimum 1.00)."
                           );
-                          throw new Error("Invalid amount");
+                          throw new Error("Amount too low");
                         }
 
+                        // Proceed to create order
                         const response = await fetch(
                           `${API_BASE_URL}/api/paypal/donate`,
                           {

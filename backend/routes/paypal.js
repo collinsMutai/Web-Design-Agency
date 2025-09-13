@@ -3,23 +3,41 @@ const router = express.Router();
 const checkoutNodeJssdk = require("@paypal/checkout-server-sdk");
 require("dotenv").config();
 
-// === PayPal Client Configuration ===
-const Environment = process.env.PAYPAL_MODE === "live"
+// Determine environment based on NODE_ENV
+const isProduction = process.env.NODE_ENV === "production";
+const PAYPAL_MODE = isProduction ? "live" : "sandbox";
+
+// Select environment class
+const Environment = PAYPAL_MODE === "live"
   ? checkoutNodeJssdk.core.LiveEnvironment
   : checkoutNodeJssdk.core.SandboxEnvironment;
 
+// Select credentials dynamically
+const clientId = PAYPAL_MODE === "live"
+  ? process.env.PAYPAL_LIVE_CLIENT_ID
+  : process.env.PAYPAL_SANDBOX_CLIENT_ID;
+
+const clientSecret = PAYPAL_MODE === "live"
+  ? process.env.PAYPAL_LIVE_CLIENT_SECRET
+  : process.env.PAYPAL_SANDBOX_CLIENT_SECRET;
+
 const paypalClient = new checkoutNodeJssdk.core.PayPalHttpClient(
-  new Environment(
-    process.env.PAYPAL_CLIENT_ID,
-    process.env.PAYPAL_CLIENT_SECRET
-  )
+  new Environment(clientId, clientSecret)
 );
 
-
 // === /api/paypal/donate ===
-router.get("/donate", async (req, res) => {
+router.post("/donate", async (req, res) => {
+  const { amount } = req.body;
+
+  if (!amount || isNaN(amount) || Number(amount) <= 0) {
+    return res.status(400).json({ error: "Invalid donation amount" });
+  }
+
   const request = new checkoutNodeJssdk.orders.OrdersCreateRequest();
   request.prefer("return=representation");
+
+  const returnUrls = process.env.PAYPAL_RETURN_URL.split(",");
+  const cancelUrls = process.env.PAYPAL_CANCEL_URL.split(",");
 
   request.requestBody({
     intent: "CAPTURE",
@@ -27,7 +45,7 @@ router.get("/donate", async (req, res) => {
       {
         amount: {
           currency_code: "USD",
-          value: "5.00",
+          value: amount.toString(),
         },
       },
     ],
@@ -35,22 +53,23 @@ router.get("/donate", async (req, res) => {
       brand_name: "YourOrganizationName",
       landing_page: "LOGIN",
       user_action: "PAY_NOW",
-      return_url: process.env.PAYPAL_RETURN_URL,
-      cancel_url: process.env.PAYPAL_CANCEL_URL,
+      return_url: isProduction ? returnUrls[0] : returnUrls[1],
+      cancel_url: isProduction ? cancelUrls[0] : cancelUrls[1],
     },
   });
 
   try {
     const order = await paypalClient.execute(request);
-    const approvalUrl = order.result.links.find(
-      (link) => link.rel === "approve"
-    ).href;
-    res.redirect(approvalUrl);
+    
+    // ✅ Return the orderID to frontend
+    res.json({ orderID: order.result.id });
+
   } catch (err) {
     console.error("PayPal donation error:", err);
     res.status(500).json({ error: "Failed to create PayPal order" });
   }
 });
+
 
 // Capture PayPal payment
 router.post("/capture", async (req, res) => {

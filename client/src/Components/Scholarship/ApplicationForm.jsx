@@ -186,8 +186,46 @@ const ApplicationForm = () => {
     }
   };
 
-  const handlePaypalDonate = () => {
-    window.location.href = `${API_BASE_URL}/api/paypal/donate`;
+  const handlePaypalDonate = async () => {
+    const amountPattern = /^(?:[1-9]\d*|0)?(?:\.\d{1,2})?$/; // No leading 0s unless decimal
+
+    if (!amountPattern.test(donationAmount)) {
+      toast.error("⚠️ Enter a valid donation amount (e.g., 1.00, 5, 10.50).");
+      return;
+    }
+
+    const amount = parseFloat(donationAmount);
+
+    if (isNaN(amount) || amount < 1) {
+      toast.error("⚠️ Please enter a valid donation amount (minimum 1.00).");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/paypal/donate`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ amount: amount.toFixed(2) }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.approvalUrl) {
+        toast.info("✅ Redirecting to PayPal...");
+        window.location.href = data.approvalUrl;
+      } else {
+        toast.error(data?.error || "❌ Failed to initiate PayPal donation.");
+      }
+    } catch (error) {
+      console.error("PayPal donation error:", error);
+      toast.error("⚠️ PayPal donation failed. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleDonate = () => {
@@ -295,8 +333,14 @@ const ApplicationForm = () => {
                   id="customAmount"
                   placeholder="e.g. 500"
                   value={donationAmount}
-                  onChange={(e) => setDonationAmount(e.target.value)}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    if (/^(?!0\d)\d*(\.\d{0,2})?$/.test(val) || val === "") {
+                      setDonationAmount(val);
+                    }
+                  }}
                   min="1"
+                  step="0.01"
                   disabled={isLoading}
                 />
               </div>
@@ -310,28 +354,69 @@ const ApplicationForm = () => {
                       color: "blue",
                       label: "donate",
                     }}
-                    createOrder={(data, actions) => {
-                      const amountValue =
-                        donationAmount && Number(donationAmount) > 0
-                          ? donationAmount
-                          : "5.00";
+                    createOrder={async (data, actions) => {
+                      try {
+                        const amount = parseFloat(donationAmount);
+                        if (isNaN(amount) || amount < 1) {
+                          toast.error(
+                            "⚠️ Please enter a valid donation amount (minimum 1.00)."
+                          );
+                          throw new Error("Invalid amount");
+                        }
 
-                      return actions.order.create({
-                        purchase_units: [
+                        const response = await fetch(
+                          `${API_BASE_URL}/api/paypal/donate`,
                           {
-                            amount: {
-                              value: amountValue,
+                            method: "POST",
+                            headers: {
+                              "Content-Type": "application/json",
                             },
-                          },
-                        ],
-                      });
-                    }}
-                    onApprove={(data, actions) => {
-                      return actions.order.capture().then((details) => {
-                        toast.success(
-                          `🎉 Thank you, ${details.payer.name.given_name}! Donation successful.`
+                            body: JSON.stringify({ amount: amount.toFixed(2) }),
+                          }
                         );
-                      });
+
+                        const data = await response.json();
+
+                        if (!response.ok || !data.orderID) {
+                          toast.error(
+                            data.error || "❌ Failed to create PayPal order."
+                          );
+                          throw new Error("Order creation failed");
+                        }
+
+                        return data.orderID;
+                      } catch (error) {
+                        console.error("PayPal createOrder error:", error);
+                        toast.error("⚠️ Failed to create PayPal order.");
+                        throw error;
+                      }
+                    }}
+                    onApprove={async (data, actions) => {
+                      try {
+                        const response = await fetch(
+                          `${API_BASE_URL}/api/paypal/capture`,
+                          {
+                            method: "POST",
+                            headers: {
+                              "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({ orderID: data.orderID }),
+                          }
+                        );
+
+                        const result = await response.json();
+
+                        if (response.ok && result.success) {
+                          toast.success(`🎉 Thank you, donation successful!`);
+                        } else {
+                          toast.error(
+                            result.error || "❌ Payment capture failed."
+                          );
+                        }
+                      } catch (error) {
+                        console.error("PayPal capture error:", error);
+                        toast.error("⚠️ Payment capture failed.");
+                      }
                     }}
                     onError={(err) => {
                       console.error("PayPal Error:", err);

@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./ContactForm.css";
 import emailjs from "@emailjs/browser";
-import { toast, ToastContainer } from "react-toastify"; // Import Toastify
-import "react-toastify/dist/ReactToastify.css"; // Import default styles
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = React.forwardRef((props, ref) => {
   const form = useRef();
@@ -13,20 +13,19 @@ const ContactForm = React.forwardRef((props, ref) => {
   const PUBLIC_KEY = process.env.REACT_APP_API_PUBLIC_KEY;
   const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
 
-  // Dynamically load reCAPTCHA API script
+  // Load reCAPTCHA v2 script
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.src = "https://www.google.com/recaptcha/api.js";
     script.async = true;
     document.body.appendChild(script);
 
     return () => {
       document.body.removeChild(script);
     };
-  }, [RECAPTCHA_SITE_KEY]);
+  }, []);
 
   const showToast = (message, type = "success") => {
-    // Using React Toastify to show the notification
     toast[type](message);
   };
 
@@ -34,12 +33,12 @@ const ContactForm = React.forwardRef((props, ref) => {
     e.preventDefault();
     setIsSending(true);
 
-    // Form Validation
     const userName = form.current.user_name.value;
     const userPhone = form.current.user_phone.value;
     const userEmail = form.current.user_email.value;
     const message = form.current.message.value;
 
+    // Validate fields
     if (!userName || !userPhone || !userEmail || !message) {
       showToast("Please fill out all required fields.", "error");
       setIsSending(false);
@@ -53,7 +52,6 @@ const ContactForm = React.forwardRef((props, ref) => {
       return;
     }
 
-    // Generic phone number validation
     const phoneRegex = /^[+\d]?(?:[\d-.\s()]*)$/;
     if (!phoneRegex.test(userPhone)) {
       showToast("Please enter a valid phone number.", "error");
@@ -61,48 +59,30 @@ const ContactForm = React.forwardRef((props, ref) => {
       return;
     }
 
-    // reCAPTCHA validation
-    if (!window.grecaptcha) {
-      showToast("reCAPTCHA is not ready. Please refresh and try again.", "error");
+    // Get reCAPTCHA v2 token value
+    const recaptchaResponse = document.querySelector('[name="g-recaptcha-response"]')?.value;
+
+    if (!recaptchaResponse) {
+      showToast("Please complete the reCAPTCHA.", "error");
       setIsSending(false);
       return;
     }
 
-    window.grecaptcha.ready(() => {
-      new Promise((resolve, reject) => {
-        window.grecaptcha
-          .execute(RECAPTCHA_SITE_KEY, { action: "submit" })
-          .then(resolve)
-          .catch(reject);
+    // Send email with emailjs
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      .then(() => {
+        showToast("Your message has been sent successfully!", "success");
+        form.current.reset();
       })
-        .then((token) => {
-          const existingTokenInput = form.current.querySelector(
-            'input[name="g-recaptcha-response"]'
-          );
-          if (existingTokenInput) existingTokenInput.remove();
-
-          const tokenInput = document.createElement("input");
-          tokenInput.type = "hidden";
-          tokenInput.name = "g-recaptcha-response";
-          tokenInput.value = token;
-          form.current.appendChild(tokenInput);
-
-          return emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY);
-        })
-        .then(() => {
-          showToast("Your message has been sent successfully!", "success");
-          form.current.reset();
-        })
-        .catch((error) => {
-          console.error("Failed to send email:", error);
-          showToast("Failed to send your message. Please try again later.", "error");
-        })
-        .finally(() => {
-          setIsSending(false);
-        });
-    });
+      .catch((error) => {
+        console.error("Failed to send email:", error);
+        showToast("Failed to send your message. Please try again later.", "error");
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
   };
-
   return (
     <div className="contactform-container" ref={ref} id="contact">
       <h2 className="recent-projects">Contact Us</h2>
@@ -114,8 +94,18 @@ const ContactForm = React.forwardRef((props, ref) => {
             <input name="to_name" type="hidden" value="Collins Frontend" />
             <input name="user_name" type="text" placeholder="Name" required />
             <input name="user_phone" type="tel" placeholder="Phone" required />
-            <input name="user_email" type="email" placeholder="Email" required />
+            <input
+              name="user_email"
+              type="email"
+              placeholder="Email"
+              required
+            />
             <textarea name="message" placeholder="Message" rows={5} required />
+            <div
+              className="g-recaptcha"
+              data-sitekey={RECAPTCHA_SITE_KEY}
+            ></div>
+
             <button type="submit" disabled={isSending}>
               {isSending ? "Sending..." : "Send"}
             </button>
@@ -178,14 +168,14 @@ const ContactForm = React.forwardRef((props, ref) => {
       </div>
 
       {/* Toast container */}
-      <ToastContainer 
-        position="top-right" 
-        autoClose={5000} 
-        hideProgressBar 
-        closeOnClick 
-        pauseOnHover 
-        draggable 
-        pauseOnFocusLoss 
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        closeOnClick
+        pauseOnHover
+        draggable
+        pauseOnFocusLoss
         rtl={false}
       />
     </div>

@@ -87,3 +87,39 @@
 [2025-09-13T14:33:08.550Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_130920251732585797759858"}
 [2025-09-13T14:33:09.726Z] INFO: ✅ Callback processed {"checkoutRequestID":"ws_CO_130920251732585797759858"}
 [2025-09-13T14:33:13.576Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_130920251732585797759858"}
+[2025-11-02T05:47:46.535Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:47:51.871Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:47:56.812Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:48:01.822Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:48:06.812Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:48:11.791Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:48:16.798Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:48:21.822Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:48:26.811Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:48:31.814Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:48:36.834Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:48:41.799Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T05:48:46.823Z] INFO: 📦 Payment status fetched {"checkoutRequestID":"ws_CO_02112025084745043797759858"}
+[2025-11-02T15:10:42.776Z] INFO: ✅ STK Push Request {"phone":"254700000000","amount":100,"checkoutRequestID":"ws_CO_02112025181041674700000000"}
+[2025-11-02T15:10:44.311Z] ERROR: ❌ STK Push Error {"error":"E11000 duplicate key error collection: mpesa.mpesatransactions index: checkoutRequestID_1 dup key: { checkoutRequestID: \"ws_CO_02112025181041674700000000\" }","phone":"254700000000","amount":100}
+[2025-11-02T15:11:19.872Z] ERROR: ❌ STK Push Error {"error":"Request failed with status code 403","phone":"254700000000","amount":100}
+[2025-11-02T15:11:20.156Z] ERROR: ❌ STK Push Error {"error":"Request failed with status code 403","phone":"254797759858","amount":1}
+[2025-11-02T15:13:08.112Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":100,"checkoutRequestID":"ws_CO_02112025181304752797759858"}
+[2025-11-02T15:13:08.950Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_02112025181309139797759858"}
+[2025-11-02T15:15:12.268Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":100,"checkoutRequestID":"ws_CO_02112025181510986797759858"}
+[2025-11-02T15:15:13.328Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_02112025181513414797759858"}
+[2025-11-02T15:20:38.992Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":100,"checkoutRequestID":"ws_CO_02112025182037321797759858"}
+[2025-11-02T15:20:39.419Z] ERROR: ❌ STK Push Error {"error":"Request failed with status code 500","phone":"254797759858","amount":1}
+[2025-11-02T15:22:11.691Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":100,"checkoutRequestID":"ws_CO_02112025182210077797759858"}
+[2025-11-02T15:22:13.082Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_02112025182213174797759858"}
+[2025-11-02T15:22:14.129Z] ERROR: ❌ STK Push Error {"error":"Request failed with status code 500","phone":"254797759858","amount":1}
+[2025-11-02T15:30:53.062Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":100,"checkoutRequestID":"ws_CO_02112025183051770797759858"}
+[2025-11-02T15:30:54.247Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_02112025183054365797759858"}
+[2025-11-02T15:30:54.822Z] ERROR: ❌ STK Push Error {"error":"Request failed with status code 500","phone":"254797759858","amount":1}
+[2025-11-02T15:37:50.409Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":100,"checkoutRequestID":"ws_CO_02112025183749140797759858"}
+[2025-11-02T15:37:51.432Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":1,"checkoutRequestID":"ws_CO_02112025183751598797759858"}
+[2025-11-02T15:37:51.935Z] ERROR: ❌ STK Push Error {"error":"Request failed with status code 500","phone":"254797759858","amount":1}
+[2025-11-02T15:40:49.337Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":100,"checkoutRequestID":"ws_CO_02112025184047714797759858"}
+[2025-11-02T15:40:49.948Z] ERROR: ❌ STK Push Error {"error":"Request failed with status code 500","phone":"254797759858","amount":1}
+[2025-11-02T15:51:14.608Z] INFO: ✅ STK Push Request {"phone":"254797759858","amount":100,"checkoutRequestID":"ws_CO_02112025185112395797759858"}
+[2025-11-02T15:51:15.301Z] ERROR: ❌ STK Push Error {"error":"Request failed with status code 500","phone":"254797759858","amount":1}

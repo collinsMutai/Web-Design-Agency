@@ -22,10 +22,16 @@ const stkPushLimiter = rateLimit({
 });
 
 // === STK Push Route (Protected with JWT and Rate Limiter) ===
-router.post("/stkpush", verifyGuestToken, stkPushLimiter, async (req, res) => {
+router.post("/stkpush", verifyGuestToken, (req, res, next) => {
+  console.log("Rate limit passed, proceeding with request...");
+  next(); // Proceed to the next middleware (stkPushLimiter)
+}, stkPushLimiter, async (req, res) => {
+  console.log("Rate limiter applied, entering route handler...");
+  
   const { phone, amount } = req.body;
-
+  
   try {
+    // Call initiateStkPush from service, which includes retry logic
     const data = await initiateStkPush({ phone, amount });
 
     logger.info("✅ STK Push Request", {
@@ -40,6 +46,7 @@ router.post("/stkpush", verifyGuestToken, stkPushLimiter, async (req, res) => {
       checkoutRequestID: data.CheckoutRequestID,
     });
   } catch (error) {
+    console.error("Error inside the route handler:", error);
     logger.error("❌ STK Push Error", { error: error.message, phone, amount });
 
     return res.status(500).json({
@@ -84,7 +91,7 @@ router.post("/callback", async (req, res) => {
   }
 });
 
-// === GET Payment Status Route (Optional: protect with verifyGuestToken) ===
+// === GET Payment Status Route ===
 router.get("/status/:checkoutId", verifyGuestToken, async (req, res) => {
   const { checkoutId } = req.params;
 

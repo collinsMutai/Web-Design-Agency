@@ -1,20 +1,48 @@
 const axios = require("axios");
 const MpesaTransaction = require("../models/MpesaTransaction");
 
+// === Exponential Backoff Function ===
+const retryWithExponentialBackoff = async (fn, maxRetries = 5, initialDelay = 1000, factor = 2) => {
+  let attempt = 0;
+  let delay = initialDelay;
+
+  while (attempt < maxRetries) {
+    try {
+      return await fn(); // Try to execute the function
+    } catch (error) {
+      attempt++;
+      if (attempt >= maxRetries) {
+        throw error; // Exceeded max retries
+      }
+      console.error(`Attempt ${attempt} failed: ${error.message}`);
+      console.log(`Retrying in ${delay}ms...`);
+
+      // Exponential backoff: Increase delay exponentially
+      await new Promise(resolve => setTimeout(resolve, delay));
+      delay *= factor; // Increase delay (e.g., 1000ms -> 2000ms -> 4000ms)
+    }
+  }
+};
+
 // === Utility: Get Access Token ===
 const getAccessToken = async () => {
-  const auth = Buffer.from(
-    `${process.env.MPESA_CONSUMER_KEY}:${process.env.MPESA_CONSUMER_SECRET}`
-  ).toString("base64");
+  try {
+    const auth = Buffer.from(
+      `${process.env.MPESA_CONSUMER_KEY}:${process.env.MPESA_CONSUMER_SECRET}`
+    ).toString("base64");
 
-  const res = await axios.get(
-    "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials",
-    {
-      headers: { Authorization: `Basic ${auth}` },
-    }
-  );
+    const res = await axios.get(
+      "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials",
+      {
+        headers: { Authorization: `Basic ${auth}` },
+      }
+    );
 
-  return res.data.access_token;
+    return res.data.access_token;
+  } catch (error) {
+    console.error("Error while fetching access token:", error);
+    throw new Error("Unable to fetch M-PESA access token.");
+  }
 };
 
 // === Utility: Format Timestamp ===
@@ -55,60 +83,68 @@ const getResultDetails = (code) => {
     },
   };
 
-  return (
-    map[code] || {
-      status: "failed",
-      message: "❌ Transaction failed. Please try again later.",
-    }
-  );
-};
-
-const initiateStkPush = async ({ phone, amount }) => {
-  const accessToken = await getAccessToken();
-  const timestamp = getTimestamp();
-  const password = Buffer.from(
-    `${process.env.MPESA_SHORTCODE}${process.env.MPESA_PASSKEY}${timestamp}`
-  ).toString("base64");
-
-  const payload = {
-    BusinessShortCode: process.env.MPESA_SHORTCODE,
-    Password: password,
-    Timestamp: timestamp,
-    TransactionType: "CustomerPayBillOnline",
-    Amount: amount,
-    PartyA: phone,
-    PartyB: process.env.MPESA_SHORTCODE,
-    PhoneNumber: phone,
-    CallBackURL: process.env.MPESA_CALLBACK_URL,
-    AccountReference: "Donation",
-    TransactionDesc: "Donation to FutureTech",
+  return map[code] || {
+    status: "failed",
+    message: "❌ Transaction failed. Please try again later.",
   };
-
-  const response = await axios.post(
-    "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
-    payload,
-    {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
-
-  const data = response.data;
-
-  // Save initial pending transaction to MongoDB
-  await MpesaTransaction.create({
-    phone,
-    amount,
-    checkoutRequestID: data.CheckoutRequestID,
-    status: "pending",
-    message: "📲 Waiting for user to authorize the transaction...",
-  });
-
-  return data;
 };
 
+// === Initiate STK Push with Exponential Backoff ===
+const initiateStkPush = async ({ phone, amount }) => {
+  try {
+    const accessToken = await getAccessToken();
+    const timestamp = getTimestamp();
+    const password = Buffer.from(
+      `${process.env.MPESA_SHORTCODE}${process.env.MPESA_PASSKEY}${timestamp}`
+    ).toString("base64");
+
+    const payload = {
+      BusinessShortCode: process.env.MPESA_SHORTCODE,
+      Password: password,
+      Timestamp: timestamp,
+      TransactionType: "CustomerPayBillOnline",
+      Amount: amount,
+      PartyA: phone,
+      PartyB: process.env.MPESA_SHORTCODE,
+      PhoneNumber: phone,
+      CallBackURL: process.env.MPESA_CALLBACK_URL,
+      AccountReference: "Donation",
+      TransactionDesc: "Donation to FutureTech",
+    };
+
+    // Retry the STK Push request with exponential backoff
+    const response = await retryWithExponentialBackoff(() =>
+      axios.post(
+        "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
+    );
+
+    const data = response.data;
+
+    // Save initial pending transaction to MongoDB
+    await MpesaTransaction.create({
+      phone,
+      amount,
+      checkoutRequestID: data.CheckoutRequestID,
+      status: "pending",
+      message: "📲 Waiting for user to authorize the transaction...",
+    });
+
+    return data;
+  } catch (error) {
+    console.error("Error initiating STK Push:", error);
+    throw new Error("Failed to initiate STK Push. Please try again.");
+  }
+};
+
+// === Handle Callback ===
 const handleCallback = async (callback) => {
   const { CheckoutRequestID, ResultCode, ResultDesc } = callback;
   const { status, message } = getResultDetails(ResultCode);
@@ -140,6 +176,7 @@ const handleCallback = async (callback) => {
   return { skipped: false, status, message };
 };
 
+// === Get Payment Status ===
 const getPaymentStatus = async (checkoutRequestID) => {
   const transaction = await MpesaTransaction.findOne({ checkoutRequestID });
 

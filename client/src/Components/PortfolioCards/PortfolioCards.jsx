@@ -22,6 +22,10 @@ import Crystalclearcarwashbusinesscard6 from "../../Images/Crystalclearcarwashbu
 import Crystalclearcarwashbusinesscard7 from "../../Images/Crystalclearcarwashbusinesscard7.jpg";
 import Crystalclearcarwashbusinesscard8 from "../../Images/Crystalclearcarwashbusinesscard8.jpg";
 import Crystalclearcarwashbusinesscard9 from "../../Images/Crystalclearcarwashbusinesscard9.jpg";
+import Selahspringslodge from "../../Images/selahspringslodge.png";
+import Selahspringslodgebusinesscard1 from "../../Images/selahspringslodgebusinesscard.jpeg";
+import Selahspringslodgebusinesscard2 from "../../Images/selahspringslodgebusinesscard2.jpeg";
+
 
 const portfolioData = [
   {
@@ -78,7 +82,7 @@ const portfolioData = [
     title: "African Sahara Logistics",
     category: "Angular",
     type: "Web design",
-    url: "https://africsahara.com/",
+    url: "https://african-sahara-logistics-asl.onrender.com/",
   },
   {
     id: 8,
@@ -146,43 +150,51 @@ const portfolioData = [
   },
   {
     id: 16,
-    image: Crystalclearcarwashbusinesscard5,
-    title: "Crystal Clear Business Card 5",
+    image: Selahspringslodgebusinesscard1,
+    title: "Selah Springs Lodge Business Card",
     category: "Graphic Design",
     type: "Graphic design",
     url: "#",
   },
   {
     id: 17,
-    image: Crystalclearcarwashbusinesscard6,
-    title: "Crystal Clear Business Card 6",
+    image: Selahspringslodgebusinesscard2,
+    title: "Selah Springs Lodge Business Card",
     category: "Graphic Design",
     type: "Graphic design",
     url: "#",
   },
+  // {
+  //   id: 18,
+  //   image: Crystalclearcarwashbusinesscard7,
+  //   title: "Crystal Clear Business Card 7",
+  //   category: "Graphic Design",
+  //   type: "Graphic design",
+  //   url: "#",
+  // },
+  // {
+  //   id: 19,
+  //   image: Crystalclearcarwashbusinesscard8,
+  //   title: "Crystal Clear Business Card 8",
+  //   category: "Graphic Design",
+  //   type: "Graphic design",
+  //   url: "#",
+  // },
+  // {
+  //   id: 20,
+  //   image: Crystalclearcarwashbusinesscard9,
+  //   title: "Crystal Clear Business Card 9",
+  //   category: "Graphic Design",
+  //   type: "Graphic design",
+  //   url: "#",
+  // },
   {
-    id: 18,
-    image: Crystalclearcarwashbusinesscard7,
-    title: "Crystal Clear Business Card 7",
-    category: "Graphic Design",
-    type: "Graphic design",
-    url: "#",
-  },
-  {
-    id: 19,
-    image: Crystalclearcarwashbusinesscard8,
-    title: "Crystal Clear Business Card 8",
-    category: "Graphic Design",
-    type: "Graphic design",
-    url: "#",
-  },
-  {
-    id: 20,
-    image: Crystalclearcarwashbusinesscard9,
-    title: "Crystal Clear Business Card 9",
-    category: "Graphic Design",
-    type: "Graphic design",
-    url: "#",
+    id: 21,
+    image: Selahspringslodge,
+    title: "Selah Springs Lodge",
+    category: "React",
+    type: "Web development",
+    url: "https://selahspringslodge.com/",
   },
 ];
 

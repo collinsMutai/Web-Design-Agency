@@ -13,17 +13,19 @@ const ContactForm = React.forwardRef((props, ref) => {
   const PUBLIC_KEY = process.env.REACT_APP_API_PUBLIC_KEY;
   const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
 
-  // Load reCAPTCHA v2 script
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://www.google.com/recaptcha/api.js";
-    script.async = true;
-    document.body.appendChild(script);
+ useEffect(() => {
+  if (!RECAPTCHA_SITE_KEY) return;
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  // Prevent loading the script multiple times
+  if (window.grecaptcha) return;
+
+  const script = document.createElement("script");
+  script.src = "https://www.google.com/recaptcha/api.js";
+  script.async = true;
+  script.defer = true;
+  document.body.appendChild(script);
+}, [RECAPTCHA_SITE_KEY]);
+
 
   const showToast = (message, type = "success") => {
     toast[type](message);
@@ -101,10 +103,17 @@ const ContactForm = React.forwardRef((props, ref) => {
               required
             />
             <textarea name="message" placeholder="Message" rows={5} required />
-            <div
-              className="g-recaptcha"
-              data-sitekey={RECAPTCHA_SITE_KEY}
-            ></div>
+           {RECAPTCHA_SITE_KEY ? (
+  <div
+    className="g-recaptcha"
+    data-sitekey={RECAPTCHA_SITE_KEY}
+  ></div>
+) : (
+  <p style={{ color: "red" }}>
+    reCAPTCHA site key not loaded
+  </p>
+)}
+
 
             <button type="submit" disabled={isSending}>
               {isSending ? "Sending..." : "Send"}
